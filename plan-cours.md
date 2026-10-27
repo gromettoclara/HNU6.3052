@@ -6,6 +6,12 @@ format:
     include-in-header:
       - text: |
           \usepackage{style-cours}
+          \courstitle{Atelier introduction à XML-TEI}
+          \courssubtitle{Plan}
+          \makeatletter
+            \renewcommand{\maketitle}{\makecourstitle}
+          \makeatother
+          
     toc: false
     number-sections: false
     colorlinks: true
@@ -13,15 +19,16 @@ format:
     toc: true
     colorlinks: true
 ---
+
 Contacts : Clara Grometto ([clara.grometto@umontreal.ca](clara.grometto@umontreal.ca)).
 
 ## [🧭]{.content-visible when-format="html"} S'orienter 
 
-1. Liens vers les slides 
+### Liens vers les slides
 
 [Cours 1](https://gromettoclara.github.io/HNU6.3052/cours1.slides.html#/) - [Cours 2](https://gromettoclara.github.io/HNU6.3052/cours2.slides.html#/) - [Cours 3](https://gromettoclara.github.io/HNU6.3052/cours3.slides.html#/) - [Cours 4](https://gromettoclara.github.io/HNU6.3052/cours4.slides.html#/) - [Cours 5 ](https://gromettoclara.github.io/HNU6.3052/cours5.slides.html#/)
 
-2. Exercices ([lien vers le git](https://github.com/gromettoclara/HNU6.3052))
+### Exercices ([lien vers le git](https://github.com/gromettoclara/HNU6.3052))
 
 **Cours 1** : [Édition des notes de Pierre Christofle](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours1/Christofle-septembre2016.xml)
 
