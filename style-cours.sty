@@ -1,0 +1,567 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{monstyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Langue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[english,classiclatin,greek,french]{babel}
+\languageattribute{greek}{ancient}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{csquotes}
+\RequirePackage{marginnote}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}
+\RequirePackage{multirow}
+\RequirePackage{makecell}
+\RequirePackage{multicol}
+\RequirePackage{framed}
+\RequirePackage{datatool}
+\RequirePackage{ifthen}
+\RequirePackage{xstring}
+\RequirePackage{verse}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mise en page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[letterpaper,
+left=3cm,
+right=3cm,
+top=3cm,
+bottom=2cm,
+marginparwidth=2cm,
+marginparsep=0.4cm
+]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Polices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontspec}
+\usepackage{libertinus}
+\RequirePackage{microtype}
+\frenchspacing
+
+\setmainfont{Libertinus Serif}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Images
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{array}
+
+%\usepackage{arydshln}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Couleurs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{xcolor}
+\RequirePackage{colortbl}
+
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{fontawesome5}
+
+
+\definecolor{Accent}{HTML}{005F86}
+\definecolor{LightAccent}{HTML}{EAF4F8}
+\definecolor{SubtitleGray}{HTML}{666666}
+\definecolor{Example}{HTML}{7A4E8B}
+\definecolor{Definition}{HTML}{164E63}
+\definecolor{Aside}{HTML}{3F6B7A}
+\definecolor{Exercise}{HTML}{4B6472}
+\definecolor{ExerciseLight}{HTML}{F2F6F8}
+\definecolor{Ajout}{HTML}{6B7280}
+\definecolor{AjoutLight}{HTML}{F7F7F7}
+\definecolor{Exo}{HTML}{B5541A}
+\definecolor{ExoLight}{HTML}{FBF1E8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Liens
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[
+colorlinks=true,
+linkcolor=Accent,
+citecolor=Accent,
+urlcolor=Accent
+]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Listes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{etoolbox}
+\RequirePackage{enumitem}
+\frenchbsetup{StandardLists=true}
+\RequirePackage{pifont}
+\setlist[itemize]{label=\ding{92},leftmargin=1.5em,itemsep=0em,topsep=0.2em}
+
+% Liste avec petits cercles
+\newlist{cercles}{itemize}{1}
+\setlist[cercles]{
+  label=\textbullet,
+  leftmargin=1.5em,
+  itemsep=0em,
+  topsep=0.2em
+}
+
+% Liste descriptive
+\newlist{lsdescr}{itemize}{1}
+\setlist[lsdescr]{
+  label=\ding{83},
+  leftmargin=3em,
+  itemsep=0em,
+  topsep=0.2em
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Titres
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Titres des documents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{titlesec}
+
+% ============================
+% Plan de cours
+% ============================
+\makeatletter
+\newcommand{\courstitle}[1]{%
+    \def\@courstitle{#1}%
+}
+
+\newcommand{\courssubtitle}[1]{%
+    \def\@courssubtitle{#1}%
+}
+
+\newcommand{\makecourstitle}{%
+    \begin{center}
+        \printinstitutionlogo\par
+        \vspace{1em}
+        {\Huge\bfseries\color{Accent}\@courstitle\par}
+        \vspace{0.5em}
+        {\Large\itshape\color{SubtitleGray}\@courssubtitle\par}
+        \vspace{1em}
+        \hrule
+    \end{center}
+    \vspace{0.5em}
+}
+\makeatother
+
+% ============================
+% Notes de cours
+% ============================
+\makeatletter
+\newcommand{\notestitle}[1]{%
+    \def\@notestitle{#1}%
+}
+
+\newcommand{\notessubtitle}[1]{%
+    \def\@notessubtitle{#1}%
+}
+
+\newcommand{\makenotestitle}{%
+    \begin{center}
+        {\LARGE\bfseries\color{Accent}\@notestitle\par}
+        \vspace{0.4em}
+        {\large\color{SubtitleGray}\@notessubtitle\par}
+        \vspace{1em}
+        \hrule
+    \end{center}
+    \vspace{1.5em}
+}
+\makeatother
+
+% ============================
+% sections etc
+% ============================
+
+\titleformat{\section}%commmand
+{\Large\bfseries\color{Accent}}%format
+{}%label
+{1em}%sep
+{}%beforecode []%aftercode
+
+\titlespacing*{\section}
+  {0pt}    % indentation à gauche
+  {1.5ex}  % espace avant
+  {0.5ex}  % espace après
+
+\titleformat{\subsection}
+{\large\bfseries\color{Accent}}
+{\thesubsection}
+{1em}
+{}
+
+\titleformat{\subsubsection}
+{\large\bfseries\color{Accent}}
+{\thesubsubsection}
+{0.7em}
+{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Logo institutionnel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\newcommand{\institutionlogo}[1]{%
+    \def\@institutionlogo{#1}%
+}
+
+\newcommand{\printinstitutionlogo}{%
+    \ifdefined\@institutionlogo
+        \includegraphics[width=4cm]{\@institutionlogo}
+    \fi
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% En-têtes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fancyhdr}
+
+\newcommand{\coursigle}[1]{\renewcommand{\coursigle}{#1}}
+
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\small\rightmark}
+\fancyhead[C]{\small\coursigle}
+\fancyhead[R]{\small\thepage}
+
+\renewcommand{\sectionmark}[1]{%
+  \markright{#1}%
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Espacement
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{setspace}
+\setstretch{1.1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Autres
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[normalem]{ulem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Paragraphes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Calendrier du cours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+\newenvironment{coursecalendar}
+{%
+\begin{longtblr}{
+    width=\textwidth,
+    colspec={
+        Q[c,1.2cm]
+        *{3}{Q[l]}
+    },
+    rowhead=1,
+    row{1}={
+        bg=Accent!20,
+        font=\bfseries,
+        halign=c
+    },
+    row{odd}={
+        bg=black!3
+    },
+    hlines,
+    vlines,
+    stretch=1.2,
+}
+}
+{%
+\end{longtblr}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TOC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{etoc}
+
+\newcommand{\minitoc}{%
+    \begingroup
+    \small
+    \renewcommand{\baselinestretch}{0.5}\selectfont
+    \etocsettocstyle{}{}
+    \localtableofcontents
+    \endgroup
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Important
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtcolorbox{important}{
+    enhanced,
+    breakable,
+    colback=LightAccent,
+    colframe=Accent,
+    boxrule=0.5pt,
+    arc=2.5mm,
+    left=10pt,
+    right=8pt,
+    top=8pt,
+    bottom=8pt,
+    before skip=18pt,
+    after skip=10pt,
+    overlay={
+    \node[
+        circle,
+        fill=Accent,
+        text=white,
+        minimum size=7mm,
+        inner sep=0pt
+    ] at ([xshift=-1pt]frame.north west) {\faExclamation};
+}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Renvois
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\grammaire}[1]{%
+    \marginnote{%
+        \raggedright
+        \footnotesize
+        \color{Accent}%
+        \textsc{gram.}\\[-0.2ex]
+        \color{SubtitleGray}#1%
+    }%
+}
+
+\newcommand{\site}[1]{%
+    \marginnote{%
+        \raggedright
+        \footnotesize
+        \color{Accent}%
+        %\textsc{Lat. elec.}\\[-0.2ex]
+        \color{SubtitleGray}\href{#1}{vers le site}%
+    }%
+}
+
+\newcommand{\exercice}[1]{%
+    \marginnote{%
+        \raggedright
+        \footnotesize
+        \color{Accent}%
+        \textsc{ex.}\\[-0.2ex]
+        \color{SubtitleGray}#1%
+    }%
+}
+
+\newcommand{\lat}[1]{%
+  \textsl{\foreignlanguage{latin}{#1}}%
+}
+
+\newcommand{\fr}[1]{%
+  \textit{\foreignlanguage{french}{\enquote{#1}}}%
+}
+
+\newcommand{\exemple}[1]{%
+  \textcolor{Example}{\textit{#1}}%
+}
+
+\newcommand{\definition}[1]{%
+  \textcolor{Definition}{#1}%
+}
+
+\newcommand{\contexte}[1]{%
+  \textcolor{black!60}{\small #1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Encadrés pédagogiques
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \newtcolorbox{cad}{
+%     enhanced,
+%     breakable,
+%     colback=white,
+%     colframe=Aside,
+%     boxrule=0pt,
+%     leftrule=1pt,
+%     rightrule=0pt,
+%     toprule=0pt,
+%     bottomrule=0pt,
+%     arc=0pt,
+%     left=10pt,
+%     right=8pt,
+%     top=8pt,
+%     bottom=8pt,
+%     before skip=18pt,
+%     after skip=10pt,
+%     overlay={
+%         % Icône
+%         \node[
+%             circle,
+%             fill=Aside,
+%             text=white,
+%             minimum size=7mm,
+%             inner sep=0pt
+%         ] at ([xshift=-1pt]frame.north west) {\faRecycle};
+
+%         % Titre
+%         \node[
+%             anchor=west,
+%             fill=white,
+%             inner xsep=5pt,
+%             inner ysep=1pt,
+%             font=\bfseries\small,
+%             text=Aside
+%         ] at ([xshift=13pt,yshift=0pt]frame.north west)
+%         {Autrement dit\dots};
+%     }
+% }
+
+\newtcolorbox{ajout}{
+    enhanced,
+    breakable,
+    colback=AjoutLight,
+    colframe=Ajout!40,
+    boxrule=0.5pt,
+    arc=2mm,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    before skip=10pt,
+    after skip=10pt,
+}
+
+\newtcolorbox{exomaison}{
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=Exercise,
+    boxrule=0.25pt,
+    arc=2.5mm,
+    left=12pt,
+    right=8pt,
+    top=10pt,
+    bottom=7pt,
+    before skip=16pt,
+    after skip=10pt,
+    overlay={
+        % Icône
+        \node[
+            circle,
+            fill=Exercise,
+            text=white,
+            minimum size=7mm,
+            inner sep=0pt
+        ] at ([xshift=-1pt]frame.north west) {\faHome};
+
+        % Titre
+        \node[
+            anchor=west,
+            fill=white,
+            inner xsep=5pt,
+            inner ysep=1pt,
+            font=\bfseries\normalsize,
+            text=Exercise
+        ] at ([xshift=13pt,yshift=0pt]frame.north west)
+        {Exercitatio};
+    }
+}
+
+\newcounter{exocours}[section]
+\renewcommand{\theexocours}{\thesection.\arabic{exocours}}
+
+\newtcolorbox{exocours}[1][]{
+    breakable,
+    enhanced,
+    colback=white,
+    colframe=Exo,
+    boxrule=0pt,
+    leftrule=1pt,
+    arc=0pt,
+    left=8pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    before skip=1em,
+    after skip=1em,
+    before upper={
+        \refstepcounter{exocours}%
+        \noindent
+        {\bfseries\color{Exo}%
+        Exercice~\theexocours
+        \ifstrempty{#1}{}{~---~#1}}%
+        \par\nobreak
+        \color{black!80}%
+    }
+}
+
+
+\newtcolorbox{Voc}{
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=Aside!40,
+    boxrule=0.5pt,
+    arc=2mm,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    before skip=10pt,
+    after skip=10pt,
+    title=\textbf{Vocabulaire},
+    coltitle=Aside,
+    fonttitle=\small,
+    fontupper=\small,
+    attach title to upper,
+    after title={\vspace{-1em}},
+    titlerule=0pt,
+}
+
+\newtcolorbox{Exemple}{
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=white,
+    boxrule=0pt,
+    left=1.5em,
+    right=0pt,
+    top=0.3em,
+    bottom=0.3em,
+    before skip=0.5em,
+    after skip=1em,
+    borderline west={2pt}{0pt}{Example},
+}
+
+\newcommand{\voc}[2]{%
+    \textbf{#1}\hspace{1em}#2\par
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Raccourcis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\eg}{\textit{e.\,g.~}}
+
