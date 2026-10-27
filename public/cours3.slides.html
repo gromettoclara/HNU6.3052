@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>cours4 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>cours3 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7435,662 +7435,506 @@ main {
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e79c2307f5898b37">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d1b0949650ab4c0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Cours-3-:-XDM,-XPath,-Validation-du-document">Cours 3 : XDM, XPath, Validation du document<a class="anchor-link" href="#Cours-3-:-XDM,-XPath,-Validation-du-document">¶</a></h1>
+<h1 id="Partie-1-:-%C3%A9dition-pal%C3%A9ographique-(suite),-TEI-pour-la-description-les-sources-manuscrites">Partie 1 : édition paléographique (suite), TEI pour la description les sources manuscrites<a class="anchor-link" href="#Partie-1-:-%C3%A9dition-pal%C3%A9ographique-(suite),-TEI-pour-la-description-les-sources-manuscrites">¶</a></h1><p>EAD pour <strong>inventorier</strong> (description des fonds en arborescence), TEI pour <strong>décrire</strong> un manuscrit.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b5e2024ce0d0c05e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=167b7c160e2ac137">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Partie-1-:-XDM-%E2%86%92-structure-d%C3%A9finie-par-le-W3C">Partie 1 : XDM → <a href="http://www.w3.org/TR/xpath-datamodel/">structure définie par le W3C</a><a class="anchor-link" href="#Partie-1-:-XDM-%E2%86%92-structure-d%C3%A9finie-par-le-W3C">¶</a></h1><ul>
-<li><strong>XDM</strong> : la structure de données, un <strong>arbre</strong> de nœuds (document, éléments, attributs, texte, commentaires…). C'est ce que manipulent XPath, XSLT et XQuery.</li>
-<li><strong>Fichier texte <code>.xml</code></strong> : une <strong>sérialisation</strong>, c'est-à-dire une façon d'écrire cet arbre sous forme de texte, pour le stocker ou l'échanger.</li>
+<h2 id="%3CmsdDesc%3E"><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-msDesc.html"><code>&lt;msdDesc&gt;</code></a><a class="anchor-link" href="#%3CmsdDesc%3E">¶</a></h2><ul>
+<li><code>&lt;msIdentifier&gt;</code> Identification du manuscrit (cote, lieu de conservation, etc.). Seul élément obligatoire</li>
+<li><code>&lt;msContent&gt;</code> Détails sur le contenu intellectuel du manuscrit</li>
+<li><code>&lt;physDesc&gt;</code> Description de la matérialité du manuscrit</li>
+<li><code>&lt;history&gt;</code> Renseignement sur la provenance et l’histoire de la transmission du manuscrit</li>
 </ul>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=274c796aff6f8de2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b13096329041202">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Les-7-types-de-n%C5%93uds-de-l'arbre-XDM">Les 7 types de nœuds de l'arbre XDM<a class="anchor-link" href="#Les-7-types-de-n%C5%93uds-de-l'arbre-XDM">¶</a></h2><ol>
-<li><code>Document Node</code></li>
-<li><code>Element Node</code></li>
-<li><code>Attribute Node</code></li>
-<li><code>Text Node</code></li>
-<li><code>Namespace Node</code></li>
-<li><code>Processing Instruction Node</code></li>
-<li><code>Comment Node</code></li>
-</ol>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8f538f6edec3fd53">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="" src="./media/XMD.png"/></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c24e7e3bcea68839">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="nt">&lt;bibliotheque&gt;</span>
-<span class="w">    </span><span class="nt">&lt;livre</span><span class="w"> </span><span class="na">id=</span><span class="s">"01"</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;titre&gt;</span>Le<span class="w"> </span>Hobbit<span class="nt">&lt;/titre&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/livre&gt;</span>
-<span class="nt">&lt;/bibliotheque&gt;</span>
-</pre></div>
-<p>Représentation d'une hiérarchie :</p>
-<pre><code>• [Nœud Document] (Racine de l'arbre)
-└── [Nœud Élément] bibliotheque
-    └── [Nœud Élément] livre
-        ├── [Nœud Attribut] id (valeur: "01")
-        └── [Nœud Élément] titre
-        └── [Nœud Texte] "Le Hobbit"
-</code></pre>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6b4a6a4c1d751b29">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Caract%C3%A9ristiques-de-l'arbre-XDM">Caractéristiques de l'arbre XDM<a class="anchor-link" href="#Caract%C3%A9ristiques-de-l'arbre-XDM">¶</a></h2><ul>
-<li>Chaque nœud possède une identité unique</li>
-<li>Le document a un ordre (<code>Document Order</code>)</li>
+<h2 id="%3CmsIdentifier%3E"><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-msIdentifier.html"><code>&lt;msIdentifier&gt;</code></a><a class="anchor-link" href="#%3CmsIdentifier%3E">¶</a></h2><ul>
+<li>Contient les informations pour une identification non ambigüe du manuscrit</li>
+<li>Premier élément (et seul obligatoire) du msDesc</li>
+</ul>
+<h3 id="Quelques-%C3%A9l%C3%A9ments-du-%3CmsIdentifier%3E">Quelques éléments du <code>&lt;msIdentifier&gt;</code><a class="anchor-link" href="#Quelques-%C3%A9l%C3%A9ments-du-%3CmsIdentifier%3E">¶</a></h3><ul>
+<li><code>&lt;idno&gt;</code> Identifiant du manuscrit (cote généralement)</li>
+<li><code>&lt;repository&gt;</code> Instance de conservation</li>
+<li><code>&lt;msName&gt;</code> Titre du manuscrit</li>
+<li><code>&lt;altIdentifier&gt;</code> Autre identifiant (ancienne cote ou id numérique)</li>
+<li>Le <code>&lt;head&gt;</code> (facultatif) l’intitulé du manuscrit (ne permet pas l'identification univoque)</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4c916f2b7583bf05">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b457aa8d86c08bc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Relations-bidirectionnelles-entre-les-%C3%A9l%C3%A9ments">Relations bidirectionnelles entre les éléments<a class="anchor-link" href="#Relations-bidirectionnelles-entre-les-%C3%A9l%C3%A9ments">¶</a></h2><p><img alt="" src="./media/axe.png"/></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5e6acc3b12a0ebdc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Partie-2-:-XPath">Partie 2 : XPath<a class="anchor-link" href="#Partie-2-:-XPath">¶</a></h1>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b3df955d01c116e1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Structure-en-arbre-%F0%9F%8C%B3">Structure en arbre 🌳<a class="anchor-link" href="#Structure-en-arbre-%F0%9F%8C%B3">¶</a></h2><p>Le langage Xpath fournit une syntaxe pour sélectionner un nœud ou un ensemble de nœuds au sein d’un document XML.</p>
-<h2 id="Comment-pratiquer-?">Comment pratiquer ?<a class="anchor-link" href="#Comment-pratiquer-?">¶</a></h2><p>Oxygen permet de surligner les nœuds sélectionnés par un chemin entré dans une zone de saisie <code>Fenêtre</code> &gt; <code>Afficher la vue</code> &gt; <code>Constructeur Xpath / XQuery</code>.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0e05e39770224ee">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Les-principes-du-langage-XPath">Les principes du langage XPath<a class="anchor-link" href="#Les-principes-du-langage-XPath">¶</a></h2><ul>
-<li>Un standard du W3C</li>
-<li>Un <strong>langage de requêtes</strong> qui permet de parcourir un arbre XML</li>
-<li>XPath est conçu comme un <strong>langage intégré</strong> (il n'est pas autonome)</li>
-<li>Une syntaxe de type chemin : <code>node/childnode</code><ul>
-<li>Une expression de chemin correspond à une <strong>séquence d’étapes</strong> séparées par l’opérateur <code>/</code> .</li>
-<li>Sans indication particulière la relation se fait d’un élément parent vers un élément enfant.</li>
-<li>Chaque étape devient le nœud courant (nœud de contexte) pour l’étape suivante.</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0513679f78a21ab">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Chemin-absolu-vs.-chemin-relatif">Chemin absolu vs. chemin relatif<a class="anchor-link" href="#Chemin-absolu-vs.-chemin-relatif">¶</a></h2><p>Un chemin de localisation <strong>absolu</strong> commence au nœud document : <strong><em>il commence par une barre oblique <code>/</code></em></strong></p>
-<p>Les chemins de localisation <strong>relatifs</strong> commencent à un nœud de l’arborescence. Ils sont utilisés notamment au sein d’un autre chemin Xpath.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5fc8e361ec27edfc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="D%C3%A9signation-d%E2%80%99une-localisation">Désignation d’une localisation<a class="anchor-link" href="#D%C3%A9signation-d%E2%80%99une-localisation">¶</a></h2><p>Une expression XPath définit un chemin de localisation, constitué de pas de localisation ("étape du chemin") séparés par le caractère <code>/</code>.</p>
-<p>Les pas sont définis par :</p>
-<div style="display:flex; flex-direction:column; gap:4px; width:800px; font-family:monospace;">
-<div style="display:flex; gap:4px;">
-<div style="width:33%; min-height:140px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#DCE9F7; border:2px solid #1B3B5F; box-sizing:border-box; font-size:18px; padding:8px;">
-<strong>Un Axe</strong>
-<br/>
-Sens dans lequel l’arbre doit être parcouru parcouru (parent::, descendant::)
-</div>
-<div style="width:33%; min-height:140px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#7FA6D1; border:2px solid #1B3B5F; box-sizing:border-box; font-size:18px; padding:8px;">
-<strong>Le test de nœud</strong>
-<br/>
-Nom d’un nœud ou type de nœud situé dans la direction de l’axe dans l’arborescence
-</div>
-<div style="width:33%; min-height:140px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#B4CAE0; border:2px solid #1B3B5F; box-sizing:border-box; font-size:18px; padding:8px;">
-<strong>Un ou des prédicat(s)</strong>
-<br/>
-Indiqué entre […] pour préciser une caractéristique du nœud
-(sorte de filtre)
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b0906e91-f2e1-42ca-9c9b-88a7b25a14d0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Ce qui donne la syntaxe de localisation suivante :</p>
-<div class="highlight"><pre><span></span>[Prédicat(s)](axe::nœud[predicat1][predicat2]…)
+<h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">👩🏻‍💻 Exercice<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">¶</a></h2><p>À partir de la <a href="https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d">notice de catalogue du Manuscrit 412</a> et du <a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours3/TEI_msDesc_template.xml">template fourni</a>, renseignez le <code>&lt;msIdentifier&gt;</code> et le <code>&lt;head&gt;</code></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;msIdentifier&gt;</span>
+<span class="w"> </span>[...]
+<span class="nt">&lt;/msIdentifier&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="w"> </span>[...]
+<span class="nt">&lt;/head&gt;</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=87dba8506d4acff4">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6fde483c2ef73d7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Types-de-n%C5%93uds-courants">Types de nœuds courants<a class="anchor-link" href="#Types-de-n%C5%93uds-courants">¶</a></h3><table>
+<h2 id="D%C3%A9crire-les-contenus-:-%3CmsContents%3E,-%3CmsPart%3E,-%3CmsFrag%3E">Décrire les contenus : <code>&lt;msContents&gt;</code>, <code>&lt;msPart&gt;</code>, <code>&lt;msFrag&gt;</code><a class="anchor-link" href="#D%C3%A9crire-les-contenus-:-%3CmsContents%3E,-%3CmsPart%3E,-%3CmsFrag%3E">¶</a></h2><table>
 <thead>
 <tr>
-<th>Syntaxe</th>
-<th>Ce qu'elle attrape</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/nomElement</code></td>
-<td>Désigne un élément (balises et contenu=</td>
-</tr>
-<tr>
-<td><code>/@nomAttribut</code></td>
-<td>Désigne l'attribut de l'élément XML</td>
-</tr>
-<tr>
-<td><code>/text()</code></td>
-<td>Désigne le contenu textuel <strong>directement</strong> contenu dans un élément (sans la balise)</td>
-</tr>
-<tr>
-<td><code>/comment()</code></td>
-<td>Désigne le contenu d’un commentaire (pas son balisage <code>&lt;!--...--&gt;</code>)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Exemples">Exemples<a class="anchor-link" href="#Exemples">¶</a></h3><p><code>/TEI/teiHeader//titleStmt/title</code> L'élément <code>title</code> et son contenu <code>&lt;title type="play"&gt;Le Misanthrope&lt;/title&gt;</code></p>
-<p><code>/TEI/teiHeader//titleStmt/title/text()</code> La chaîne de caractère contenu dans l’élément <code>title</code> « Le Misanthrope »</p>
-<p><code>/TEI/teiHeader//titleStmt/title/@type</code> La valeur de l’attribut type de l’élément <code>title</code> « play »</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b44da618fab6e87">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>👩🏻‍💻 Attrapez dans le document <code>[Sonnet_Automne_TEI.xml](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours4/Sonnet_Automne_TEI.xml)</code> :</p>
-<ul>
-<li>L'attribut <code>@type</code> du <code>&lt;lg&gt;</code> englobant (sonnet)</li>
-<li>Les quatrains et les tercets</li>
-<li>Le titre du poème</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1e2f380107f06a1a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>👩🏻‍💻 Attrapez dans le document <code>[Sonnet_Automne_TEI.xml](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours4/Sonnet_Automne_TEI.xml)</code> :</p>
-<ul>
-<li><code>/TEI/text/body/lg/@type</code></li>
-<li><code>/TEI/text/body/lg/lg</code></li>
-<li><code>/TEI/text/body/lg/head/text()</code></li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca2ae740d32e80c7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>C'est verbeux ?</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0d4ba6e6d2af39d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Deux-op%C3%A9rateurs-bien-pratiques%E2%80%A6">Deux opérateurs bien pratiques…<a class="anchor-link" href="#Deux-op%C3%A9rateurs-bien-pratiques%E2%80%A6">¶</a></h2><p><strong><code>*</code> Remplace n’importe quel nœud</strong></p>
-<p><code>/TEI/teiHeader/*</code> : Tout ce qui est contenu dans le <code>teiHeader</code></p>
-<p><code>/TEI/teiHeader/*/div</code> : Toute <code>div</code> contenue dans un sous-élément du <code>teiHeader</code></p>
-<p><code>/TEI/teiHeader//div</code> : fonctionne aussi…</p>
-<p><strong><code>|</code> Pour combiner deux ensembles de nœuds</strong></p>
-<p><code>/TEI/teiHeader | /TEI/text/body</code> : Le <code>teiHeader</code> et le <code>body</code></p>
-<p>L’ordre des chemins doit suivre l’ordre d’apparition dans le document. Par exemple, <code>/TEI/text|/TEI/teiHeader</code> ne sélectionne que le text.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97e773642dfc8c9b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Qu'est-ce qui est sélectionné par <code>/TEI/(teiHeader/fileDesc|text/body)/*/p</code></p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4a61ed6a574bb3f2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les paragraphes contenus dans le <code>fileDesc</code> et le <code>body</code>.</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=386b7a0d77bbe101">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Axe">Axe<a class="anchor-link" href="#Axe">¶</a></h2><p>Indique la direction dans laquelle se déplacer dans l'arbre XML, relativement au nœud courant ou depuis la racine. Quand l'axe n'est pas précisé, il s'agit implicitement de l'axe des enfants (<code>child::</code>).</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d112d408880efde">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Syntaxe-axe-attribute">Syntaxe axe attribute<a class="anchor-link" href="#Syntaxe-axe-attribute">¶</a></h3><p><code>/TEI/*/p/attribute::n</code></p>
-<p>Qu'est-ce que j'attrape ?</p>
-<h3 id="Syntaxe-axe-parent">Syntaxe axe parent<a class="anchor-link" href="#Syntaxe-axe-parent">¶</a></h3><p><code>/TEI/*/p/parent::*</code></p>
-<p>Qu'est-ce que j'attrape ?</p>
-<h3 id="Combinaison">Combinaison<a class="anchor-link" href="#Combinaison">¶</a></h3><p><code>/TEI/*/lg/(preceding-sibling::*|following-sibling::*)</code></p>
-<p>Qu'est-ce que j'attrape ?</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=71e819ea04f857d3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Syntaxe-axe-attribute">Syntaxe axe attribute<a class="anchor-link" href="#Syntaxe-axe-attribute">¶</a></h3><p><code>/TEI/*/p/attribute::n</code></p>
-<p>La valeur de l’attribut <code>n</code> des éléments <code>p</code> contenus dans le document</p>
-<h3 id="Syntaxe-axe-parent">Syntaxe axe parent<a class="anchor-link" href="#Syntaxe-axe-parent">¶</a></h3><p><code>/TEI/*/p/parent::*</code></p>
-<p>Les éléments qui contiennent directement un <code>p</code></p>
-<h3 id="Combinaison">Combinaison<a class="anchor-link" href="#Combinaison">¶</a></h3><p><code>/TEI/*/lg/(preceding-sibling::*|following-sibling::*)</code></p>
-<p>Les éléments au même niveau que les <code>lg</code> du document</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd450b1ff57327c5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Les-abr%C3%A9viations-d%E2%80%99axe">Les abréviations d’axe<a class="anchor-link" href="#Les-abr%C3%A9viations-d%E2%80%99axe">¶</a></h2><table>
-<thead>
-<tr>
-<th>Shortcut</th>
-<th>Syntaxe Axe XPath</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vide</td>
-<td><code>child::</code></td>
-<td>Axe par défaut</td>
-</tr>
-<tr>
-<td><code>@</code></td>
-<td><code>attribute::</code></td>
-<td>Sélectionne la valeur d’un attribut</td>
-</tr>
-<tr>
-<td><code>//</code></td>
-<td><code>/descendant::node()/</code></td>
-<td>Sélectionne parmi les descendants</td>
-</tr>
-<tr>
-<td><code>..</code></td>
-<td><code>parent::node()</code></td>
-<td>Sélectionne le nœud parent</td>
-</tr>
-<tr>
-<td><code>.</code></td>
-<td><code>self::node()</code></td>
-<td>Sélectionne le nœud courant</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=73b9c8e7f7e8d6dc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>//p</code> ?</p>
-<p><code>//p/@n</code> ?</p>
-<p><code>//div//p</code> ?</p>
-<p><code>.//p</code> ?</p>
-<p><code>//p/..</code> ?</p>
-<p><code>//p/parent::div</code> ?</p>
-<p><code>//lg//text()</code> ?</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d704b49e7c78338f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>//p</code> tous les éléments <code>p</code> peu importe où dans l'arborescence</p>
-<p><code>//p/@n</code> la valeur des attributs <code>n</code> des éléments <code>p</code></p>
-<p><code>//div//p</code> Tous les éléments <code>p</code> descendants d'un élément <code>div</code> dans le document</p>
-<p><code>.//p</code> Tous les éléments <code>p</code> descendant du nœud courant</p>
-<p><code>//p/..</code> Les éléments contenant directement un élément <code>p</code></p>
-<p><code>//p/parent::div</code> Les <code>div</code> contenant directement un <code>p</code></p>
-<p><code>//lg//text()</code> Le texte contenu dans les descendants de tous les éléments <code>lg</code></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a53087885e4e7334">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>//figure</code> ?</p>
-<p><code>//*/*</code> ?</p>
-<p><code>//book/title</code> ?</p>
-<p><code>chapter//footnote</code> ?</p>
-<p><code>.//footnote</code> ?</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=609eba377ef0a14">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>//figure</code> Tous les éléments <code>figure</code> du document</p>
-<p><code>//*/*</code> Tous les éléments qui sont les enfants directs d’un élément quelconque du document</p>
-<p><code>//book/title</code> Tous les éléments <code>title</code> enfants d'un élément <code>book</code> dans le document</p>
-<p><code>chapter//footnote</code> Tous les éléments <code>footnote</code> descendant d'un élément <code>chapter</code> dans le document</p>
-<p><code>.//footnote</code> Les éléments <code>footnote</code> descendants du nœud courant</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d04479136de11c7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Pr%C3%A9dicats">Prédicats<a class="anchor-link" href="#Pr%C3%A9dicats">¶</a></h2><p>Les prédicats sont utilisés pour filtrer les nœuds sélectionnés par l'axe et le test de nœud. Ils sont écrits entre crochets. Si le prédicat est évalué à vrai, tous les nœuds correspondants sont sélectionnés.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fd134f8d389bc84">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Noeud-qui-contient%E2%80%A6">Noeud qui contient…<a class="anchor-link" href="#Noeud-qui-contient%E2%80%A6">¶</a></h3><p><code>//title[.="Sonnet d’automne"]</code></p>
-<p>Les éléments title qui ont pour contenu "Sonnet d’automne"</p>
-<p>Cette syntaxe abrégée est l’équivalent de : <code>[text()="Sonnet d’automne"]</code></p>
-<h3 id="Noeud-qui-a-un-enfant-qui%E2%80%A6">Noeud qui a un enfant qui…<a class="anchor-link" href="#Noeud-qui-a-un-enfant-qui%E2%80%A6">¶</a></h3><p><code>//titleStmt[title="Sonnet d’automne"]</code></p>
-<p>Les éléments <code>titleStmt</code> dont l’enfant <code>title</code> a pour contenu "Sonnet d’automne"</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=82feff4a6cfa7f30">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>//titleStmt[title="Sonnet d’automne"]/author</code></p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=60a11bdfe71e4c6f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les éléments <code>author</code> contenus dans les éléments <code>titleStmt</code> dont les enfants <code>title</code> ont pour contenu "Sonnet d’automne"</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=267227b25c0b76f3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="N%C5%93ud-qui-a-un-descendant-qui%E2%80%A6">Nœud qui a un descendant qui…<a class="anchor-link" href="#N%C5%93ud-qui-a-un-descendant-qui%E2%80%A6">¶</a></h3><p><code>//div[.//persName="Cendrillon"]</code></p>
-<p>Les éléments <code>div</code> qui contiennent un élément <code>persName</code> ayant pour
-contenu "Cendrillon"</p>
-<h3 id="Test-d%E2%80%99existence">Test d’existence<a class="anchor-link" href="#Test-d%E2%80%99existence">¶</a></h3><p><code>//titleStmt[title]</code></p>
-<p>Les éléments <code>titleStmt</code> qui contiennent un élément <code>title</code></p>
-<h3 id="%C3%89l%C3%A9ment-qui-a-pour-attribut%E2%80%A6">Élément qui a pour attribut…<a class="anchor-link" href="#%C3%89l%C3%A9ment-qui-a-pour-attribut%E2%80%A6">¶</a></h3><p><code>lg[@type]</code></p>
-<p>Les éléments <code>lg</code> qui ont un attribut <code>type</code></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ccd6732f28baec4">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>lg[@type="quatrain"]</code></p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0e86606e0a4af7b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les éléments <code>lg</code> qui ont un attribut <code>type</code> ayant pour valeur "quatrain"</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca08e1370d2b7aa4">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Pr%C3%A9dicat-num%C3%A9rique">Prédicat numérique<a class="anchor-link" href="#Pr%C3%A9dicat-num%C3%A9rique">¶</a></h3><p><code>lg[@type="quatrain"][2]</code></p>
-<p>Le deuxième élément <code>lg</code> qui a un attribut <code>type</code> ayant pour valeur "quatrain"</p>
-<p>Cette syntaxe est une abréviation de <code>lg[position()=2]</code>.</p>
-<p>Contrairement aux autres langages de programmation, l’énumération XPath commence avec 1</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5ba3e3e18aa0cbbc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Traduire-en-expression-XPath-(Notre-Dame-de-Paris.xml)">👩🏻‍💻 Traduire en expression XPath (<a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours4/Notre-Dame-de-Paris.xml">Notre-Dame-de-Paris.xml</a>)<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Traduire-en-expression-XPath-(Notre-Dame-de-Paris.xml)">¶</a></h2><p>Le second <code>p</code> de la première <code>div</code> du <code>body</code></p>
-<p>Les <code>p</code> au sein du <code>text</code> qui contiennent des <code>persName</code></p>
-<p>Les <code>placeName</code> dont la valeur est "Paris"</p>
-<p>La troisième mention du <code>persName</code> "Gringoire"</p>
-<p>La deuxième <code>div</code> contenue directement ou non dans la quatrième <code>div</code></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ac5ebe91c244cb3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Traduire-en-expression-XPath-(Notre-Dame-de-Paris.xml)">👩🏻‍💻 Traduire en expression XPath (<a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours4/Notre-Dame-de-Paris.xml">Notre-Dame-de-Paris.xml</a>)<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Traduire-en-expression-XPath-(Notre-Dame-de-Paris.xml)">¶</a></h2><p>Le second <code>p</code> de la première <code>div</code> du <code>body</code></p>
-<p><code>//body//div[1]/p[2]</code></p>
-<p>Les <code>p</code> au sein du <code>text</code> qui contiennent des <code>persName</code></p>
-<p><code>//text//p[descendant::persName]</code></p>
-<p>Les <code>placeName</code> dont la valeur est "Paris"</p>
-<p><code>//placeName[.="Paris"]</code></p>
-<p>La troisième mention du <code>persName</code> "Gringoire"</p>
-<p><code>(//persName[.="Gringoire"])[3]</code> ⚠️ parenthèses</p>
-<p>La deuxième <code>div</code> contenue directement ou non dans la troisième <code>div</code></p>
-<p><code>(//div[ancestor::div[3]])[2]</code> équivalent à <code>//div[3]//div[2]</code></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f96d8c1d7a858de5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les tests formulés dans les prédicats sont définis à l'aide d'opérateurs et de fonctions.</p>
-<p>Les opérateurs et les fonctions permettent de combiner et comparer, tester, transformer ou exploiter les données à tester. Ils peuvent aussi d'appliquer à des ensembles de nœuds.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c2ca6d746b68718">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Les-op%C3%A9rateurs">Les opérateurs<a class="anchor-link" href="#Les-op%C3%A9rateurs">¶</a></h2><table>
-<thead>
-<tr>
-<th>Opérateurs</th>
+<th>Élément</th>
 <th>Usage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>+ - * div mod</code></td>
-<td>Pour effectuer des opérations arithmétiques</td>
+<td><code>&lt;msContents&gt;</code></td>
+<td>décrit les textes d'un manuscrit (via <code>&lt;msItem&gt;</code>)</td>
 </tr>
 <tr>
-<td><code>= !=</code></td>
-<td>Pour tester l’égalité ou l’inégalité</td>
+<td><code>&lt;msPart&gt;</code></td>
+<td>parties d'origine distincte réunies dans <strong>un même volume</strong></td>
 </tr>
 <tr>
-<td><code>&lt; &gt; &lt;= &gt;=</code></td>
-<td>Strictement plus grand / plus petit que (&lt; et &gt; en XSLT) / Inférieur / supérieur ou égal</td>
+<td><code>&lt;msFrag&gt;</code></td>
+<td>fragments <strong>dispersés</strong> d'un même manuscrit d'origine</td>
+</tr>
+</tbody>
+</table>
+<p><code>&lt;msPart&gt;</code> et <code>&lt;msFrag&gt;</code> ne se combinent pas avec <code>&lt;msContents&gt;</code>.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5686163c2225cd9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Le-%3CmsContents%3E">Le <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-msContents.html"><code>&lt;msContents&gt;</code></a><a class="anchor-link" href="#Le-%3CmsContents%3E">¶</a></h2><ul>
+<li>Soit une série de paragraphes <code>&lt;p&gt;</code></li>
+<li>Soit du contenu structuré avec plusieurs <code>&lt;msItem&gt;</code></li>
+</ul>
+<h3 id="Principaux-%C3%A9l%C3%A9ments-du-msContents">Principaux éléments du msContents<a class="anchor-link" href="#Principaux-%C3%A9l%C3%A9ments-du-msContents">¶</a></h3><ul>
+<li><code>&lt;summary&gt;</code> Résumé global du contenu du manuscrit, possiblement structuré en table des matières indiquant avec locus les différentes parties</li>
+<li><code>&lt;msItem&gt;</code> Permet de décrire une partie du manuscrit constituant une unité cohérente de contenu.</li>
+<li><code>&lt;titlePage&gt;</code> Description du contenu de la page de titre</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2d42fd1b68777736">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%3Csummary%3E"><code>&lt;summary&gt;</code><a class="anchor-link" href="#%3Csummary%3E">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;msContents&gt;</span>
+<span class="w">  </span><span class="nt">&lt;summary&gt;</span>
+<span class="w">   </span><span class="nt">&lt;locus</span><span class="w"> </span><span class="na">from=</span><span class="s">”1r”</span><span class="w"> </span><span class="na">to=</span><span class="s">”2v”</span><span class="nt">&gt;</span>
+<span class="w">    </span>Première<span class="w"> </span>partie<span class="w"> </span>du<span class="w"> </span>manuscrit
+<span class="w">   </span><span class="nt">&lt;/locus&gt;</span>
+<span class="w">   </span><span class="nt">&lt;locus</span><span class="w"> </span><span class="na">from=</span><span class="s">”3r”</span><span class="w"> </span><span class="na">to=</span><span class="s">”18v”</span><span class="nt">&gt;</span>
+<span class="w">    </span>Seconde<span class="w"> </span>partie<span class="w"> </span>du<span class="w"> </span>manuscrit
+<span class="w">   </span><span class="nt">&lt;/locus&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/summary&gt;</span>
+<span class="nt">&lt;/msContents&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c87df4b61f2ed3e6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="msItem">msItem<a class="anchor-link" href="#msItem">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;msItem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;locus</span><span class="w"> </span><span class="na">from=</span><span class="s">"xxxx"</span><span class="w"> </span><span class="na">to=</span><span class="s">"xxxx"</span><span class="nt">&gt;</span>
+<span class="w">   </span>Folios<span class="w"> </span>concernés<span class="w"> </span>par<span class="w"> </span>la<span class="w"> </span>section
+<span class="w"> </span><span class="nt">&lt;/locus&gt;</span>
+<span class="w"> </span><span class="nt">&lt;incipit&gt;</span>
+<span class="w">   </span>Premiers<span class="w"> </span>mots<span class="w"> </span>de<span class="w"> </span>la<span class="w"> </span>section
+<span class="w"> </span><span class="nt">&lt;/incipit&gt;</span>
+<span class="w"> </span><span class="nt">&lt;explicit&gt;</span>
+<span class="w">   </span>Premiers<span class="w"> </span>mots<span class="w"> </span>de<span class="w"> </span>la<span class="w"> </span>section
+<span class="w"> </span><span class="nt">&lt;/explicit&gt;</span>
+<span class="nt">&lt;/msItem&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f961d641fea4218">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">👩🏻‍💻 Exercice<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">¶</a></h2><ol>
+<li><p>À l’aide de la <a href="https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d">notice de catalogue BnF</a> du Manuscrit 412 et de la <a href="https://jonas.irht.cnrs.fr/manuscrit/45533">notice de l’IRHT</a>, renseignez dans le summary à l’aide de d’ éléments locus, les grandes parties du manuscrit (Calendrier en latin, Légendes de saints, « Li Bestiaires », « La Response […] »)</p>
+</li>
+<li><p>À l’aide de la <a href="https://jonas.irht.cnrs.fr/manuscrit/45533">notice de l’IRHT</a> (Contenu), renseignez le msItem concernant une des <em>vies des Saints</em>.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="nt">&lt;msContents&gt;</span>
+<span class="w"> </span><span class="nt">&lt;msItem&gt;</span>
+<span class="w">   </span>[...]
+<span class="w">  </span><span class="nt">&lt;/msItem&gt;</span>
+<span class="nt">&lt;/msContents&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=22d7814a270e3990">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Description-mat%C3%A9rielle-du-document-:-le-%3CphysDesc%3E">Description matérielle du document : le <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-physDesc.html"><code>&lt;physDesc&gt;</code></a><a class="anchor-link" href="#Description-mat%C3%A9rielle-du-document-:-le-%3CphysDesc%3E">¶</a></h2><p>Le physDesc contient la description physique partielle ou complète du manuscrit, éventuellement structurée en utilisant <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-model.physDescPart.html">des éléments spécialisés</a>.</p>
+<h3 id="Principaux-%C3%A9l%C3%A9ments-du-physDesc">Principaux éléments du physDesc<a class="anchor-link" href="#Principaux-%C3%A9l%C3%A9ments-du-physDesc">¶</a></h3><ul>
+<li><code>&lt;objectDesc&gt;</code> Description globale de l’objet en cours de
+description (dimension, type de support, etc.)</li>
+<li><code>&lt;handDesc&gt;</code> Description des mains intervenants dans le manuscrit</li>
+<li><code>&lt;decoDesc&gt;</code> Description des éléments décoratifs, notamment des enluminures</li>
+<li><code>&lt;bindingDesc&gt;</code> Description de la reliure et éventuellement ses précédentes reliures</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bd3e859e161608b6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">👩🏻‍💻 Exercice<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">¶</a></h2><p>À l’aide de la <a href="https://jonas.irht.cnrs.fr/manuscrit/45533">notice de l’IRHT</a> (Description), renseignez l’<code>&lt;objectDesc&gt;</code>.</p>
+<div class="highlight"><pre><span></span>objectDesc
+<span class="nt">&lt;objectDesc&gt;</span>
+<span class="w"> </span><span class="nt">&lt;supportDesc&gt;</span>[…]<span class="nt">&lt;/supportDesc&gt;</span>
+<span class="w"> </span><span class="nt">&lt;layoutDesc&gt;</span>[…]<span class="nt">&lt;/layoutDesc&gt;</span>
+<span class="nt">&lt;/objectDesc&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=313d0616b7123b50">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Histoire-et-transmission-du-manuscrit-:-le-%3Chistory%3E">Histoire et transmission du manuscrit : le <code>&lt;history&gt;</code><a class="anchor-link" href="#Histoire-et-transmission-du-manuscrit-:-le-%3Chistory%3E">¶</a></h2><p>Rassemble les éléments servant à donner un historique partiel ou complet du manuscrit, notamment à travers des informations sur son parcours depuis sa création.</p>
+<h3 id="Principaux-%C3%A9l%C3%A9ments-du-%3Chistory%3E">Principaux éléments du <code>&lt;history&gt;</code><a class="anchor-link" href="#Principaux-%C3%A9l%C3%A9ments-du-%3Chistory%3E">¶</a></h3><ul>
+<li><code>&lt;origin&gt;</code> Information sur le contexte et les circonstances de création du manuscrit</li>
+<li><code>&lt;provenance&gt;</code> Information sur un épisode précis du manuscrit, entre sa création et son acquisition</li>
+<li><code>&lt;acquisition&gt;</code> Information sur les circonstances de l'entrée du manuscrit dans l'institution qui le détient</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ad7cb9523690cc02">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">👩🏻‍💻 Exercice<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">¶</a></h2><p>À l’aide de la <a href="https://jonas.irht.cnrs.fr/manuscrit/45533">notice de l’IRHT</a> (Histoire du (des) volume(s)), renseignez le <code>&lt;history&gt;</code></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;history&gt;</span>
+<span class="w"> </span><span class="nt">&lt;origin&gt;</span>[…]<span class="nt">&lt;/origin&gt;</span>
+<span class="w">   </span><span class="nt">&lt;provenance&gt;</span>[…]<span class="nt">&lt;/provenance&gt;</span>
+<span class="w">   </span><span class="nt">&lt;acquisition&gt;</span>[…]<span class="nt">&lt;/acquisition&gt;</span>
+<span class="nt">&lt;/history&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a54a6694dfb4f73a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Structurer-un-%3CbiblStruct%3E">Structurer un <code>&lt;biblStruct&gt;</code><a class="anchor-link" href="#Structurer-un-%3CbiblStruct%3E">¶</a></h2><table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;analytic&gt;</code></td>
+<td>l'article ou le chapitre (facultatif)</td>
 </tr>
 <tr>
-<td><code>and or</code></td>
-<td>Pour accoler plusieurs expressions booléennes</td>
+<td><code>&lt;monogr&gt;</code></td>
+<td>le livre ou la revue qui le contient (obligatoire)</td>
+</tr>
+<tr>
+<td><code>&lt;series&gt;</code></td>
+<td>la collection (facultatif)</td>
+</tr>
+</tbody>
+</table>
+<p><code>@level</code> sur <code>&lt;title&gt;</code> : <code>a</code> article, <code>m</code> livre, <code>j</code> revue, <code>s</code> collection.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=867d3c32984d0977">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="nt">&lt;biblStruct&gt;</span>
+<span class="w">  </span><span class="nt">&lt;analytic&gt;</span>
+<span class="w">    </span><span class="nt">&lt;author&gt;&lt;persName&gt;&lt;surname&gt;</span>Cerquiglini<span class="nt">&lt;/surname&gt;</span>,<span class="w"> </span><span class="nt">&lt;forename&gt;</span>Bernard<span class="nt">&lt;/forename&gt;&lt;/persName&gt;&lt;/author&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title</span><span class="w"> </span><span class="na">level=</span><span class="s">"a"</span><span class="nt">&gt;</span>Éloge<span class="w"> </span>de<span class="w"> </span>la<span class="w"> </span>variante<span class="nt">&lt;/title&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/analytic&gt;</span>
+<span class="w">  </span><span class="nt">&lt;monogr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title</span><span class="w"> </span><span class="na">level=</span><span class="s">"j"</span><span class="nt">&gt;</span>Langue<span class="w"> </span>française<span class="nt">&lt;/title&gt;</span>
+<span class="w">    </span><span class="nt">&lt;imprint&gt;</span>
+<span class="w">      </span><span class="nt">&lt;biblScope</span><span class="w"> </span><span class="na">unit=</span><span class="s">"volume"</span><span class="nt">&gt;</span>40<span class="nt">&lt;/biblScope&gt;</span>
+<span class="w">      </span><span class="nt">&lt;biblScope</span><span class="w"> </span><span class="na">unit=</span><span class="s">"page"</span><span class="w"> </span><span class="na">from=</span><span class="s">"25"</span><span class="w"> </span><span class="na">to=</span><span class="s">"40"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;date</span><span class="w"> </span><span class="na">when=</span><span class="s">"1983"</span><span class="nt">&gt;</span>1983<span class="nt">&lt;/date&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/imprint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/monogr&gt;</span>
+<span class="nt">&lt;/biblStruct&gt;</span>
+</pre></div>
+<p><strong>À retenir :</strong> ordre fixe <code>analytic</code> → <code>monogr</code> → <code>series</code> ; <code>&lt;imprint&gt;</code> et <code>&lt;biblScope&gt;</code> vont dans <code>&lt;monogr&gt;</code>.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ef663a79ec32a51">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">👩🏻‍💻 Exercice<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">¶</a></h2><p>À l’aide de la <a href="https://jonas.irht.cnrs.fr/manuscrit/45533">notice de l’IRHT</a> (Bibliographie), renseignez un <code>&lt;biblStruct&gt;</code> dans <code>&lt;provenance&gt;</code> → <code>&lt;listBibl&gt;</code>.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a45b70c09b4a0ed">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Partie-2-:-S'autonomiser-avec-la-TEI">Partie 2 : S'autonomiser avec la TEI<a class="anchor-link" href="#Partie-2-:-S'autonomiser-avec-la-TEI">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=179311425b2ccdae">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Un-exemple-de-workflow-avec-la-TEI">Un exemple de workflow avec la TEI<a class="anchor-link" href="#Un-exemple-de-workflow-avec-la-TEI">¶</a></h2><ul>
+<li>Modélisation des documents</li>
+<li>Spécification d’un sous-ensemble de la TEI (fichier ODD)</li>
+<li>Génération d’un schéma et d’une documentation</li>
+<li>Encodage des documents</li>
+<li>Révision du modèle (processus itératif)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e192833351c1f9f2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Les-Guidelines">Les Guidelines<a class="anchor-link" href="#Les-Guidelines">¶</a></h2><p>Les Guidelines guident les pratiques d’encodage, mais ne sont pas un standard qui contraint ce que l’on doit faire.</p>
+<p>Les guidelines permettent de bénéficier de l’expérience accumulée en matière de stratégie d’encodage, de méthodologie.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92295d7002c19b9a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Comment-lire-les-Guideline">Comment lire les Guideline<a class="anchor-link" href="#Comment-lire-les-Guideline">¶</a></h2><ul>
+<li><code>Exemples</code> Pour mieux comprendre ce qu’il faut mettre dans chaque balise</li>
+<li><code>Modules</code> Lire la documentation en fonction du contenu à encoder</li>
+<li><code>Élément</code> Pour aller voir le modèle, le contenu et contenant d’une balise</li>
+<li><code>Classes</code> Pour comprendre plus en détails comment est structurée la TEI</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d35649889365e63c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Comment-lire-les-Guidelines">Comment lire les Guidelines<a class="anchor-link" href="#Comment-lire-les-Guidelines">¶</a></h2><p><img alt="Organisation des guidelines" src="public/media/guidelines2.png"/></p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a57da823bb915ce8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Les-modules">Les modules<a class="anchor-link" href="#Les-modules">¶</a></h2><p><strong>Les modules sont un ensemble cohérent de balises regroupées pour répondre à une problématique précise.</strong></p>
+<ul>
+<li>Type de document : pour la poésie, le théâtre, les manuscrits, le discours oral, etc.</li>
+<li>Type de données : pour la définition d'un apparat critique, des formules mathématiques, etc.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a4687772364f2c20">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Chaque-module">Chaque module<a class="anchor-link" href="#Chaque-module">¶</a></h2><ul>
+<li>est <strong>documenté</strong> par un chapitre des Guidelines</li>
+<li>définit un certain nombre de <strong>composantes</strong> (éléments, classes, macros)</li>
+<li>correspond à une <strong>problématique particulière</strong></li>
+<li>peut être <strong>inclus ou non</strong> dans une personnalisation (à part les 4 obligatoires)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4abd9928b80fc585">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Rappel-des-quatre-modules-obligatoires">Rappel des quatre modules obligatoires<a class="anchor-link" href="#Rappel-des-quatre-modules-obligatoires">¶</a></h2><ul>
+<li><code>tei</code> : définition des classes, macros et types de données</li>
+<li><code>core</code> : éléments disponibles dans tous les documents</li>
+<li><code>header</code> : en-tête contenant les métadonnées du document</li>
+<li><code>textstrutcure</code> : éléments de base pour structurer le texte de type livre</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63640422889ec2be">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Modules-compl%C3%A9mentaires">Modules complémentaires<a class="anchor-link" href="#Modules-compl%C3%A9mentaires">¶</a></h2><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>analysis</code></td>
+<td>Analysis and Interpretation</td>
+</tr>
+<tr>
+<td><code>certainty</code></td>
+<td>Certainty and Uncertainty</td>
+</tr>
+<tr>
+<td><code>corpus</code></td>
+<td>Metadata for Language Corpora</td>
+</tr>
+<tr>
+<td><code>drama</code></td>
+<td>Performance Texts</td>
+</tr>
+<tr>
+<td><code>figures</code></td>
+<td>Tables, Formulae, Figures</td>
+</tr>
+<tr>
+<td><code>gaiji</code></td>
+<td>Character and Glyph</td>
+</tr>
+<tr>
+<td><code>linking</code></td>
+<td>Linking, Segmentation, and Alignment</td>
+</tr>
+<tr>
+<td><code>msdescription</code></td>
+<td>Manuscript Description</td>
+</tr>
+<tr>
+<td><code>namesdates</code></td>
+<td>Names, Dates, People, and Places</td>
+</tr>
+<tr>
+<td><code>tagdocs</code></td>
+<td>Documentation Elements</td>
+</tr>
+<tr>
+<td><code>textcrit</code></td>
+<td>Text Criticism</td>
+</tr>
+<tr>
+<td><code>transcr</code></td>
+<td>Transcription of Primary Sources</td>
+</tr>
+<tr>
+<td><code>verse</code></td>
+<td>Verse</td>
 </tr>
 </tbody>
 </table>
@@ -8098,549 +7942,268 @@ contenu "Cendrillon"</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d68a9121ba9aed6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f09c99fab017ce4c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>l[@n &gt; 2]</code> ?</p>
-<p><code>lg[@type != "tercet" and @n &lt; 2]</code> ?</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd820d8300c05f2c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>l[@n &gt; 2]</code> Les éléments <code>l</code> dont la valeur de l'attribut <code>n</code> est supérieur à 2</p>
-<p><code>lg[@type != "tercet" and @n &lt; 2]</code> Les éléments <code>lg</code> dont la valeur de l’attribut <code>n</code> est strictement inférieure à 2 et dont l’attribut type n’est pas "tercet"</p>
-<p>Équivalent à <code>lg[@type != "tercet"][@n &lt; 2]</code></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b327491d38dab6f2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Quelques-exemples-de-fonctions">Quelques exemples de fonctions<a class="anchor-link" href="#Quelques-exemples-de-fonctions">¶</a></h2><p><em>Sélectionner le dernier vers du poème</em></p>
-<p><code>(//l)[count(//l)]</code> ⚠️ parenthèses pour regrouper tous les éléments <code>l</code> ; sans elles l'expression sélectionne parmi les frères et sœurs</p>
-<p><code>count()</code> compte le nombre de l dans le document ou parmi les frères et sœurs</p>
-<p><em>Sélectionner tous les <code>lg</code> sauf le premier</em></p>
-<p><code>//lg[position() != 1]</code></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8b6678c820359a5f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Quelques-exemples-de-fonctions">Quelques exemples de fonctions<a class="anchor-link" href="#Quelques-exemples-de-fonctions">¶</a></h2><p><code>//l[last()]</code></p>
-<p><code>(//l)[last()]</code></p>
-<p><code>last()</code> sélectionne le dernier nœud dans le document ou parmi les enfants de chaque parent qui contient <code>l</code></p>
-<p><code>//persName[contains(., "duc")]</code></p>
-<p>La fonction <code>contains(chaîne, sous-chaîne)</code> vérifie si une chaîne de caractères contient une autre chaîne</p>
-<p><code>//lg[@type = concat('qua', 'train')]</code></p>
-<p>La fonction <code>concat()</code> assemble plusieurs chaînes de caractères</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=52349830c50c440f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Partie-3-:-Technologies-pour-la-validation-et-customisation-de-la-TEI">Partie 3 : Technologies pour la validation et customisation de la TEI<a class="anchor-link" href="#Partie-3-:-Technologies-pour-la-validation-et-customisation-de-la-TEI">¶</a></h1>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9202c37b23b8b969">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>La vie d'un document XML est assurée par sa famille de standards dont font partie les langages de schéma.</p>
+<h2 id="Les-classes">Les classes<a class="anchor-link" href="#Les-classes">¶</a></h2><p>Les classes sont définies dans un module mais peuvent porter sur des éléments d’un autre. Les éléments héritent des propriétés de la classe à laquelle ils appartiennent.</p>
 <ul>
-<li><code>DTD</code> pour Document Type Definition</li>
-<li><code>Relax NG</code></li>
-<li><code>XML Schema</code></li>
+<li><code>att.class</code> Éléments qui partagent les mêmes attributs</li>
+<li><code>model.class</code> Éléments qui sont situés aux mêmes endroits dans le document</li>
 </ul>
-<p>+ Schematron</p>
-<p><code>Un schéma</code> est document définissant un ensemble de règles concernant la structure et le contenu de fichiers XML pour permettre leur validation.</p>
+<p><img alt="classes" src="public/media/guidelines-schema.png"/></p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=44d039ae0e46aea1">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9710d632a0058d56">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="DTD">DTD<a class="anchor-link" href="#DTD">¶</a></h2><div class="highlight"><pre><span></span><span class="cp">&lt;!ELEMENT texte (chapitre+)&gt;</span>
-<span class="cp">&lt;!ELEMENT chapitre (titre?, paragraphe+)&gt;</span>
-<span class="cp">&lt;!ELEMENT titre (#PCDATA)&gt;</span>
-<span class="cp">&lt;!ATTLIST chapitre n CDATA #REQUIRED&gt;</span>
+<h2 id="att.class"><code>att.class</code><a class="anchor-link" href="#att.class">¶</a></h2><p>Ensemble d’éléments qui admettent les mêmes attributs</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Description</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>att.global</code></td>
+<td>Attributs pouvant être utilisé avec tout élément</td>
+<td><code>@xml:id</code>, <code>@n</code>, <code>@rend</code>, <code>@xml:lang</code>, etc.</td>
+</tr>
+<tr>
+<td><code>att.linking</code></td>
+<td>Attributs pour lier les éléments entre deux</td>
+<td><code>@corresp</code>, <code>@next</code>, <code>@prev</code>, <code>@sameAs</code>, etc.</td>
+</tr>
+<tr>
+<td><code>att.ascribed</code></td>
+<td>pour discours action pouvant être attribué à un individu spécifique</td>
+<td><code>@who</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=625b53131bc70b15">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Attributs-%C3%A0-retenir">Attributs à retenir<a class="anchor-link" href="#Attributs-%C3%A0-retenir">¶</a></h2><h3 id="Attributs-globaux-(toujours-disponibles)">Attributs globaux (toujours disponibles)<a class="anchor-link" href="#Attributs-globaux-(toujours-disponibles)">¶</a></h3><ul>
+<li><code>@n</code> fournit un numéro ou un label (pas unique)</li>
+<li><code>@rend</code> pour préciser un certain rendu graphique de l'élément dans la source ou la sortie</li>
+<li><code>xml:id</code> fournit un identifiant unique à l'élement qui porte l'attribut</li>
+<li><code>xml:lang</code> indique la langue du contenu textuel de l’élément (code langue ISO)</li>
+</ul>
+<h2 id="Attributs-fr%C3%A9quemment-employ%C3%A9s">Attributs fréquemment employés<a class="anchor-link" href="#Attributs-fr%C3%A9quemment-employ%C3%A9s">¶</a></h2><ul>
+<li><code>@type</code> pour typer un élément</li>
+<li><code>@target</code> lien interne</li>
+<li><code>@ref</code> référence</li>
+<li><code>@key</code> référence canonique</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=228c435e5e7653f2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="model.class"><code>model.class</code><a class="anchor-link" href="#model.class">¶</a></h2><p>Se définit par un ensemble d'endroits où les membres de la classe sont autorisés (<code>…Part</code>) mais implique également une forme de regroupement sémantique (<code>…Like</code>)</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model.divPart</code></td>
+<td>Éléments qui peuvent être contenu par une <code>div</code></td>
+</tr>
+<tr>
+<td><code>model.phrase</code></td>
+<td>Éléments pouvant apparaître au niveau de la phrase</td>
+</tr>
+<tr>
+<td><code>model.nameLike</code></td>
+<td>Regroupement sémantique pour les divers types de noms</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8713e1b2ce320cba">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Donc-un-%C3%A9l%C3%A9ment-est-d%C3%A9fini-en-regard-des-autres-composants-:-autres-%C3%A9l%C3%A9ments,-modules,-classes,-macro%E2%80%A6">Donc un élément est défini en regard des autres composants : autres éléments, modules, classes, macro…<a class="anchor-link" href="#Donc-un-%C3%A9l%C3%A9ment-est-d%C3%A9fini-en-regard-des-autres-composants-:-autres-%C3%A9l%C3%A9ments,-modules,-classes,-macro%E2%80%A6">¶</a></h2><p><img alt="fiche d'un élément" src="public/media/guidelines1.png"/></p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3f91137951e0b751">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Les-macros">Les macros<a class="anchor-link" href="#Les-macros">¶</a></h2><p>Les macros définissent des raccourcis pour désigner lesvaleurs attendues au sein des éléments/attributs.</p>
+<ul>
+<li>types de contenus standardisés (par exemple <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-macro.paraContent.html">macro.paraContent</a>) ;</li>
+<li>valeurs autorisées (par exemple <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.count.html">data.count</a>).</li>
+</ul>
+<p>Elles sont utilisées dans les modèles de contenu pour faire référence à des séquences rencontrées dans des éléments.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=72704b67350684">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Le-mod%C3%A8le-de-contenu">Le modèle de contenu<a class="anchor-link" href="#Le-mod%C3%A8le-de-contenu">¶</a></h2><p><a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-macro.limitedContent.html"><code>macro.limitedContent</code></a></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;content&gt;</span>
+<span class="w"> </span><span class="nt">&lt;alternate</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">"0"</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">"unbounded"</span><span class="nt">&gt;</span>
+<span class="w"> </span><span class="nt">&lt;textNode/&gt;</span>
+<span class="w"> </span><span class="nt">&lt;classRef</span><span class="w"> </span><span class="na">key=</span><span class="s">"model.limitedPhrase"</span><span class="nt">/&gt;</span>
+<span class="w"> </span><span class="nt">&lt;classRef</span><span class="w"> </span><span class="na">key=</span><span class="s">"model.inter"</span><span class="nt">/&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/alternate&gt;</span>
+<span class="nt">&lt;/content&gt;</span>
 </pre></div>
-<ul>
-<li>Langage historique</li>
-<li>Définit la structure d'un document, les éléments et les attributs qui y sont autorisés.</li>
-<li>Pas de typage précis du contenu des éléments, pas de gestion des espaces de nom</li>
-<li>Un format qui n'est pas du XML, mais peut être intégré dans le fichier</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a12d67ce7ff76c89">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="XML-Schema">XML Schema<a class="anchor-link" href="#XML-Schema">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">"texte"</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">"unbounded"</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;xs:complexType&gt;</span>
-<span class="w">        </span><span class="nt">&lt;xs:sequence&gt;</span>
-<span class="w">            </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">"titre"</span><span class="w"> </span><span class="na">type=</span><span class="s">"xs:string"</span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">"chap"</span><span class="w"> </span><span class="na">type=</span><span class="s">"xs:decimal"</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/xs:sequence&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/xs:complexType&gt;</span>
-<span class="nt">&lt;/xs:element&gt;</span>
+<p><a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-desc.html"><code>&lt;desc&gt;</code></a></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;content&gt;</span>
+<span class="w"> </span><span class="nt">&lt;macroRef</span><span class="w"> </span><span class="na">key=</span><span class="s">"macro.limitedContent"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/content&gt;</span>
 </pre></div>
-<ul>
-<li>Recommandation du W3C</li>
-<li>Permet de préciser le contenu autorisé des éléments (typage, nombre) ainsi que des séquences d'éléments</li>
-<li>Les fichiers XML schema sont eux-aussi des éléments XML</li>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=82f543f63ccf6b6d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Les-espaces-de-nom">Les espaces de nom<a class="anchor-link" href="#Les-espaces-de-nom">¶</a></h2><ul>
+<li>si XML est la <strong>langue</strong>, l'espace de noms est le <strong>lexique</strong></li>
+<li>propriété d'appartenance d'un élément à une <strong>application XML</strong> (un vocabulaire)</li>
+<li>chaque espace de noms est identifié par une <strong>URI unique</strong></li>
 </ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cf6d2ffa2fd72afe">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Relax-NG">Relax NG<a class="anchor-link" href="#Relax-NG">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;element</span><span class="w"> </span><span class="na">name=</span><span class="s">"edition"</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;zeroOrMore&gt;</span>
-<span class="w">        </span><span class="nt">&lt;element</span><span class="w"> </span><span class="na">name=</span><span class="s">"texte"</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;element</span><span class="w"> </span><span class="na">name=</span><span class="s">"titre"</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;text/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/element&gt;</span>
-<span class="w">        </span><span class="nt">&lt;element</span><span class="w"> </span><span class="na">name=</span><span class="s">"paragraphe"</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;text/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/element&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/element&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/zeroOrMore&gt;</span>
-<span class="nt">&lt;/element&gt;</span>
-</pre></div>
-<ul>
-<li>Simplification de XML Schema</li>
-<li>Standard ISO</li>
-<li>Supporte les namespaces</li>
-<li>Compatibilité avec XML Schema pour le typage des données</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1e672356bc87e3c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Schematron">Schematron<a class="anchor-link" href="#Schematron">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;s:rule</span><span class="w"> </span><span class="na">context=</span><span class="s">"tei:body"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- où s'applique la règle --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;s:assert</span><span class="w"> </span><span class="na">test=</span><span class="s">"exists(tei:div[@type = 'entries'])"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- test en XPath --&gt;</span>
-<span class="w">      </span>body<span class="w"> </span>must<span class="w"> </span>contain<span class="w"> </span>a<span class="w"> </span>div<span class="w"> </span>of<span class="w"> </span>type<span class="w"> </span>"entries".<span class="cm">&lt;!--message si le test échoue --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;/s:assert&gt;</span>
-<span class="nt">&lt;/s:rule&gt;</span>
-</pre></div>
-<ul>
-<li>Langage intégré à Relax NG</li>
-<li>Permet de définir des contraintes complexes</li>
-<li>Tout ce qui n'est pas spécifié est considéré comme valide.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7cde6eec034884ab">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Un-sch%C3%A9ma-est-une-combinaison-des-trois">Un schéma est une combinaison des trois<a class="anchor-link" href="#Un-sch%C3%A9ma-est-une-combinaison-des-trois">¶</a></h2><ul>
-<li><code>DTD</code> pour la définition des entités</li>
-<li><code>XML Schema</code> ou <code>RNG</code> pour les règles de validation</li>
-<li>Règles schematron</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=70017910c0aa4f66">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Le-langage-ODD">Le langage ODD<a class="anchor-link" href="#Le-langage-ODD">¶</a></h2><ul>
-<li><p>Format XML TEI qui comporte à la fois un schéma de validation et une documentation de ce même schéma.</p>
-</li>
-<li><p>Le langage ODD a été développé en même temps que la TEI afin de pouvoir documenter et formaliser les recommandations</p>
-</li>
-<li><p>Une spécification ODD est un simple document XML TEI qui utilise le module <code>tagdocs</code>.</p>
-</li>
-<li><p>Il est possible de la transformer en fichier <code>RelaxNG</code> (<code>.rng</code>) à l’aide d’une feuille de transformation XSLT ou du logiciel <code>Roma</code>.</p>
-</li>
-<li><p>Il est aussi possible de sortir une documentation en HTML.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b398bcbee6501694">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="" src="./media/validation.png"/></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f92ffbe4072ac645">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display:flex; flex-direction:column; gap:4px; width:800px; font-family:monospace;">
-<div style="display:flex; flex-direction:column; gap:4px; width:800px; font-family:monospace;">
-<div style="width:100%; height:60px; display:flex; align-items:center; justify-content:center; background-color:#3D6FA8; border:2px solid #1B3B5F; color:#FFFFFF; box-sizing:border-box; font-size:24px; font-weight:bold;">Contenu d'une ODD</div>
-<div style="display:flex; gap:4px;">
-<div style="width:33%; min-height:140px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#DCE9F7; border:2px solid #1B3B5F; box-sizing:border-box; font-size:18px; padding:8px;">
-<strong>&lt;teiHeader&gt;</strong>
-<br/>
-Header TEI contenant les métadonnées sur le fichier et sur les acteurs à responsables de l’encodage
-</div>
-<div style="width:33%; min-height:140px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#7FA6D1; border:2px solid #1B3B5F; box-sizing:border-box; font-size:18px; padding:8px;">
-<strong>&lt;body&gt;</strong>
-<br/>
-Documentation en prose et ponctuée d’exemples et d’explications sur les choix d’encodage effectués
-</div>
-<div style="width:33%; min-height:140px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#B4CAE0; border:2px solid #1B3B5F; box-sizing:border-box; font-size:18px; padding:8px;">
-<strong>&lt;schemaSpec&gt;</strong>
-<br/>
-Règles de validation concernant les objets et leurs contenus retenus pour l’encodage
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb5da615e8b39ddd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Ressources">Ressources<a class="anchor-link" href="#Ressources">¶</a></h2><p><a href="https://tei-c.org/guidelines/customization/">https://tei-c.org/guidelines/customization/</a></p>
-<p><a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/USE.html">https://tei-c.org/release/doc/tei-p5-doc/en/html/USE.html</a></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=91ebc1378095077b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Un-exemple-:-Le-sch%C3%A9ma-ACDH-Generic-Dictionary">Un exemple : <a href="https://github.com/acdh-oeaw/generic-dict-schema/tree/main">Le schéma ACDH Generic Dictionary</a><a class="anchor-link" href="#Un-exemple-:-Le-sch%C3%A9ma-ACDH-Generic-Dictionary">¶</a></h2><p>Observez :</p>
-<ul>
-<li>la macrostructure <code>&lt;teiHeader&gt;</code> <code>&lt;text&gt;</code>, <code>&lt;body&gt;</code> et <code>&lt;schemaSpec&gt;</code></li>
-<li>la prose et les exemples mêlés au schéma</li>
-<li>l'élément <code>&lt;egXML&gt;</code> pour les exemples</li>
-<li>les spécifications formelles des éléments (l.2610)</li>
-<li><code>&lt;moduleRef&gt;</code> et ...</li>
-<li>les <code>&lt;elementSpec&gt;</code> avec <code>mode="change"</code>, <code>mode="delete"</code> ou <code>mode="add"</code></li>
-<li>les <code>&lt;constraintSpec&gt;</code> Schematron</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d3b7a38ef58d3cdb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Pourquoi-customiser-la-TEI-?">Pourquoi customiser la TEI ?<a class="anchor-link" href="#Pourquoi-customiser-la-TEI-?">¶</a></h2><div style="display:flex; flex-direction:column; gap:4px; width:800px; font-family:monospace;">
-<div style="display:flex; gap:4px;">
-<div style="width:25%; min-height:150px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#DCE9F7; border:2px solid #1B3B5F; box-sizing:border-box; font-size:15px; padding:8px;">
-<strong>Uniformiser</strong>
-<br/>
-Obliger tous les encodages à répondre au même ensemble de règles défini
-</div>
-<div style="width:25%; min-height:150px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#7FA6D1; border:2px solid #1B3B5F; box-sizing:border-box; font-size:15px; padding:8px;">
-<strong>Clarifier</strong>
-<br/>
-Éviter les confusions et l'usage accidentel d'élément dont vous n'avez pas besoin
-</div>
-<div style="width:25%; min-height:150px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#B4CAE0; border:2px solid #1B3B5F; box-sizing:border-box; font-size:15px; padding:8px;">
-<strong>Augmenter</strong>
-<br/>
-Étendre le schéma de la TEI pour répondre à des cas non prévus dans les guidelines
-</div>
-<div style="width:25%; min-height:150px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#7FA6D1; border:2px solid #1B3B5F; box-sizing:border-box; font-size:15px; padding:8px;">
-<strong>Restreindre</strong>
-<br/>
-Définir de manière plus stricte les possibilités d'encodage de cas particuliers
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b818adffd1d94ca3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Le-Consortium-met-%C3%A0-disposition-un-certain-nombre-de-customisations">Le Consortium met à disposition un certain nombre de customisations<a class="anchor-link" href="#Le-Consortium-met-%C3%A0-disposition-un-certain-nombre-de-customisations">¶</a></h2><p><code>teilite</code> TEI allégée</p>
-<p><code>tei_corpus</code> TEI pour les corpus linguistiques</p>
-<p><code>tei_ms</code> TEI pour la description des manuscrits</p>
-<p><code>tei_drama</code> TEI pour les corpus dramatiques</p>
-<p><code>tei_allPlus</code> Toute la TEI avec des additions</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dfd127e844dfc469">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="En-quoi-consiste-la-customisation">En quoi consiste la customisation<a class="anchor-link" href="#En-quoi-consiste-la-customisation">¶</a></h2><ul>
-<li><p><strong>Supprimer</strong> des éléments, des attributs ou des classes entières</p>
-</li>
-<li><p><strong>Ajouter</strong> des éléments au sein d'une classe, ou bien des valeurs d'attributs admis par une classe ou un élément</p>
-</li>
-<li><p><strong>Modifier le modèle de contenu</strong> d'un élément, par exemple les types de contenu et les séquences d'éléments qu'il admet</p>
-</li>
-<li><p><strong>Renommer</strong> des éléments et/ou leur usage par rapport aux <em>Guidelines</em></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e8e93c13024dd430">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Types-de-modification-%C3%A0-la-TEI-:-clean-vs.-unclean">Types de modification à la TEI : <em>clean</em> vs. <em>unclean</em><a class="anchor-link" href="#Types-de-modification-%C3%A0-la-TEI-:-clean-vs.-unclean">¶</a></h2><ul>
-<li><p><em>clean</em> : Le schéma est un sous-ensemble de la TEI All (il est dit <em>TEI conformant</em>)</p>
-</li>
-<li><p><em>Unclean</em> : Le schéma considère comme valides des documents que la TEI All considère invalides</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6731e5d477855e2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Que-signifie-TEI-conformant-?">Que signifie <em>TEI conformant</em> ?<a class="anchor-link" href="#Que-signifie-TEI-conformant-?">¶</a></h2><ul>
-<li><p><code>Fichier bien formé</code> : l'encodage constitue un fichier XML valide</p>
-</li>
-<li><p><code>Validation sur TEI all</code> : l'encodage peut être validé avec un schéma TEI <code>all</code></p>
-</li>
-<li><p>Respect des <code>principes généraux</code> : l'encodage respecte le modèle abstrait de la TEI</p>
-</li>
-<li><p><code>Documentation</code> : les choix d'encodage sont documentés</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a52387be314ade6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Les-m%C3%A9thodes-pour-automatiser-la-cr%C3%A9ation-d'une-ODD">Les méthodes pour automatiser la création d'une ODD<a class="anchor-link" href="#Les-m%C3%A9thodes-pour-automatiser-la-cr%C3%A9ation-d'une-ODD">¶</a></h2><h3 id="ODD-by-example">ODD by example<a class="anchor-link" href="#ODD-by-example">¶</a></h3><p><em>ODD by example</em> est un scénario de transformation XSLT fourni à la TEI qui permet de générer automatiquement un fichier ODD à partie d'un fichier encodé.</p>
-<p><a href="https://teic.github.io/PDF/howtoGenerate.pdf">Documentation</a></p>
-<h3 id="Roma">Roma<a class="anchor-link" href="#Roma">¶</a></h3><p>Roma est un programme permettant de générer automatiquement une ODD puis un fichier RNG grâce à une interface web qui permet de sélectionner les composants de la TEI, et d'en laisser d'autres de côté.</p>
-<p><a href="https://vimeo.com/373995865?turnstile=1.eX7QU4SWlgjrpU7uv69B4qqEGOxgOkDe_DPZPAnBCN-D1ZAGsWGYwelOzQ-IU85cnAETRzDQQ2MXgATdUWOwiKUUXN-c_woWeJQClSRBgaEpoUfvuMyqYh31b1P44eXHq0EHqsTwivNQwtWxxPgh-O8xfcQ3WoQCoqNKac-Uf1qQgCUIvyBU1MB2YRoPadQZX93qaJ_1TbRqzPwv_8V9NF3_si-Ib0wUqVo4vGG9E2-Evi0B4-DhwfCD-3TreRDWhvIQMGi2OFeRzZ9bnWg3zD-vEZ8RWWh7PiUMR1b9rVviUjl9-Fapy0gb6q98uIxPcgPTxVVAkDWOBWOTM_9DPe05D3CklsT3OBXw-CBSvPJQ9F-n4FvSahsjMhkRrUbwY4INBJcX7LJSFJMN1lXwdSHExyob2TvmTr3_K-3oWFX8judkzAn59-MQBPbQOYWxC2m4X6cB_RwkXW8Bozw9wf9FyK5UIW-gLlQcHHGRrJGikJ3czItqg5MZnzPjJK3EdwsQIWo7XlmqrjigbxKBSK9PFzBS9-bT0esGJpWpiaK2vQ5UFO18Kwhhy0E2pCrx0tuGTt9MoW-rIWpUknqa4v175LEeIlviMg_caYl6zlY8C9zb809hkP5e5Ew0jeog.aVWPiEEMm3gwWXVo2mRp2w.0644551cac527bdee6721f917121a8e33edb66259cce6a6eec9c129db9ca3e08">Tutoriel vidéo</a></p>
-<p><a href="https://roma.tei-c.org/">https://roma.tei-c.org/</a></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a919c3f979f20695">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="I.-ODD-by-example-:-pas-%C3%A0-pas">I. ODD by example : pas à pas<a class="anchor-link" href="#I.-ODD-by-example-:-pas-%C3%A0-pas">¶</a></h2><h3 id="Les-%C3%A9tapes-sont-les-suivantes">Les étapes sont les suivantes<a class="anchor-link" href="#Les-%C3%A9tapes-sont-les-suivantes">¶</a></h3><ol>
-<li>Vérifier que le framework TEI P5 est actif</li>
-<li>Créer une ODD</li>
-<li>Créer un RNG avec transformation XSL</li>
-<li>Associer le fichier RNG au document TEI</li>
+<p><strong>Pourquoi ?</strong> Un même document peut mêler plusieurs vocabulaires. Le <em>namespace</em> a donc deux fonctions :</p>
+<ol>
+<li>distinguer des éléments de même nom,mais de sens différents</li>
+<li>permettre à la machine de traiter chaque vocabulaire correctement</li>
 </ol>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2684e588838c6725">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7f9501e4aec5252a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="I.-ODD-by-example-:-pas-%C3%A0-pas">I. ODD by example : pas à pas<a class="anchor-link" href="#I.-ODD-by-example-:-pas-%C3%A0-pas">¶</a></h2><h3 id="1.-V%C3%A9rifier-que-le-framework-TEI-P5-est-actif">1. Vérifier que le framework TEI P5 est actif<a class="anchor-link" href="#1.-V%C3%A9rifier-que-le-framework-TEI-P5-est-actif">¶</a></h3><ol>
-<li>Ouvrez les Préférences d'Oxygen (menu <code>Options &gt; Préférences</code>).</li>
-<li>Dans la colonne de gauche, sélectionnez <code>Association de type de document</code>.</li>
-<li>Dans la liste de droite, faites défiler jusqu'à la lettre T : vous devez y voir la ligne <code>TEI P5</code>.</li>
-<li>Vérifiez que la case située à côté de TEI P5 est bien cochée (ce qui signifie qu'elle est activée).</li>
-</ol>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9bbc139e4c1a9afd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="I.-ODD-by-example-:-pas-%C3%A0-pas">I. ODD by example : pas à pas<a class="anchor-link" href="#I.-ODD-by-example-:-pas-%C3%A0-pas">¶</a></h2><h3 id="2.-Mise-en-place-du-sc%C3%A9nario-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">2. Mise en place du scénario 👩🏻‍💻<a class="anchor-link" href="#2.-Mise-en-place-du-sc%C3%A9nario-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">¶</a></h3><ul>
-<li>Ouvrez <a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours4/Sonnet_Automne_TEI.xml"><code>Sonnet_Automne_TEI.xml</code></a></li>
-<li><code>Document &gt; Transformation &gt; Configurer</code> (Ctrl + Maj + C)</li>
-<li><code>Nouveau &gt; XML transformation with XSLT</code></li>
-<li>Cochez "Options globales" pour rendre le scénario applicable à n’importe quel document</li>
-<li>Nommez le scénario "ODD by example"</li>
-<li>Renseigner le chemin XSL
-<code>${frameworks}/tei/xml/tei/stylesheet/tools/oddbyexample.xsl</code></li>
-<li>Sélectionnez le processeur <code>Saxon-PE &gt; 9.xX</code></li>
-<li>⚙️ <code>Options avancées &gt; Template (-it)</code> &gt; Remplir le champ avec la valeur "main"</li>
-<li><code>Paramètres &gt; Nouveau &gt; Nom "corpus" et Valeur "${cfdu}"</code> (i.e. le répertoire courant) : si déjà défini, double-cliquez sur le paramètre pour en changer la valeur</li>
-<li>Onglet Sortie &gt; Définir le nom de fichier <code>${cfd}/ODD_${cfn}.xml</code> pour la future ODD (qui s’enregistrera dans le même dossier que le XML transformé)</li>
-<li>Appliquer le scénario au fichier</li>
+<h2 id="Impl%C3%A9mentation-:-pr%C3%A9fixes">Implémentation : préfixes<a class="anchor-link" href="#Impl%C3%A9mentation-:-pr%C3%A9fixes">¶</a></h2><ul>
+<li>Un <strong>préfixe</strong> est attaché aux éléments et attributs : <code>prefix:localPart</code> (= <em>QName</em>)</li>
+<li>Il est associé à une URI par <code>@xmlns:prefix = "identifiant"</code></li>
+<li>Déclaré sur la racine (usage dans tout le document) ou sur l'élément qui contient les éléments concernés</li>
+<li>Plusieurs déclarations possibles sur un même élément</li>
 </ul>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d9220922a457b67">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1c4f000fc9c2082">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="I.-ODD-by-example-:-pas-%C3%A0-pas">I. ODD by example : pas à pas<a class="anchor-link" href="#I.-ODD-by-example-:-pas-%C3%A0-pas">¶</a></h2><h3 id="2.-Mise-en-place-du-sc%C3%A9nario-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">2. Mise en place du scénario 👩🏻‍💻<a class="anchor-link" href="#2.-Mise-en-place-du-sc%C3%A9nario-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">¶</a></h3><ul>
-<li>Observez l'ODD générée</li>
-<li>Cherchez la liste d'attributs de l'élément <code>&lt;lg&gt;</code></li>
-<li>Supprimez la valeur <code>quatrain</code> de l'attribut <code>type</code> pour générer intentionnellement une erreur</li>
+<h2 id="Exemple-:-la-racine-d'un-fichier-TEI">Exemple : la racine d'un fichier TEI<a class="anchor-link" href="#Exemple-:-la-racine-d'un-fichier-TEI">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;TEI</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.tei-c.org/ns/1.0"</span>
+<span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span>
+<span class="w">  </span><span class="na">xmlns:m=</span><span class="s">"http://www.w3.org/1998/Math/MathML"</span>
+<span class="w">  </span><span class="na">xmlns:sch=</span><span class="s">"http://purl.oclc.org/dsdl/schematron"</span>
+<span class="w">  </span><span class="na">xmlns:xi=</span><span class="s">"http://www.w3.org/2001/XInclude"</span>
+<span class="w">  </span><span class="na">xmlns:rng=</span><span class="s">"http://relaxng.org/ns/structure/1.0"</span><span class="nt">&gt;</span>
+</pre></div>
+<p>Ici :</p>
+<ul>
+<li><code>xmlns="…"</code> : espace de noms <strong>par défaut</strong> (éléments non préfixés = TEI)</li>
+<li>5 <strong>préfixes</strong> : usage ponctuel d'autres vocabulaires (<code>&lt;m:math&gt;</code>, <code>&lt;sch:rule&gt;</code>…)</li>
 </ul>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=202c298e6ea45e3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65c419f7e2ad4b3a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="I.-ODD-by-example-:-pas-%C3%A0-pas">I. ODD by example : pas à pas<a class="anchor-link" href="#I.-ODD-by-example-:-pas-%C3%A0-pas">¶</a></h2><h3 id="3.-G%C3%A9n%C3%A9rer-un-sch%C3%A9ma-RGN-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">3. Générer un schéma RGN 👩🏻‍💻<a class="anchor-link" href="#3.-G%C3%A9n%C3%A9rer-un-sch%C3%A9ma-RGN-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">¶</a></h3><figure style="margin: 0; max-width: 100%;">
-<img alt="No description has been provided for this image" src="./media/odd2rng.png" style="height: 500px; width: auto; display: block;"/>
-</figure>
+<h2 id="Espace-de-nom-d%C3%A9clar%C3%A9-dans-l'%C3%A9l%C3%A9ment-englobant">Espace de nom déclaré dans l'élément englobant<a class="anchor-link" href="#Espace-de-nom-d%C3%A9clar%C3%A9-dans-l'%C3%A9l%C3%A9ment-englobant">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;svg</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span><span class="w"> </span><span class="na">width=</span><span class="s">"12cm"</span><span class="w"> </span><span class="na">height=</span><span class="s">"10cm"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;ellipse</span><span class="w"> </span><span class="na">rx=</span><span class="s">"110"</span><span class="w"> </span><span class="na">ry=</span><span class="s">"130"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;rect</span><span class="w"> </span><span class="na">x=</span><span class="s">"4cm"</span><span class="w"> </span><span class="na">y=</span><span class="s">"1cm"</span><span class="w"> </span><span class="na">width=</span><span class="s">"3cm"</span><span class="w"> </span><span class="na">height=</span><span class="s">"6cm"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</pre></div>
+<ul>
+<li><code>svg</code>, <code>ellipse</code>, <code>rect</code> : tous dans l'espace de noms SVG, <strong>pas besoin de préfixe</strong></li>
+<li>La déclaration s'applique à l'élément qui le déclare et à ses descendants</li>
+</ul>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f2016cd846715cc8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b31d59a88e02dc01">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="I.-ODD-by-example-:-pas-%C3%A0-pas">I. ODD by example : pas à pas<a class="anchor-link" href="#I.-ODD-by-example-:-pas-%C3%A0-pas">¶</a></h2><h3 id="3.-Associer-un-sch%C3%A9ma-RNG-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">3. Associer un schéma RNG 👩🏻‍💻<a class="anchor-link" href="#3.-Associer-un-sch%C3%A9ma-RNG-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">¶</a></h3><p><img alt="associer un schéma" src="./media/associerschema.png"/></p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3ef2a5a6c9c8dfd3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Qu'observez-vous ?</p>
+<h2 id="Cas-des-attributs">Cas des attributs<a class="anchor-link" href="#Cas-des-attributs">¶</a></h2><ul>
+<li>Le namespace par défaut ne s'applique pas aux attributs</li>
+<li>Aucune ambiguïté car un attribut dépend toujours de son élément porteur</li>
+</ul>
+<p>Pour appartenir à un espace de nom différent de celui de son élément porteur, un attribut doit être <strong>préfixé</strong> :</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;p</span><span class="w"> </span><span class="na">xlink:type=</span><span class="s">"simple"</span><span class="w"> </span><span class="na">xlink:href=</span><span class="s">"ellipses.html"</span><span class="nt">&gt;</span>
+</pre></div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a33282fb140ca166">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2681f098ba3b0842">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="II.-Roma-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">II. Roma 👩🏻‍💻<a class="anchor-link" href="#II.-Roma-%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB">¶</a></h2><ul>
-<li>Rendez-vous sur <a href="https://roma.tei-c.org/">https://roma.tei-c.org/</a></li>
-<li>Téléversez l'ODD précédemment créée</li>
-<li>Recherchez l'élément <code>&lt;lg&gt;</code></li>
-<li>Rétablissez l'attribut la valeur <code>quatrain</code> et supprimez l'attribut <code>tercet</code> de l'attribut <code>type</code>. Rajoutez un attribut <code>scoobydoo</code>.</li>
-<li>⬇️ Téléchargez le <code>RELAX RN schema</code></li>
-<li>Associez ce schéma</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4377754e0d95614c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Qu'observez-vous ?</p>
+<h2 id="R%C3%A9f%C3%A9rences-et-ressources">Références et ressources<a class="anchor-link" href="#R%C3%A9f%C3%A9rences-et-ressources">¶</a></h2><p>BURGHART, Marjorie, <a href="http://mutec.huma-num.fr/sites/www.mutec-shs.fr/files/Guide%20Editer%20des%20sources%20historiques%20%20gr%C3%A2ce%20a%20XML.pdf">Éditer des sources historiques en ligne grâce à XML – Un guide pratique</a></p>
+<p>BURGHART, Marjorie, PIERAZZO, Elena et al., <a href="https://www.digitalmanuscripts.eu/digital-editing-of-medieval-texts-a-textbook/"><em>Online course: Digital Scholarly Editions: Manuscripts, Texts, and TEI Encoding – Digital Editing of Medieval Manuscripts</em></a></p>
+<p><a href="https://erc-dharma.github.io/digital-areal/2_schema.html">Atelier TEI, ANF Digital Areal | ERC-DHARMA</a></p>
 </div>
 </div>
 </div>
