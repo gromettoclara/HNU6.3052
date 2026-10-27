@@ -2,6 +2,10 @@
 
 ## Cheatsheet des commandes
 
-pip install nbconvert
+`pip install nbconvert`
 
-jupyter nbconvert cours1.ipynb --to slides --reveal-prefix ./reveal.js
+`pip install jupyterlab`
+
+`jupyter nbconvert cours1.ipynb --to slides --reveal-prefix ./reveal.js`
+
+`jupyter lab cours1.ipynb`

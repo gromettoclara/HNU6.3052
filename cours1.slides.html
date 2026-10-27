@@ -7571,7 +7571,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=71f0dc73e5062de1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7582,7 +7582,7 @@ main {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=26c067f5471534e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7886,23 +7886,13 @@ main {
 <li><p><strong>Les commentaires</strong> : Pour extraire des passages du XML</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=48ebd3530bd7e21a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;root&gt;</span>
-<span class="w"> </span><span class="nt">&lt;element&gt;</span><span class="cm">&lt;!-- comment --&gt;</span><span class="nt">&lt;/element&gt;</span>
-<span class="w"> </span><span class="nt">&lt;empty/&gt;</span>
-<span class="w"> </span><span class="nt">&lt;el</span><span class="w"> </span><span class="na">attribute=</span><span class="s">"value"</span><span class="nt">&gt;</span><span class="ni">&amp;amp;</span><span class="nt">&lt;/el&gt;</span>
-<span class="nt">&lt;/root&gt;</span>
-</pre></div>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+ &lt;element&gt;&lt;!-- comment --&gt;&lt;/element&gt;
+ &lt;empty/&gt;
+ &lt;el attribute="value"&gt;&amp;amp;&lt;/el&gt;
+&lt;/root&gt;
+</code></pre>
 </div>
 </div>
 </div>
@@ -7924,9 +7914,9 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Les-%C3%A9l%C3%A9ments">Les éléments<a class="anchor-link" href="#Les-%C3%A9l%C3%A9ments">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;element&gt;</span>texte<span class="nt">&lt;/element&gt;</span>
-<span class="nt">&lt;elementVide/&gt;</span>
-</pre></div>
+<h2 id="Les-%C3%A9l%C3%A9ments">Les éléments<a class="anchor-link" href="#Les-%C3%A9l%C3%A9ments">¶</a></h2><pre><code>&lt;element&gt;texte&lt;/element&gt;
+&lt;elementVide/&gt;
+</code></pre>
 <ul>
 <li><strong>Un arbre d'éléments</strong> : Qui permettent de décomposer le texte en unités d’information</li>
 <li><strong>Dénomination</strong> : Un élément doit être entouré de deux balises du même nom (sensible à la casse)</li>
@@ -7944,10 +7934,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Les-attributs">Les attributs<a class="anchor-link" href="#Les-attributs">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;miseEnValeur</span><span class="w"> </span><span class="na">position=</span><span class="s">"centrePage"</span><span class="nt">&gt;</span>
-<span class="w"> </span>texte
-<span class="nt">&lt;/miseEnValeur&gt;</span>
-</pre></div>
+<h2 id="Les-attributs">Les attributs<a class="anchor-link" href="#Les-attributs">¶</a></h2><pre><code>&lt;miseEnValeur position="centrePage"&gt;
+ texte
+&lt;/miseEnValeur&gt;
+</code></pre>
 <ul>
 <li><strong>À quoi ils servent ?</strong> : Ils sont utilisés pour préciser le contenu de l'élément, lui attribuer une caractéristique</li>
 <li><strong>Où les placer ?</strong> : Placé les uns à la suite des autres dans la balise ouvrante</li>
@@ -8059,7 +8049,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Les-raccourcis-pratiques-dans-Oxygen">Les raccourcis pratiques dans Oxygen<a class="anchor-link" href="#Les-raccourcis-pratiques-dans-Oxygen">¶</a></h2><ul>
 <li><code>Ctrl + Espace</code> → suggestions de contenu</li>
-<li>Sélection + <code>Ctrl + I</code> → entourer la sélection de balises ouvrante fermante</li>
+<li>Sélection + <code>Ctrl + E</code> → entourer la sélection de balises ouvrante fermante</li>
 <li><code>Ctrl + Shift + P</code> → Format and Indent OU <code>Document → Source → Format and Indent</code></li>
 <li><code>Options → Préférences → Éditeur → Modes d'édition → Texte</code> et cocher □ <strong>Retour à la ligne / Retour automatique</strong></li>
 </ul>
@@ -8073,17 +8063,26 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Bien-form%C3%A9-?">Bien formé ?<a class="anchor-link" href="#Bien-form%C3%A9-?">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;paragraphe&gt;</span>du<span class="w"> </span>texte<span class="nt">&lt;/paragraphe&gt;</span>
-<span class="nt">&lt;paragraphe&gt;&lt;article&gt;</span>du<span class="nt">&lt;/article&gt;&lt;nom&gt;</span>texte<span class="nt">&lt;/nom&gt;&lt;/paragraphe&gt;</span>
-<span class="nt">&lt;paragraphe&gt;&lt;article&gt;</span>du<span class="w"> </span><span class="nt">&lt;nom&gt;&lt;/article&gt;</span>texte<span class="nt">&lt;/nom&gt;&lt;/paragraphe&gt;</span>
-<span class="nt">&lt;paragraphe&gt;&lt;article&gt;</span>du<span class="w"> </span><span class="nt">&lt;nom&gt;</span>texte<span class="nt">&lt;/nom&gt;&lt;/article&gt;&lt;/paragraphe&gt;</span>
-<span class="nt">&lt;paragraphe</span><span class="w"> </span><span class="na">type=</span><span class="s">"texte"</span><span class="nt">&gt;</span>du<span class="w"> </span>texte<span class="nt">&lt;/paragraphe&gt;</span>
-<span class="nt">&lt;paragraphe</span><span class="w"> </span><span class="na">type=</span><span class="s">texte</span><span class="nt">&gt;</span>du<span class="w"> </span>texte<span class="nt">&lt;/paragraphe&gt;</span>
-<span class="nt">&lt;paragraphe</span><span class="w"> </span><span class="na">type=</span><span class="s">"texte"</span><span class="nt">&gt;</span>du<span class="w"> </span>texte<span class="nt">&lt;paragraphe/&gt;</span>
-<span class="nt">&lt;paragraphe</span><span class="w"> </span><span class="na">type=</span><span class="s">"texte"</span><span class="nt">&gt;</span>du<span class="w"> </span>texte<span class="nt">&lt;nom&gt;</span>nom<span class="nt">&lt;/paragraphe&gt;</span>
-<span class="nt">&lt;paragraphe</span><span class="w"> </span><span class="na">type=</span><span class="s">"texte"</span><span class="nt">&gt;</span>du<span class="w"> </span>texte<span class="nt">&lt;/Paragraphe&gt;</span>
-<span class="nt">&lt;segment</span><span class="w"> </span><span class="na">type=</span><span class="s">"texte"</span><span class="w"> </span><span class="na">type=</span><span class="s">"nombre"</span><span class="nt">&gt;</span>du<span class="w"> </span>texte<span class="nt">&lt;/paragraphe&gt;</span>
-</pre></div>
+<h2 id="Bien-form%C3%A9-?">Bien formé ?<a class="anchor-link" href="#Bien-form%C3%A9-?">¶</a></h2><pre><code>&lt;paragraphe&gt;du texte&lt;/paragraphe&gt;
+
+&lt;paragraphe&gt;&lt;article&gt;du&lt;/article&gt;&lt;nom&gt;texte&lt;/nom&gt;&lt;/paragraphe&gt;
+
+&lt;paragraphe&gt;&lt;article&gt;du &lt;nom&gt;&lt;/article&gt;texte&lt;/nom&gt;&lt;/paragraphe&gt;
+
+&lt;paragraphe&gt;&lt;article&gt;du &lt;nom&gt;texte&lt;/nom&gt;&lt;/article&gt;&lt;/paragraphe&gt;
+
+&lt;paragraphe type="texte"&gt;du texte&lt;/paragraphe&gt;
+
+&lt;paragraphe type=texte&gt;du texte&lt;/paragraphe&gt;
+    
+&lt;paragraphe type="texte"&gt;du texte&lt;paragraphe/&gt;
+    
+&lt;paragraphe type="texte"&gt;du texte&lt;nom&gt;nom&lt;/paragraphe&gt;
+    
+&lt;paragraphe type="texte"&gt;du texte&lt;/Paragraphe&gt;
+    
+&lt;segment type="texte" type="nombre"&gt;du texte&lt;/paragraphe&gt;
+</code></pre>
 </div>
 </div>
 </div>
@@ -8114,12 +8113,17 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Bibliographie">Bibliographie<a class="anchor-link" href="#Bibliographie">¶</a></h2><p>A gentle introduction to XML : <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html">http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html</a></p>
-<p>Modern XML useful resources <a href="https://gist.github.com/emchateau/912e3de4710bd9f385d407a7a576078c">https://gist.github.com/emchateau/912e3de4710bd9f385d407a7a576078c</a></p>
-<p>XML en concentré : manuel de référence / Elliotte Rusty Harold &amp; W. Scott Means ; traduction de Philippe Ensarguet, Frédéric Laurent. - 3^e^ éd. - Paris : O’Reilly, 2005. ISBN 2-84177-353-1 EAN 9782841773534 ;</p>
+<h2 id="R%C3%A9f%C3%A9rences-et-ressources">Références et ressources<a class="anchor-link" href="#R%C3%A9f%C3%A9rences-et-ressources">¶</a></h2><p>A gentle introduction to XML : <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html">http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html</a></p>
+<ul>
+<li>HAROLD, Elliotte Rusty, MEANS, W. Scott, ENSARGUET, Philippe [et al.], <a href="https://www.oreilly.com/library/view/xml-in-a/0596007647/"><em>XML en concentré</em></a>, Paris, O’Reilly, 2005.</li>
+</ul>
 <p>Coombs, James H, Renear, Allen H, et DeRose, Steven J. "Markup Systems and the Future of Scholarly Text Processing." Communications of the ACM 30, no. 11 (1987): 933-947.</p>
 <p>DeRose, Steven J., et al. “What Is Text, Really?” Journal of Computing in Higher Education, vol. 1, no. 2, Dec. 1990, pp. 3–26. Crossref, doi:10.1007/BF02941632</p>
-<p>XML.com <a href="https://www.xml.com">https://www.xml.com</a></p>
+<p>Alsacreation, <a href="https://www.alsacreations.com/article/lire/609-XML-en-quelques-mots.html">XML en quelques mots</a></p>
+<p>CAMPS, Jean-Baptiste, <a href="https://halshs.archives-ouvertes.fr/cel-01706530">Structuration des données et des documents : balisage XML</a></p>
+<p>CONSENTIN, Magali, <a href="http://magali.contensin.free.fr/html/XML/index.php">Cours XML</a>, 2007</p>
+<p>W3School, <a href="https://www.w3schools.com/xml/default.asp"><em>XML Tutorial</em></a></p>
+<p><em>Women Writers Online</em>, <a href="https://www.wwp.northeastern.edu/outreach/resources/tutorial_all.html"><em>TEI Tutorials</em></a></p>
 </div>
 </div>
 </div>

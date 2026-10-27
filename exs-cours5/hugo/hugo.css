@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-serif: 'Glass Antiqua', serif;
+  --font-sans: Montserrat, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-size-base: 20px;
+  --line-height-base: 1.6;
+  --color-background: #fcfcfb;
+  --color-text: #16161d;
+  --color-accent: #2fd3a6;
+}
+
+body,
+body > main {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  text-align: justify;
+  max-width: 1024px;
+  margin: auto;
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 3em;
+}
+
+.stdheader {
+  position: sticky;
+  top: 0;
+  height: 3em;
+  background-color: var(--color-background);
+  z-index: 10;
+}
+
+.stdheader h1 {
+  font-size: 1.5em;
+}
+
+.tei_front {
+  grid-column: 1;
+  .tei_toc {
+      position: sticky;
+      top: 7em;
+      border: 1px solid var(--color-text);
+      border-radius: 20px;
+      font-size: .8em;
+      padding: .5em;
+
+      ul.toc {
+        list-style:none;
+        padding-left:0;
+      }
+    }
+}
+
+.toc a {
+  font-family: var(--font-mono);
+}
+
+.toc a.active {
+  background: linear-gradient(transparent 50%, var(--color-accent) 50%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: underline var(--color-accent);
+}
+
+.stdfooter {
+  grid-column: 1 / span 2;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  text-align: left;
+}
+
+.chapter h1, 
+.chapter h2, 
+.chapter h3, 
+.chapter h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.chapter h2 .head:before {
+  content: "Chapitre ";
+  margin-left: -.5em;
+}
+
+.chapter h2 .head:after {
+  content: " ";
+}
+
+.chapter h2 {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+  padding-left: 1em;
+}
+
+main .chapter h2 {
+  position: inherit;
+}
+
+.chapter h2 .head {
+  color: #16161d;
+  background: linear-gradient(transparent 50%, var(--color-accent) 50%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+p,
+div.lg {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.tei_body {
+  width: minmax(40ch, 70ch);
+}
+
+p:has(+ div > .notelink), 
+p + div:has(> .notelink),
+div:has(> .notelink) + p {
+  display: inline;
+}
+
+.notes .note {
+  display: flex;
+  flex-direction: row;
+  gap: .5em;
+  font-size: .8em;
+  font-family: var(--font-mono);
+}
+
+.noteBody p {
+  margin: 0;
+}
+
+div.notes {
+  grid-column:2;
+}
+
+ul.toc ul.toc {
+  columns: 3;
+  column-width: 0em;
+  text-align: left;
+}
+
+blockquote {
+  padding-left: 2em;
+  font-size: .8em;
+}
+
+p .pagebreak {
+  display: inline;
+}
+
+.pagebreak {
+  text-transform: lowercase;
+  font-family: var(--font-mono);
+  font-weight: 200;
+  font-size: .8em;
+}
+
+.pagebreak::after {
+  content: ' ';
+}
+
+body > header {
+  grid-column: 1 / span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+}
+
+body > main {
+  grid-column: 1 / span 2;
+}
+
+@media (max-width: 960px) {
+  :root {
+    --font-size-base: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  .tei_front {
+    display: none;
+  }
+}

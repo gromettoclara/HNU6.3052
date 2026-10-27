@@ -1,0 +1,32 @@
+body {
+  font-family: Georgia, serif;
+  line-height: 1.6;
+  max-width: 40em;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+h1 {
+  font-size: 1.6em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin-top: 2em;
+}
+
+div {
+  margin-bottom: 1em;
+}
+
+.folio {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #8a5a2b;
+  margin-right: 0.5em;
+}
+
+.personne:hover {
+  background-color: yellow;
+}

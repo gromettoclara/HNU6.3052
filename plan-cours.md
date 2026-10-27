@@ -11,6 +11,24 @@ format:
 ---
 Contacts : Clara Grometto ([clara.grometto@umontreal.ca](clara.grometto@umontreal.ca)).
 
+## 🧭 S'orienter 
+
+1. Liens vers les slides 
+
+Cours 1 - Cours 2 - Cours 3 - Cours 4 - Cours 5 
+
+2. Exercices (lien vers le git)
+
+**Cours 2** : Édition des notes de Pierre Christofle
+
+**Cours 2** : _Le Cid_ - _La Cantilène d'Eulalie_ (texte + image) - Template pour le teiHeader
+
+**Cours 3** : Template teiHeader pour la description des sources manuscrites - [notice de catalogue de la BnF](https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d) et [notice de l’IRHT](https://jonas.irht.cnrs.fr/manuscrit/45533) du Manuscrit 412
+
+**Cours 4** : _Le Misanthrope_ - _Notre-Dame de Paris_ - _Sonnet d'automne_
+
+**Cours 5** : Journal de Jean Le Fèvre - Dossier _Journal d'un condamné_
+
 ## Objectifs de l'atelier
 
 **S'initier à la Text Encoding Initiative, un cadre de travail pour la production d’édition structurée fondé sur le langage de balisage XML (eXtended Markup Language)**
@@ -39,18 +57,18 @@ L’atelier se déroulera le mercredi de 12h30 à 15h30, du 4 novembre au 2 déc
 
 - présentation de la Text Encoding Initiative (TEI) ;
 - exercice de structuration de texte avec la TEI ;
+- TEI pour l'édition scientifique : modélisation de l'édition d'une source manuscrite ;
 
 ### Séance 3 - mercredi 18 novembre
 
+- application : modélisation de l'édition d'une source manuscrite (suite);
 - méthodes de travail avec la TEI, exploration des guidelines ;
-- TEI pour l'édition scientifique ;
-- application : modélisation de l'édition d'une source manuscrite ;
-- introduction à la notion de schémas ;
+- notion d'espace de nom ;
 
 ### Séance 4 - mercredi 25 novembre
 
 - XPath ;
-- notion de schéma, suite : technologies de validation ;
+- notion de schéma : technologies de validation ;
 - application : personnalisation de la TEI ;
 
 ### Séance 5 - mercredi 02 décembre
@@ -60,13 +78,13 @@ L’atelier se déroulera le mercredi de 12h30 à 15h30, du 4 novembre au 2 déc
 - bilan.
 
 ## Évaluation
+
 L’évaluation de l’atelier reposera sur des travaux pratiques d’encodage en XML/TEI :
 
-1. Exercice pratique d'encodage en XML réalisés en cours d'atelier (30%)
-2. Exercice d'édition critique d'une source manuscrite réalisée en cours d'atelier (30%)
-3. Exercice d'encodage et validation d'un texte de votre choix, validation sur schema, customisation de la TEI (40%)
+1. Deux exercices d'encodage en XML-TEI réalisés en cours d'atelier (_Le Cid_ et _La Cantilène d'Eulalie_) (60%). 
+2. Exercice d'encodage d'un texte de votre choix OU encodage de deux feuillets de l'_Oraison à Notre-Dame_ tirée du [_Livre de Christine_ de Christine de Pizan](https://gallica.bnf.fr/ark:/12148/btv1b60001038) (Bibliothèque nationale de France, manuscrit Français 12779) sur le modèle de l'exercice sur _La Cantilène de Sainte Eulalie_ (40%) à rendre le 06/01.
 
-## Orientations bibliographiques
+## Orientations bibliographiques principales
 
 [Burnard, Lou. 2015. « Introduction ». Dans *Qu’est-ce que la Text Encoding Initiative ?* traduit par Marjorie Burghart. OpenEdition Press.]([mettre le lien vers studium](https://books.openedition.org/oep/1297?lang=fr))
 
@@ -85,3 +103,6 @@ Ce cours ne nécessite aucune prérequis technique. Nous installerons ensemble l
 Au plaisir de faire votre connaissance.
 
 Clara
+
+## Références et ressources 
+
