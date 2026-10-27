@@ -17,17 +17,17 @@ Contacts : Clara Grometto ([clara.grometto@umontreal.ca](clara.grometto@umontrea
 
 Cours 1 - Cours 2 - Cours 3 - Cours 4 - Cours 5 
 
-2. Exercices (lien vers le git)
+2. Exercices ([lien vers le git](https://github.com/gromettoclara/HNU6.3052))
 
-**Cours 2** : Édition des notes de Pierre Christofle
+**Cours 1** : [Édition des notes de Pierre Christofle](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours1/Christofle-septembre2016.xml)
 
-**Cours 2** : _Le Cid_ - _La Cantilène d'Eulalie_ (texte + image) - Template pour le teiHeader
+**Cours 2** : [_Le Cid_](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/LeCid.txt) - _La Cantilène d'Eulalie_ ([texte](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/Eulalie_transcription.txt) + [image](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/Eulalie_numerisation.jpeg)) - [Template pour le teiHeader](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/header_template.xml)
 
-**Cours 3** : Template teiHeader pour la description des sources manuscrites - [notice de catalogue de la BnF](https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d) et [notice de l’IRHT](https://jonas.irht.cnrs.fr/manuscrit/45533) du Manuscrit 412
+**Cours 3** : [Template teiHeader](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours3/TEI_msDesc_template.xml) pour la description des sources manuscrites - [notice de catalogue de la BnF](https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d) et [notice de l’IRHT](https://jonas.irht.cnrs.fr/manuscrit/45533) du Manuscrit 412
 
-**Cours 4** : _Le Misanthrope_ - _Notre-Dame de Paris_ - _Sonnet d'automne_
+**Cours 4** : [_Notre-Dame de Paris_](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours4/Notre-Dame-de-Paris.xml) - [_Sonnet d'automne_](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours4/Sonnet_Automne_TEI.xml)
 
-**Cours 5** : Journal de Jean Le Fèvre - Dossier _Journal d'un condamné_
+**Cours 5** : [Journal de Jean Le Fèvre](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours5/journal-Lefevre.xml) - [Dossier _Journal d'un condamné_](https://github.com/gromettoclara/HNU6.3052/tree/main/exs-cours5/hugo)
 
 ## Objectifs de l'atelier
 
