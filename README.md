@@ -18,6 +18,10 @@
 
 **Cours 5** : [Journal de Jean Le Fèvre](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours5/journal-Lefevre.xml) - [Dossier _Journal d'un condamné_](https://github.com/gromettoclara/HNU6.3052/tree/main/exs-cours5/hugo)
 
+## Notes rédigées
+
+[Cours 1](https://github.com/gromettoclara/HNU6.3052/blob/main/notes-cours-1.pdf)
+
 ## Cheatsheet des commandes
 
 `pip install nbconvert`
