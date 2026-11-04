@@ -20,7 +20,7 @@
 
 3. Notes rédigées
 
-[Cours 1](https://github.com/gromettoclara/HNU6.3052/blob/main/notes-cours-1.pdf)
+[Cours 1](https://github.com/gromettoclara/HNU6.3052/blob/main/notes-cours-1.pdf) - [Cours 2](https://github.com/gromettoclara/HNU6.3052/blob/main/notes-cours-2.pdf)
 
 ## Cheatsheet des commandes
 
