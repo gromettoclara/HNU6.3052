@@ -7622,6 +7622,7 @@ biais d’un schéma de validation.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Aspect-modulaire">Aspect modulaire<a class="anchor-link" href="#Aspect-modulaire">¶</a></h2><p>Les Guidelines de la TEI définissent plusieurs centaines de concepts différents, avec les instructions détaillées sur les éléments qui peuvent être utilisés pour les représenter. La plupart des documents TEI n’a besoin que d’une petite partie de ce qui est fourni.</p>
 <p>Les projets d’encodage utilisent bien souvent un sous-ensemble très restreint de la TEI : une documentation restreignant l’ensemble utilisé peut être rédigée à l’aide d’outils comme <a href="https://roma.tei-c.org/">Roma</a>.</p>
+<p><code>Close Reading</code> vs. <code>Distant Reading</code> (par exemple <a href="https://github.com/ebalzac/FC/blob/gh-pages/balzac-11-FC-madame-firmiani.xml">eBalzac</a>)</p>
 <ul>
 <li><p><strong>Tei Lite</strong> = designed to meet 90% of the needs of 90% of the TEI user community</p>
 </li>
@@ -8092,7 +8093,7 @@ pour tous les appendices, épilogues, postface, etc.
 <li>Les divisions majeures (<code>&lt;div type="act"&gt;</code>, <code>&lt;div type="scene"&gt;</code>)</li>
 <li>didascalies ou indications scéniques (<code>&lt;stage&gt;</code>)<ul>
 <li>Les répliques des personnages à l'intérieur d'un élément <code>&lt;sp&gt;</code> (pour <em>speech</em>)</li>
-<li>L'attribut <code>who="..."</code> sur <code>&lt;sp&gt;</code> identifie le locuteur de façon normalisée (relié à l'identifiant @xml:id du rôle dans la distribution)<ul>
+<li>L'attribut <code>who="..."</code> sur <code>&lt;sp&gt;</code> identifie le locuteur de façon normalisée (relié à l'identifiant <code>@xml:id</code> du rôle dans la distribution)<ul>
 <li>L'élément <code>&lt;speaker&gt;</code> qui contient le nom du personnage tel qu'il apparaît avant sa réplique.</li>
 <li>Le texte de la réplique lui-même, généralement balisé en prose (<code>&lt;p&gt;</code>) ou en vers (<code>&lt;l&gt;</code> regroupés dans <code>&lt;lg&gt;</code>)</li>
 </ul>
@@ -8221,21 +8222,11 @@ pour tous les appendices, épilogues, postface, etc.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Exercice">Exercice<a class="anchor-link" href="#Exercice">¶</a></h2><p>👩🏻‍💻 Réalisez un encodage à partir du texte <a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/LeCid.txt"><code>LeCid.txt</code></a>. Il s'agit d'un texte mis à disposition sur <a href="http://www.theatre-classique.fr/pages/txt/CORNEILLEP_CID.txt">le site theatre-classique.fr au format txt</a>. Le texte est conforme à l'édition se situant dans les "Œuvres complètes de P. Corneille" revue et annotée par J. Taschereau, Paris : P. Jannet, 1857. Tome 2, pp 145-222. (cf. identifiant Gallica).</p>
 <ul>
-<li>En vous aidant de <a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/header_template.xml"><code>header_template.xml</code></a>, remplissez le <code>&lt;teiHeader&gt;</code>.</li>
-<li>En vous aidant des <a href="https://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite_fr.doc.html#vedr">Guidelines pour le théâtre</a> et de ce <a href="https://web.archive.org/web/20260223075359/https://teibyexample.org/exist/tutorials/TBED05v00.htm">Guide de bonnes pratiques</a> les premiers paragraphes de l'examen de la pièce, la liste des personnages et la première scène.</li>
+<li>En vous aidant de <a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/header_template.xml"><code>header_template.xml</code></a>, remplissez le <code>&lt;teiHeader&gt;</code> (mettez-vous dans la peau d'un·e encodeur·euse pour le projet théâtre-classique.fr)</li>
+<li>En vous aidant de <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-titlePage.html">la documentation de l'élément <code>&lt;titlePage&gt;</code></a>, encoder la page de titre retranscrite dans l'édition.</li>
+<li>En vous aidant des <a href="https://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite_fr.doc.html#vedr">Guidelines pour le théâtre</a> et de ce <a href="https://teibyexample.org/exist/tutorials/TBED05v00.htm">Guide de bonnes pratiques</a> les premiers paragraphes de l'examen de la pièce, la liste des personnages et la première scène.</li>
 <li>Créer un index des lieux dans le <code>&lt;profileDesc&gt;</code></li>
 </ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=edc78c2db95cf12e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Indices">Indices<a class="anchor-link" href="#Indices">¶</a></h2><p><a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-front.html">L'élément <code>&lt;front&gt;</code></a> peut contenir des éléments intéressant des modules <code>drama</code> et <code>textstructure</code>.</p>
 </div>
 </div>
 </div>
@@ -8469,7 +8460,7 @@ pour tous les appendices, épilogues, postface, etc.
 <h2 id="%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">👩🏻‍💻 Exercice<a class="anchor-link" href="#%F0%9F%91%A9%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-Exercice">¶</a></h2><ol>
 <li><p>Encodez les zones de l'image <a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/Eulalie_numerisation.jpeg"><code>eulalie_numerisation.jpg</code></a> avec TEI Zoner ou le mode Auteur d'Oxygen : une <code>&lt;zone&gt;</code> par ligne du manuscrit, avec des <code>xml:id</code> uniques (<code>l1</code>, <code>l2</code>…).</p>
 </li>
-<li><p>Puis encodez la transcription** (<a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/Eulalie_transcription.txt"><code>Eulalie_transcription.txt</code></a>) :</p>
+<li><p>Puis encodez la transcription (<a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours2/Eulalie_transcription.txt"><code>Eulalie_transcription.txt</code></a>) :</p>
 <ul>
 <li>regrouper les vers en strophes avec <code>&lt;lg&gt;</code> et encoder chaque vers avec <code>&lt;l&gt;</code> ;</li>
 <li>relier chaque ligne à sa zone du <code>&lt;facsimile&gt;</code> par une référence interne : <code>&lt;lg facs="#l1"/&gt;</code>.</li>

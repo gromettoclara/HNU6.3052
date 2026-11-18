@@ -15,11 +15,12 @@
 	DC.Type                   = text
 	DC.Format                 = text/txt
 	DC.Identifier             = http://www.theatre-classique.fr/pages/txt/CORNEILLEP_CID.txt
-	DC.Source                 = http://gallica.bnf.fr/ark:/12148/bpt6k70143z
-	DC.Source.cote            = BnF RLR Res. YF 5511-2
+	DC.Source                 = http://catalogue.bnf.fr/ark:/12148/cb30271301k
 	DC.Language scheme        = UTF-8 content=fr
 	DC.Rights                 = Théâtre Classique, (creative commons CC BY-NC-ND)
 ***************************************************************
+
+[Reproduction du frontispice de cette édition : https://gallica.bnf.fr/ark:/12148/bpt6k70143z]
 
 LE CID
 TRAGÉDIE
@@ -70,7 +71,7 @@ ELVIRE, gouvernante de Chimène.
 Un Page de l'Infante.
 La scène est à Séville.
 
-Le texte est conforme à l'édition se situant dans les "Oeuvres complètes de P. Corneille" revue et annotée par J. Taschereau, Paris : P. Jannet, 1857. Tome 2, pp 145-222.
+[Le texte est conforme à l'édition se situant dans les "Oeuvres complètes de P. Corneille" revue et annotée par J. Taschereau, Paris : P. Jannet, 1857. Tome 2, pp 145-222.]
 
 
 			ACTE I

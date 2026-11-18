@@ -190,7 +190,7 @@
                         <listPerson>
                               <person age="30" xml:id="p01" role="coordinator" sex="2">
                                     <persName>Bidule Trucmuche</persName>
-                                    <affiliation>École des chartes</affiliation>
+                                    <affiliation>Université de Tataouine</affiliation>
                                     <birth when="1972-10-20">Lieu ou information concernant sa naissance</birth>
                                     <education>Information sur ses études</education>
                                     <occupation>Information sur son occupation</occupation>
@@ -207,6 +207,21 @@
                         </keywords>
                         <classCode scheme="#DDC22">006</classCode>
                   </textClass>
+                  <creation> <!--contient des informations concernant la création d’un texte-->
+                        <date>1890</date>
+                        <country>France</country>
+                        <lang xml:lang="fr"/>
+                  </creation>
+                  <settingDesc>
+                        <listPlace>
+                              <place>
+                                    <placeName>
+                                    </placeName>
+                                    <country>
+                                    </country>
+                              </place>
+                        </listPlace>
+                  </settingDesc>
             </profileDesc>
 
             <!-- Historique des modifications apportés à l'encodage après sa version initiale -->
