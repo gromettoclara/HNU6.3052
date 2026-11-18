@@ -8384,15 +8384,15 @@ pour tous les appendices, épilogues, postface, etc.
 <h2 id="Caract%C3%A8res-non-standards">Caractères non standards<a class="anchor-link" href="#Caract%C3%A8res-non-standards">¶</a></h2><div class="highlight"><pre><span></span><span class="nt">&lt;teiHeader&gt;</span>
 <span class="w">  </span><span class="nt">&lt;encodingDesc&gt;</span>
 <span class="w">    </span><span class="nt">&lt;charDecl&gt;</span>
-<span class="w">      </span><span class="nt">&lt;glyph</span><span class="w"> </span><span class="na">xml:id=</span><span class="s">"et-tironien"</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;desc&gt;</span>Note<span class="w"> </span>tironienne<span class="w"> </span>pour<span class="w"> </span>«<span class="w"> </span>et<span class="w"> </span>»<span class="nt">&lt;/desc&gt;</span>
+<span class="w">      </span><span class="nt">&lt;glyph</span><span class="w"> </span><span class="na">xml:id=</span><span class="s">"g_r_rotunda"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;glyphName&gt;</span>R<span class="w"> </span>rotunda<span class="nt">&lt;/glyphName&gt;</span>
+<span class="w">        </span><span class="nt">&lt;graphic</span><span class="w"> </span><span class="na">url=</span><span class="s">"glyphes/r_rotunda.svg"</span><span class="nt">/&gt;</span>
 <span class="w">      </span><span class="nt">&lt;/glyph&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/charDecl&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/encodingDesc&gt;</span>
 <span class="nt">&lt;/teiHeader&gt;</span>
-
-<span class="nt">&lt;p&gt;</span>pain<span class="w"> </span><span class="nt">&lt;g</span><span class="w"> </span><span class="na">ref=</span><span class="s">"#et-tironien"</span><span class="nt">&gt;</span>⁊<span class="nt">&lt;/g&gt;</span><span class="w"> </span>vin<span class="nt">&lt;/p&gt;</span>
 </pre></div>
+<p><code>&lt;p&gt;… &lt;g ref="#g_r_rotunda"/&gt;&lt;/p&gt;</code></p>
 </div>
 </div>
 </div>
@@ -8438,8 +8438,8 @@ pour tous les appendices, épilogues, postface, etc.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="La-description-des-mains">La description des mains<a class="anchor-link" href="#La-description-des-mains">¶</a></h2><p><code>&lt;@hand&gt;</code> dans le corps du texte <body> <code>&lt;@handDesc&gt;</code> et ses sous-éléments dans le <code>&lt;teiHeader&gt;</code></body></p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;handDesc&gt;</span>xml
+<h2 id="La-description-des-mains">La description des mains<a class="anchor-link" href="#La-description-des-mains">¶</a></h2><p><code>&lt;hand&gt;</code> dans le corps du texte <body> <code>&lt;handDesc&gt;</code> et ses sous-éléments dans le <code>&lt;teiHeader&gt;</code></body></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;handDesc&gt;</span>
 <span class="w">  </span><span class="nt">&lt;handNote</span><span class="w"> </span><span class="na">xml:id=</span><span class="s">"c2Hand1"</span><span class="w"> </span><span class="na">scope=</span><span class="s">"major"</span><span class="nt">&gt;</span>à<span class="w"> </span>l’encre<span class="w"> </span>noire<span class="nt">&lt;/handNote&gt;</span>
 <span class="w">  </span><span class="nt">&lt;handNote</span><span class="w"> </span><span class="na">xml:id=</span><span class="s">"c2Hand2"</span><span class="w"> </span><span class="na">scope=</span><span class="s">"minor"</span><span class="nt">&gt;</span>au<span class="w"> </span>crayon<span class="nt">&lt;/handNote&gt;</span>
 <span class="nt">&lt;/handDesc&gt;</span>
