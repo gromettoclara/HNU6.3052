@@ -1,5 +1,7 @@
 # HNU6.3052
 
+[Le syllabus est ici !](https://gromettoclara.github.io/HNU6.3052/plan-cours.html)
+
 ## 🧭 S'orienter 
 
 1. Liens vers les slides 
@@ -20,7 +22,7 @@
 
 3. Notes rédigées
 
-[Cours 1](https://github.com/gromettoclara/HNU6.3052/blob/main/notes-cours-1.pdf) - [Cours 2](https://github.com/gromettoclara/HNU6.3052/blob/main/notes-cours-2.pdf)
+[Cours 1](https://gromettoclara.github.io/HNU6.3052/notes-cours-1.html) - [Cours 2](https://gromettoclara.github.io/HNU6.3052/notes-cours-2.html) - [Cours 3](https://gromettoclara.github.io/HNU6.3052/notes-cours-3.html)
 
 ## Cheatsheet des commandes
 

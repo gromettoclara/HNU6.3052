@@ -28,6 +28,10 @@ Contacts : Clara Grometto ([clara.grometto@umontreal.ca](clara.grometto@umontrea
 
 [Cours 1](https://gromettoclara.github.io/HNU6.3052/cours1.slides.html#/) - [Cours 2](https://gromettoclara.github.io/HNU6.3052/cours2.slides.html#/) - [Cours 3](https://gromettoclara.github.io/HNU6.3052/cours3.slides.html#/) - [Cours 4](https://gromettoclara.github.io/HNU6.3052/cours4.slides.html#/) - [Cours 5 ](https://gromettoclara.github.io/HNU6.3052/cours5.slides.html#/)
 
+### Notes de cours rédigées
+
+[Cours 1](https://gromettoclara.github.io/HNU6.3052/notes-cours-1.html) - [Cours 2](https://gromettoclara.github.io/HNU6.3052/notes-cours-2.html) - [Cours 3](https://gromettoclara.github.io/HNU6.3052/notes-cours-3.html)
+
 ### Exercices ([lien vers le git](https://github.com/gromettoclara/HNU6.3052))
 
 **Cours 1** : [Édition des notes de Pierre Christofle](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours1/Christofle-septembre2016.xml)

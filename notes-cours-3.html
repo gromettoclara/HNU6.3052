@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.13">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Atelier 3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="notes-cours-3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="notes-cours-3_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="notes-cours-3_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="notes-cours-3_files/libs/quarto-html/popper.min.js"></script>
+<script src="notes-cours-3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="notes-cours-3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="notes-cours-3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="notes-cours-3_files/libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="notes-cours-3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="notes-cours-3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="notes-cours-3_files/libs/bootstrap/bootstrap-1405b8c1d8c6c378c47ed388caada894.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#partie-1-édition-paléographique-suite-tei-pour-la-description-des-sources-manuscrites" id="toc-partie-1-édition-paléographique-suite-tei-pour-la-description-des-sources-manuscrites" class="nav-link active" data-scroll-target="#partie-1-édition-paléographique-suite-tei-pour-la-description-des-sources-manuscrites">Partie 1 : édition paléographique (suite), TEI pour la description des sources manuscrites</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#msddesc-lélément-englobant" id="toc-msddesc-lélément-englobant" class="nav-link" data-scroll-target="#msddesc-lélément-englobant"><code>&lt;msdDesc&gt;</code>, l’élément englobant</a></li>
+  <li><a href="#msdindentifier" id="toc-msdindentifier" class="nav-link" data-scroll-target="#msdindentifier"><code>&lt;msdIndentifier&gt;</code></a></li>
+  <li><a href="#décrire-les-contenus-mscontents-mspart-msfrag" id="toc-décrire-les-contenus-mscontents-mspart-msfrag" class="nav-link" data-scroll-target="#décrire-les-contenus-mscontents-mspart-msfrag">Décrire les contenus : <code>&lt;msContents&gt;</code>, <code>&lt;msPart&gt;</code>, <code>&lt;msFrag&gt;</code></a></li>
+  <li><a href="#description-matérielle-du-document-le-physdesc" id="toc-description-matérielle-du-document-le-physdesc" class="nav-link" data-scroll-target="#description-matérielle-du-document-le-physdesc">Description matérielle du document : le <code>&lt;physDesc&gt;</code></a></li>
+  <li><a href="#histoire-et-transmission-du-manuscrit-le-history" id="toc-histoire-et-transmission-du-manuscrit-le-history" class="nav-link" data-scroll-target="#histoire-et-transmission-du-manuscrit-le-history">Histoire et transmission du manuscrit : le <code>&lt;history&gt;</code></a></li>
+  <li><a href="#structurer-un-biblstruct" id="toc-structurer-un-biblstruct" class="nav-link" data-scroll-target="#structurer-un-biblstruct">Structurer un <code>&lt;biblStruct&gt;</code></a></li>
+  </ul></li>
+  <li><a href="#partie-2-sautonomiser-avec-la-tei" id="toc-partie-2-sautonomiser-avec-la-tei" class="nav-link" data-scroll-target="#partie-2-sautonomiser-avec-la-tei">Partie 2 : s’autonomiser avec la TEI</a>
+  <ul class="collapse">
+  <li><a href="#un-exemple-de-workflow-avec-la-tei" id="toc-un-exemple-de-workflow-avec-la-tei" class="nav-link" data-scroll-target="#un-exemple-de-workflow-avec-la-tei">Un exemple de workflow avec la TEI</a></li>
+  <li><a href="#se-repérer-dans-les-guidelines" id="toc-se-repérer-dans-les-guidelines" class="nav-link" data-scroll-target="#se-repérer-dans-les-guidelines">Se repérer dans les guidelines</a></li>
+  <li><a href="#att.class" id="toc-att.class" class="nav-link" data-scroll-target="#att.class"><code>att.class</code></a></li>
+  <li><a href="#model.class" id="toc-model.class" class="nav-link" data-scroll-target="#model.class"><code>model.class</code></a></li>
+  <li><a href="#les-macros" id="toc-les-macros" class="nav-link" data-scroll-target="#les-macros">Les macros</a></li>
+  <li><a href="#récap-1" id="toc-récap-1" class="nav-link" data-scroll-target="#récap-1">Récap</a></li>
+  <li><a href="#maîtriser-les-espaces-de-noms" id="toc-maîtriser-les-espaces-de-noms" class="nav-link" data-scroll-target="#maîtriser-les-espaces-de-noms">Maîtriser les espaces de noms</a></li>
+  </ul></li>
+  <li><a href="#références-et-ressources" id="toc-références-et-ressources" class="nav-link" data-scroll-target="#références-et-ressources">Références et ressources</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="notes-cours-3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Atelier 3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="partie-1-édition-paléographique-suite-tei-pour-la-description-des-sources-manuscrites" class="level2">
+<h2 class="anchored" data-anchor-id="partie-1-édition-paléographique-suite-tei-pour-la-description-des-sources-manuscrites">Partie 1 : édition paléographique (suite), TEI pour la description des sources manuscrites</h2>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>Après avoir encodé le texte d’un manuscrit (lignes, zones, graphies, abréviations), il faut décrire <strong>le manuscrit lui-même</strong> : où il est conservé, ce qu’il contient, de quand il date, d’où il vient. Cette description est indispensable pour situer l’édition et permettre aux chercheurs de retrouver et d’identifier la source.</p>
+<p>Deux approches :</p>
+<ul>
+<li><strong>XML-EAD</strong> (<em>Encoded Archival Description</em>) : standard des archives et des bibliothèques pour décrire des <strong>fonds</strong> et des <strong>collections</strong>. Il privilégie une description hiérarchique (fonds, séries, pièces) à des fins d’inventaire et de recherche documentaire.</li>
+</ul>
+<p>Mais le standard présente des limites :</p>
+<blockquote class="blockquote">
+<p>La nécessité d’une arborescence est moindre pour ces documents que pour des ensembles d’archives, et la sémantique EAD n’est pas aussi développée que celle de la TEI-P5, utilisée pour les manuscrits médiévaux dans plusieurs pays d’Europe. “<a href="http://conference.ifla.org/past/2012/212-palluault-fr.pdf">Informatiser des descriptions complexes : l’utilisation de l’EAD et de la TEI pour les manuscrits et les livres anciens en France</a>”, IFLA 2012 (Helsinki)</p>
+</blockquote>
+<ul>
+<li><strong>TEI (module <em>manuscript description</em>)</strong> : extension de la TEI qui convient mieux à l’étude <strong>savante</strong> d’un objet particulier (contenu, support, écriture, histoire) et permet d’avoir ces informations dans le même fichier que l’édition du texte.</li>
+</ul>
+</section>
+<section id="msddesc-lélément-englobant" class="level3">
+<h3 class="anchored" data-anchor-id="msddesc-lélément-englobant"><code>&lt;msdDesc&gt;</code>, l’élément englobant</h3>
+<p>L’élément <code>msDesc</code> se trouve dans le <code>sourceDesc</code>. Il contient :</p>
+<ul>
+<li><code>&lt;msIdentifier&gt;</code> Identification du manuscrit (cote, lieu de conservation, etc.). Seul élément obligatoire</li>
+<li><code>&lt;msContent&gt;</code> Détails sur le contenu intellectuel du manuscrit</li>
+<li><code>&lt;physDesc&gt;</code> Description de la matérialité du manuscrit</li>
+<li><code>&lt;history&gt;</code> Renseignements sur la provenance et l’histoire de la transmission du manuscrit</li>
+</ul>
+</section>
+<section id="msdindentifier" class="level3">
+<h3 class="anchored" data-anchor-id="msdindentifier"><code>&lt;msdIndentifier&gt;</code></h3>
+<ul>
+<li>Contient les informations pour une identification non ambigüe du manuscrit</li>
+<li>Premier élément (et seul obligatoire) du msDesc</li>
+</ul>
+<p><strong>Quelques éléments du <code>&lt;msIdentifier&gt;</code></strong></p>
+<ul>
+<li><code>&lt;idno&gt;</code> Identifiant du manuscrit (cote généralement)</li>
+<li><code>&lt;repository&gt;</code> Instance de conservation</li>
+<li><code>&lt;msName&gt;</code> Titre du manuscrit</li>
+<li><code>&lt;altIdentifier&gt;</code> Autre identifiant (ancienne cote ou id numérique)</li>
+</ul>
+<p>Le <code>&lt;head&gt;</code> (facultatif : à mettre au même niveau que le <code>&lt;msIdentifier&gt;</code>). Contient tout type d’en-tête concernant le manuscrit à décrire, il est courant d’y voir figurer le titre (<code>&lt;title&gt;</code>) et la date (<code>&lt;origDate&gt;</code>) de l’ouvrage. Il est utilisé davantage pour l’intitulé du manuscrit que pour son identification univoque.</p>
+<!--
+## 👩🏻‍💻 Exercice
+
+À partir de la [notice de catalogue du Manuscrit 412](https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d) et du [template fourni](https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours3/TEI_msDesc_template.xml), renseignez le `<msIdentifier>` et le `<head>`
+-->
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> [...]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">head</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> [...]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">head</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="décrire-les-contenus-mscontents-mspart-msfrag" class="level3">
+<h3 class="anchored" data-anchor-id="décrire-les-contenus-mscontents-mspart-msfrag">Décrire les contenus : <code>&lt;msContents&gt;</code>, <code>&lt;msPart&gt;</code>, <code>&lt;msFrag&gt;</code></h3>
+<p>Ces éléments appartiennent à <code>&lt;msDesc&gt;</code> (description de manuscrit, dans <code>&lt;sourceDesc&gt;</code>). Ils permettent de décrire le <strong>contenu</strong> d’un manuscrit et de gérer les cas où celui-ci n’est pas une unité simple.</p>
+<section id="mscontents" class="level4">
+<h4 class="anchored" data-anchor-id="mscontents"><code>&lt;msContents&gt;</code></h4>
+<p>Décrit le contenu intellectuel du manuscrit ou d’une partie du manuscrit, soit en une série de paragraphes <code>&lt;p&gt;</code> contenant de la prose courante, soit sous une forme plus structurée, comprenant plusieurs <code>&lt;msItem&gt;</code> pour les différentes parties du manuscrit.</p>
+<p>Ses principaux éléments enfants sont :</p>
+<ul>
+<li><code>&lt;summary&gt;</code> Résumé global du contenu du manuscrit, possiblement structuré en table des matières indiquant avec locus les différentes parties ⇒ Utile pour détailler l’ensemble du manuscrit</li>
+<li><code>&lt;msItem&gt;</code> Permet de décrire une partie du manuscrit constituant une unité cohérente de contenu. Les items peuvent être imbriqués (noter l’existence de <code>&lt;msItemStruct&gt;</code>)</li>
+<li><code>&lt;titlePage&gt;</code> Description du contenu de la page de titre (rappelez-vous, on a déjà décrit la page de titre du <em>Cid</em> dans un <code>&lt;front&gt;</code>)</li>
+</ul>
+<section id="summary" class="level5">
+<h5 class="anchored" data-anchor-id="summary">summary</h5>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">msContents</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">summary</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">locus</span><span class="ot"> from=</span><span class="st">"1r"</span><span class="ot"> to=</span><span class="st">"2v"</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    Première partie du manuscrit</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">locus</span>&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">locus</span><span class="ot"> from=</span><span class="st">"3r"</span><span class="ot"> to=</span><span class="st">"18v"</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    Seconde partie du manuscrit</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">locus</span>&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">summary</span>&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">msContents</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="msitem" class="level5">
+<h5 class="anchored" data-anchor-id="msitem">msItem</h5>
+<p>Il décrit un regroupement de textes contenus dans le manuscrit. Chaque œuvre ou section est décrite soit par du texte libre dans des <code>&lt;p&gt;</code>, soit par un <code>&lt;msItem&gt;</code> (avec <code>@n</code> pour l’ordre), contenant par exemple <code>&lt;locus&gt;</code> (folios), <code>&lt;author&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;incipit&gt;</code>, <code>&lt;explicit&gt;</code>, <code>&lt;textLang&gt;</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">msDesc</span>&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">settlement</span>&gt;Valenciennes&lt;/<span class="kw">settlement</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">repository</span>&gt;Bibliothèque municipale&lt;/<span class="kw">repository</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">idno</span>&gt;Ms. 150&lt;/<span class="kw">idno</span>&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msContents</span>&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msItem</span><span class="ot"> n=</span><span class="st">"1"</span>&gt;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">locus</span><span class="ot"> from=</span><span class="st">"141r"</span><span class="ot"> to=</span><span class="st">"141v"</span>&gt;ff. 141r-141v&lt;/<span class="kw">locus</span>&gt;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">title</span>&gt;Séquence de sainte Eulalie&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">textLang</span><span class="ot"> mainLang=</span><span class="st">"fro"</span>&gt;Ancien français&lt;/<span class="kw">textLang</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">msItem</span>&gt;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msItem</span><span class="ot"> n=</span><span class="st">"2"</span>&gt;</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">locus</span>&gt;f. 141v&lt;/<span class="kw">locus</span>&gt;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">title</span>&gt;Ludwigslied&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">textLang</span><span class="ot"> mainLang=</span><span class="st">"goh"</span>&gt;Vieux haut allemand&lt;/<span class="kw">textLang</span>&gt;</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">msItem</span>&gt;</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">msContents</span>&gt;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">msDesc</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>&lt;msItem&gt;</code> peut être <strong>imbriqué</strong> (par exemple pour un recueil contenant des sections, elles-mêmes divisées en textes).</p>
+</section>
+</section>
+<section id="mspart-un-manuscrit-composite" class="level4">
+<h4 class="anchored" data-anchor-id="mspart-un-manuscrit-composite"><code>&lt;msPart&gt;</code> : un manuscrit composite</h4>
+<p>Un manuscrit est parfois formé de plusieurs unités d’origine différente, <strong>reliées ensemble après coup</strong> (recueil factice). Chaque partie a sa propre description : identifiant, contenu, support, date, origine.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">msDesc</span>&gt;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msIdentifier</span>&gt;…&lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msPart</span>&gt;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msIdentifier</span>&gt;&lt;<span class="kw">idno</span>&gt;Partie A&lt;/<span class="kw">idno</span>&gt;&lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msContents</span>&gt;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">msItem</span>&gt;&lt;<span class="kw">title</span>&gt;Texte latin&lt;/<span class="kw">title</span>&gt;&lt;/<span class="kw">msItem</span>&gt;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">msContents</span>&gt;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">history</span>&gt;&lt;<span class="kw">origin</span>&gt;&lt;<span class="kw">origDate</span>&gt;IXe s.&lt;/<span class="kw">origDate</span>&gt;&lt;/<span class="kw">origin</span>&gt;&lt;/<span class="kw">history</span>&gt;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">msPart</span>&gt;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msPart</span>&gt;</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msIdentifier</span>&gt;&lt;<span class="kw">idno</span>&gt;Partie B&lt;/<span class="kw">idno</span>&gt;&lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msContents</span>&gt;</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">msItem</span>&gt;&lt;<span class="kw">title</span>&gt;Texte en langue romane&lt;/<span class="kw">title</span>&gt;&lt;/<span class="kw">msItem</span>&gt;</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">msContents</span>&gt;</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">history</span>&gt;&lt;<span class="kw">origin</span>&gt;&lt;<span class="kw">origDate</span>&gt;XIe s.&lt;/<span class="kw">origDate</span>&gt;&lt;/<span class="kw">origin</span>&gt;&lt;/<span class="kw">history</span>&gt;</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">msPart</span>&gt;</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">msDesc</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="msfrag-un-manuscrit-fragmentaire" class="level4">
+<h4 class="anchored" data-anchor-id="msfrag-un-manuscrit-fragmentaire"><code>&lt;msFrag&gt;</code> : un manuscrit fragmentaire</h4>
+<p>Il décrit les <strong>fragments dispersés</strong> d’un même manuscrit d’origine, aujourd’hui conservés séparément (parfois dans des bibliothèques différentes). Sa structure est la même que celle de <code>&lt;msPart&gt;</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">msDesc</span>&gt;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msName</span>&gt;Évangéliaire de l'abbaye X (reconstitué)&lt;/<span class="kw">msName</span>&gt;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msFrag</span>&gt;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">settlement</span>&gt;Paris&lt;/<span class="kw">settlement</span>&gt;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">repository</span>&gt;BnF&lt;/<span class="kw">repository</span>&gt;</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">idno</span>&gt;Fragment 1&lt;/<span class="kw">idno</span>&gt;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msContents</span>&gt;&lt;<span class="kw">msItem</span>&gt;&lt;<span class="kw">title</span>&gt;Évangile de Matthieu&lt;/<span class="kw">title</span>&gt;&lt;/<span class="kw">msItem</span>&gt;&lt;/<span class="kw">msContents</span>&gt;</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">msFrag</span>&gt;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">msFrag</span>&gt;</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">settlement</span>&gt;Lyon&lt;/<span class="kw">settlement</span>&gt;</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">repository</span>&gt;Bibliothèque municipale&lt;/<span class="kw">repository</span>&gt;</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">idno</span>&gt;Fragment 2&lt;/<span class="kw">idno</span>&gt;</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">msIdentifier</span>&gt;</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">msContents</span>&gt;&lt;<span class="kw">msItem</span>&gt;&lt;<span class="kw">title</span>&gt;Évangile de Marc&lt;/<span class="kw">title</span>&gt;&lt;/<span class="kw">msItem</span>&gt;&lt;/<span class="kw">msContents</span>&gt;</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">msFrag</span>&gt;</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">msDesc</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="récap" class="level4">
+<h4 class="anchored" data-anchor-id="récap">Récap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Emploi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;msContents&gt;</code></td>
+<td>décrit les textes d’un manuscrit (via <code>&lt;msItem&gt;</code>)</td>
+</tr>
+<tr class="even">
+<td><code>&lt;msPart&gt;</code></td>
+<td>parties d’origine distincte réunies dans <strong>un même volume</strong></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;msFrag&gt;</code></td>
+<td>fragments <strong>dispersés</strong> d’un même manuscrit d’origine</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attention :</strong> <code>&lt;msPart&gt;</code> et <code>&lt;msFrag&gt;</code> ne se combinent pas avec <code>&lt;msContents&gt;</code>.</p>
+<!--
+## Exercice 
+
+À l’aide de la [notice de catalogue BnF](https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d) du Manuscrit 412 et de la [notice de l’IRHT](https://jonas.irht.cnrs.fr/manuscrit/45533), renseignez dans le summary à l’aide de d’ éléments locus, les grandes parties du manuscrit (Calendrier en latin, Légendes de saints, « Li Bestiaires », « La Response […] »)
+
+À l’aide de la [notice de l’IRHT](https://jonas.irht.cnrs.fr/manuscrit/45533) (Contenu), renseignez le msItem concernant une des vies des Saints
+
+```
+<msContents>
+ <msItem>
+   [...]
+  </msItem>
+</msContents>
+```
+-->
+</section>
+</section>
+<section id="description-matérielle-du-document-le-physdesc" class="level3">
+<h3 class="anchored" data-anchor-id="description-matérielle-du-document-le-physdesc">Description matérielle du document : le <code>&lt;physDesc&gt;</code></h3>
+<p>Le physDesc contient la description physique partielle ou complète du manuscrit, éventuellement structurée en utilisant <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-model.physDescPart.html">des éléments spécialisés</a>.</p>
+<p>Ses principaux éléments enfants sont :</p>
+<ul>
+<li><code>&lt;objectDesc&gt;</code> Description globale de l’objet en cours de description (dimension, type de support, etc.)</li>
+<li><code>&lt;handDesc&gt;</code> Description des mains intervenants dans le manuscrit</li>
+<li><code>&lt;decoDesc&gt;</code> Description des éléments décoratifs, notamment des enluminures</li>
+<li><code>&lt;bindingDesc&gt;</code> Description de la reliure et éventuellement ses précédentes reliures</li>
+</ul>
+<!--
+## Exercice
+
+À l’aide de la notice de l’IRHT (Description), renseignez l’`<objectDesc>`.
+
+```
+objectDesc
+<objectDesc>
+ <supportDesc>[...]</supportDesc>
+ <layoutDesc>[...]</layoutDesc>
+</objectDesc>
+```
+-->
+</section>
+<section id="histoire-et-transmission-du-manuscrit-le-history" class="level3">
+<h3 class="anchored" data-anchor-id="histoire-et-transmission-du-manuscrit-le-history">Histoire et transmission du manuscrit : le <code>&lt;history&gt;</code></h3>
+<p>Rassemble les éléments servant à donner un historique partiel ou complet du manuscrit, notamment à travers des informations sur son parcours depuis sa création.</p>
+<p>Ses principaux éléments enfants sont :</p>
+<ul>
+<li><code>&lt;origin&gt;</code> Information sur le contexte et les circonstances de création du manuscrit</li>
+<li><code>&lt;provenance&gt;</code> Information sur un épisode précis du manuscrit, entre sa création et son acquisition</li>
+<li><code>&lt;acquisition&gt;</code> Information sur les circonstances de l’entrée du manuscrit dans l’institution qui le détient</li>
+</ul>
+<!--
+## Exercice
+
+À l’aide de la notice de l’IRHT (Histoire du (des) volume(s)), renseignez le `<history>`
+-->
+<div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">history</span>&gt;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">origin</span>&gt;[…]&lt;/<span class="kw">origin</span>&gt;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">provenance</span>&gt;[…]&lt;/<span class="kw">provenance</span>&gt;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">acquisition</span>&gt;[…]&lt;/<span class="kw">acquisition</span>&gt;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">history</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>L’élément <code>&lt;provenance&gt;</code> peut contenir des références bibliographiques plus ou moins structurées.</p>
+</section>
+<section id="structurer-un-biblstruct" class="level3">
+<h3 class="anchored" data-anchor-id="structurer-un-biblstruct">Structurer un <code>&lt;biblStruct&gt;</code></h3>
+<p><code>&lt;biblStruct&gt;</code> décrit une référence bibliographique de façon <strong>structurée</strong>. Il se place généralement dans <code>&lt;sourceDesc&gt;</code> ou dans une <code>&lt;listBibl&gt;</code>. En l’occurence, pour nos descriptions de manuscrit, on peut insérer une <code>&lt;listBibl&gt;</code> dans l’élément <code>&lt;provenance&gt;</code> pour sourcer l’histoire du manuscrit.</p>
+<section id="les-trois-niveaux" class="level4">
+<h4 class="anchored" data-anchor-id="les-trois-niveaux">Les trois niveaux</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Niveau</th>
+<th>Contenu</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;analytic&gt;</code></td>
+<td>partie d’un ensemble (article, chapitre)</td>
+<td>l’article lui-même</td>
+</tr>
+<tr class="even">
+<td><code>&lt;monogr&gt;</code></td>
+<td>publication qui contient l’élément, ou livre complet</td>
+<td>le livre, la revue</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;series&gt;</code></td>
+<td>collection dans laquelle paraît la publication</td>
+<td>« Bibliothèque de l’École des chartes »</td>
+</tr>
+</tbody>
+</table>
+<p>On insère des informations dans chacun des niveaux. Les trois niveaux peuvent avoir un élément <code>&lt;title&gt;</code>, qui prend alors un attribut <code>@level</code> dont la valeur peut être : <code>a</code> (analytique : article, chapitre), <code>m</code> (monographie), <code>j</code> (revue), <code>s</code> (collection).</p>
+<p>L’ordre des éléments est fixe <code>&lt;analytic&gt;</code> → <code>&lt;monogr&gt;</code> → <code>&lt;series&gt;</code> (plus plus profond au plus englobant). <code>&lt;monogr&gt;</code> contient un élément <code>&lt;imprint&gt;</code> qui contient la plupart des informations concernant la monographie ou le numéro de revue, par exemple <code>&lt;biblScope&gt;</code> pour situer la <em>partie</em> dans le <em>tout</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/biblstruct_structure.png" class="img-fluid figure-img"></p>
+<figcaption>Structure des <code>&lt;biblstruct&gt;</code></figcaption>
+</figure>
+</div>
+</section>
+<section id="pour-un-livre" class="level4">
+<h4 class="anchored" data-anchor-id="pour-un-livre">Pour un livre</h4>
+<p>Pour citer une monographie dans son entièreté, pas besoin d’<code>&lt;analytic&gt;</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">biblStruct</span>&gt;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">monogr</span>&gt;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">author</span>&gt;</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">persName</span>&gt;&lt;<span class="kw">surname</span>&gt;Zink&lt;/<span class="kw">surname</span>&gt;, &lt;<span class="kw">forename</span>&gt;Michel&lt;/<span class="kw">forename</span>&gt;&lt;/<span class="kw">persName</span>&gt;</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">author</span>&gt;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span><span class="ot"> level=</span><span class="st">"m"</span>&gt;Introduction à la littérature française du Moyen Âge&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">imprint</span>&gt;</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">pubPlace</span>&gt;Paris&lt;/<span class="kw">pubPlace</span>&gt;</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">publisher</span>&gt;Le Livre de Poche&lt;/<span class="kw">publisher</span>&gt;</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">date</span><span class="ot"> when=</span><span class="st">"1993"</span>&gt;1993&lt;/<span class="kw">date</span>&gt;</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">imprint</span>&gt;</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">monogr</span>&gt;</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">series</span>&gt;</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span><span class="ot"> level=</span><span class="st">"s"</span>&gt;Références&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">series</span>&gt;</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">biblStruct</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pour-un-article-de-revue" class="level4">
+<h4 class="anchored" data-anchor-id="pour-un-article-de-revue">Pour un article de revue</h4>
+<p>L’<code>&lt;analytic&gt;</code> décrit l’article, le <code>&lt;monogr&gt;</code> décrit la revue qui le contient.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">biblStruct</span>&gt;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">analytic</span>&gt;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">author</span>&gt;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">persName</span>&gt;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">surname</span>&gt;Cerquiglini&lt;/<span class="kw">surname</span>&gt;, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">forename</span>&gt;Bernard&lt;/<span class="kw">forename</span>&gt;</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">persName</span>&gt;</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">author</span>&gt;</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span><span class="ot"> level=</span><span class="st">"a"</span>&gt;Éloge de la variante&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">analytic</span>&gt;</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">monogr</span>&gt;</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span><span class="ot"> level=</span><span class="st">"j"</span>&gt;Langue française&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">imprint</span>&gt;</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">biblScope</span><span class="ot"> unit=</span><span class="st">"volume"</span>&gt;40&lt;/<span class="kw">biblScope</span>&gt;</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">biblScope</span><span class="ot"> unit=</span><span class="st">"page"</span><span class="ot"> from=</span><span class="st">"25"</span><span class="ot"> to=</span><span class="st">"40"</span>&gt;p. 25-40&lt;/<span class="kw">biblScope</span>&gt;</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">date</span><span class="ot"> when=</span><span class="st">"1983"</span>&gt;1983&lt;/<span class="kw">date</span>&gt;</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">imprint</span>&gt;</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">monogr</span>&gt;</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">biblStruct</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pour-un-chapitre-dans-un-ouvrage-collectif" class="level4">
+<h4 class="anchored" data-anchor-id="pour-un-chapitre-dans-un-ouvrage-collectif">Pour un chapitre dans un ouvrage collectif</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">biblStruct</span>&gt;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">analytic</span>&gt;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">author</span>&gt;&lt;<span class="kw">persName</span>&gt;&lt;<span class="kw">surname</span>&gt;Dupont&lt;/<span class="kw">surname</span>&gt;&lt;/<span class="kw">persName</span>&gt;&lt;/<span class="kw">author</span>&gt;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span><span class="ot"> level=</span><span class="st">"a"</span>&gt;Le manuscrit de Valenciennes&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">analytic</span>&gt;</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">monogr</span>&gt;</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">editor</span>&gt;&lt;<span class="kw">persName</span>&gt;&lt;<span class="kw">surname</span>&gt;Martin&lt;/<span class="kw">surname</span>&gt;&lt;/<span class="kw">persName</span>&gt;&lt;/<span class="kw">editor</span>&gt;</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span><span class="ot"> level=</span><span class="st">"m"</span>&gt;Les premiers textes romans&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">imprint</span>&gt;</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">pubPlace</span>&gt;Lyon&lt;/<span class="kw">pubPlace</span>&gt;</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">publisher</span>&gt;Presses universitaires&lt;/<span class="kw">publisher</span>&gt;</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">date</span><span class="ot"> when=</span><span class="st">"2005"</span>&gt;2005&lt;/<span class="kw">date</span>&gt;</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">imprint</span>&gt;</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">monogr</span>&gt;</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">biblStruct</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="règles-à-retenir" class="level4">
+<h4 class="anchored" data-anchor-id="règles-à-retenir">Règles à retenir</h4>
+<ul>
+<li><code>&lt;analytic&gt;</code> est <strong>facultatif</strong> : il n’apparaît que pour un article ou un chapitre.</li>
+<li><code>&lt;monogr&gt;</code> est <strong>obligatoire</strong> : il décrit toujours la publication « hôte ».</li>
+<li>L’ordre est fixe : <code>&lt;analytic&gt;</code>, puis <code>&lt;monogr&gt;</code>, puis <code>&lt;series&gt;</code>.</li>
+<li><code>&lt;imprint&gt;</code> (lieu, éditeur, date) et son enfant <code>&lt;biblScope&gt;</code> (volume, pages) se placent dans <code>&lt;monogr&gt;</code>.</li>
+<li>Les auteurs sont dans <code>&lt;analytic&gt;</code> pour un article, dans <code>&lt;monogr&gt;</code> pour un livre.</li>
+<li>Pour retrouver une référence dans le texte, on peut lui donner un <code>@xml:id</code> et la citer avec <code>&lt;ref target="#zink1993"&gt;</code>.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="partie-2-sautonomiser-avec-la-tei" class="level2">
+<h2 class="anchored" data-anchor-id="partie-2-sautonomiser-avec-la-tei">Partie 2 : s’autonomiser avec la TEI</h2>
+<section id="un-exemple-de-workflow-avec-la-tei" class="level3">
+<h3 class="anchored" data-anchor-id="un-exemple-de-workflow-avec-la-tei">Un exemple de workflow avec la TEI</h3>
+<ol type="1">
+<li>analyse documentaire, qui consiste à déterminer la structure hiérarchique des documents</li>
+<li>Commencer à concevoir un schéma c’est-à-dire une grammaire formelle définissant les emplacements autorisés et interdits pour les différents éléments et attributs qu’on souhaite utiliser</li>
+<li>Commencer à baliser le document en respectant ce schéma et à le valider, c’est-à-dire vérifier que le balisage utilisé est strictement conforme aux règles établies par le schéma.</li>
+<li>Se rendre compte que le texte butte sur le schéma</li>
+<li>Modifier le schéma (plus ou moins contraignant)</li>
+<li>Quand on a changé le schéma il faut souvent ajuster le balisage en fonction.</li>
+</ol>
+</section>
+<section id="se-repérer-dans-les-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="se-repérer-dans-les-guidelines">Se repérer dans les guidelines</h3>
+<p>Les <em>Guidelines</em> de la TEI sont la documentation officielle. Elles constituent un guide de bonnes pratiques établi de manière itérative au fil des projets d’encodage. Elles décrivent plusieurs centaines d’éléments, sur plusieurs centaines de pages. Personne ne les lit de bout en bout. Il faut apprendre à <strong>naviguer</strong> dedans selon son besoin.</p>
+<p>Les Guidelines sont elles-mêmes écrites en TEI !</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/guidelines2.png" class="img-fluid figure-img"></p>
+<figcaption>Organisation des guidelines</figcaption>
+</figure>
+</div>
+<p>Je vous propose quelques entrées :</p>
+<p><strong>1. Les exemples</strong></p>
+<p>C’est un bon point de départ, chaque élément en propose plusieurs, plus ou moins complexe. Et quand on regarde les exemples des éléments les plus englobants, on a bien les structures imbriquées attendues.</p>
+<p><strong>2. Les modules</strong></p>
+<p>La TEI est découpée en <strong>modules</strong>, chacun correspondant à un type de contenu ou un geste éditorial.</p>
+<p>Chaque module :</p>
+<ul>
+<li>est documenté par un chapitre des Guidelines</li>
+<li>définit un certain nombre de composantes (éléments, classes, macros)</li>
+<li>correspond à une problématique particulière</li>
+<li>hormis les 4 obligatoires, il peut être inclu ou exclu d’une personnalisation (ou schéma)</li>
+</ul>
+<p>Pour rappel, les quatre modules obligatoires sont <code>tei</code>, <code>core</code>, <code>header</code> et <code>textstructure</code>.</p>
+<ul>
+<li><code>tei</code> : infrastructure (classes, macros, datatypes)</li>
+<li><code>core</code> : éléments communs (<code>&lt;p&gt;</code>, <code>&lt;hi&gt;</code>, <code>&lt;note&gt;</code>, <code>&lt;quote&gt;</code>, <code>&lt;list&gt;</code>, <code>&lt;ref&gt;</code>, etc.)</li>
+<li><code>header</code> : l’en-tête <code>&lt;teiHeader&gt;</code></li>
+<li><code>textstructure</code> : structure de base des textes (<code>&lt;text&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;front&gt;</code>, <code>&lt;back&gt;</code>)</li>
+</ul>
+<p>Il existe des modules spécialisés par type de texte :</p>
+<ul>
+<li><code>verse</code> : poésie et versification (<code>&lt;l&gt;</code>, <code>&lt;lg&gt;</code>)</li>
+<li><code>drama</code> : théâtre (<code>&lt;sp&gt;</code>, <code>&lt;speaker&gt;</code>, <code>&lt;stage&gt;</code>)</li>
+<li><code>spoken</code> : transcription de l’oral (<code>&lt;u&gt;</code>, <code>&lt;pause&gt;</code>, <code>&lt;vocal&gt;</code>)</li>
+<li><code>dictionaries</code> : dictionnaires et lexiques (<code>&lt;entry&gt;</code>, <code>&lt;form&gt;</code>, <code>&lt;sense&gt;</code>)</li>
+</ul>
+<p>Des modules pour les sources et l’édition savante :</p>
+<ul>
+<li><code>transcr</code> : transcription de manuscrits (<code>&lt;surface&gt;</code>, <code>&lt;zone&gt;</code>, <code>&lt;facsimile&gt;</code>, <code>&lt;damage&gt;</code>)</li>
+<li><code>msdescription</code> : description de manuscrits (<code>&lt;msDesc&gt;</code>, <code>&lt;msIdentifier&gt;</code>, <code>&lt;physDesc&gt;</code>)</li>
+<li><code>textcrit</code> : apparat critique (<code>&lt;app&gt;</code>, <code>&lt;lem&gt;</code>, <code>&lt;rdg&gt;</code>, <code>&lt;witness&gt;</code>)</li>
+<li><code>gaiji</code> : caractères et glyphes non standard (<code>&lt;char&gt;</code>, <code>&lt;glyph&gt;</code>)</li>
+</ul>
+<p>Des modules d’analyse et d’annotation :</p>
+<ul>
+<li><code>analysis</code> : analyse linguistique (<code>&lt;w&gt;</code>, <code>&lt;pc&gt;</code>, <code>&lt;s&gt;</code>, <code>&lt;cl&gt;</code>)</li>
+<li><code>linking</code> : liens et alignements (<code>&lt;link&gt;</code>, <code>&lt;ab&gt;</code>, <code>&lt;join&gt;</code>)</li>
+<li><code>certainty</code> : incertitude et imprécision (<code>&lt;certainty&gt;</code>, <code>&lt;precision&gt;</code>)</li>
+<li><code>namesdates</code> : noms, lieux, personnes, dates (<code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>, <code>&lt;person&gt;</code>, <code>&lt;place&gt;</code>, <code>&lt;org&gt;</code>)</li>
+</ul>
+<p>Autres modules :</p>
+<ul>
+<li><code>figures</code> : tableaux, formules, figures (<code>&lt;table&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;formula&gt;</code>)</li>
+<li><code>nets</code> : graphes, arbres, réseaux (<code>&lt;graph&gt;</code>, <code>&lt;node&gt;</code>, <code>&lt;arc&gt;</code>)</li>
+<li><code>iso-fs</code> : structures de traits (<code>&lt;fs&gt;</code>, <code>&lt;f&gt;</code>)</li>
+<li><code>tagdocs</code> : documentation du balisage lui-même (<code>&lt;elementSpec&gt;</code>, <code>&lt;specList&gt;</code>), utilisé pour les fichiers ODD</li>
+</ul>
+<p><strong>3. Les éléments</strong></p>
+<p>Les Guidelines mettent à disposition une fiche de référence par élément. On y trouve</p>
+<ul>
+<li>sa définition et le module auquel elle appartient</li>
+<li>ses <strong>attributs</strong></li>
+<li>son <strong>contenant</strong> (« Contained by ») : dans quels éléments elle peut apparaître</li>
+<li>son <strong>contenu</strong> (« May contain ») : quels éléments elle peut renfermer</li>
+<li>son modèle de contenu formel =&gt; on y vient</li>
+</ul>
+<p><strong>4. Les classes</strong></p>
+<p>C’est l’entrée la plus technique.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/guidelines-schema.png" class="img-fluid figure-img"></p>
+<figcaption>classes</figcaption>
+</figure>
+</div>
+<p>Les classes sont un autre moyen de regrouper les composant, transversalement aux modules.</p>
+<p>Elles sont définies dans un module mais peuvent porter sur des éléments d’un autre. Les éléments héritent des propriétés de la classe à laquelle ils appartiennent.</p>
+<ul>
+<li>les <strong>classes de modèle</strong> (<code>model.*</code>) regroupent des éléments qui jouent un rôle équivalent, par exemple <code>model.pPart.data</code> pour les noms, dates, lieux ; ce sont des éléments qu’on va retrouver plus ou moins aux mêmes endroits des documents, quel que soit le type de document.</li>
+<li>les <strong>classes d’attributs</strong> (<code>att.*</code>) regroupe les éléments selon des attributs partagés.</li>
+</ul>
+</section>
+<section id="att.class" class="level3">
+<h3 class="anchored" data-anchor-id="att.class"><code>att.class</code></h3>
+<p>Par exemple un élément appartient à la classe <code>att.global</code> s’il admet des attributs qui peuvent être utilisés avec <strong>n’importe quel élément</strong> de la TEI. Ce sont les attributs de base : <code>@xml:id</code> pour identifier un élément, <code>@n</code> pour le numéroter, <code>@rend</code> pour décrire sa mise en forme, <code>@xml:lang</code> pour indiquer sa langue.</p>
+<p>Un élément appartient à la classe <code>att.linking</code> s’il admet des attributs qui permettent de <strong>lier des éléments entre eux</strong>, qu’ils soient proches ou éloignés dans le document : <code>@corresp</code> pour une correspondance, <code>@next</code> et <code>@prev</code> pour enchaîner des fragments, <code>@sameAs</code> pour indiquer que deux éléments désignent la même chose.</p>
+<p>Un élément appartient à la classe <code>att.ascribed</code> s’il admet des attributs qui permettent d’<strong>attribuer un discours ou une action à un individu précis</strong> : c’est le rôle de <code>@who</code>, qui pointe vers l’identifiant de la personne concernée.</p>
+<p>Donc quand on tombe sur une balise, on n’a pas la liste de ses attributs mais on se demande <strong>« à quelles classes d’attributs appartient-elle ? »</strong> pour savoir les ensembles d’attributs qu’elle admet.</p>
+<p><strong>Quelques attributs à retenir :</strong></p>
+<ol type="1">
+<li>Attributs globaux (toujours disponibles)</li>
+</ol>
+<ul>
+<li><code>@n</code> fournit un numéro ou un label (pas unique)</li>
+<li><code>@rend</code> pour préciser un certain rendu graphique de l’élément dans la source ou la sortie</li>
+<li><code>xml:id</code> fournit un identifiant unique à l’élement qui porte l’attribut</li>
+<li><code>xml:lang</code> indique la langue du contenu textuel de l’élément (code langue ISO)</li>
+</ul>
+<ol start="2" type="1">
+<li>Attributs fréquemment employés</li>
+</ol>
+<ul>
+<li><code>@type</code> pour typer un élément</li>
+<li><code>@target</code> lien interne</li>
+<li><code>@ref</code> référence</li>
+<li><code>@key</code> référence canonique</li>
+</ul>
+</section>
+<section id="model.class" class="level3">
+<h3 class="anchored" data-anchor-id="model.class"><code>model.class</code></h3>
+<p>Le regroupement en classes de modèle définit des ensembles de balises selon là où ils peuvent apparaître : par exemple la classe <code>model.divPart</code> regroupe les éléments qui peuvent être contenu par une <code>div</code>. OU selon un point commun sémantique : par exemple la classe <code>model.nameLike</code> qui regroupe sémantiquement les éléments qui servent à encoder les différents types de nom : prénom, nom de famille, surnom, particule, etc.</p>
+</section>
+<section id="les-macros" class="level3">
+<h3 class="anchored" data-anchor-id="les-macros">Les macros</h3>
+<p>Les macros définissent des raccourcis pour désigner les valeurs attendues au sein des éléments/attributs.</p>
+<ul>
+<li>types de contenus standardisés (par exemple <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-macro.paraContent.html">macro.paraContent</a>) ;</li>
+<li>valeurs autorisées (par exemple <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.count.html">data.count</a>).</li>
+</ul>
+<p>Elles sont utilisées dans les modèles de contenu pour faire référence à des séquences rencontrées dans des éléments.</p>
+<section id="quest-ce-que-cest-le-modèle-de-contenu" class="level4">
+<h4 class="anchored" data-anchor-id="quest-ce-que-cest-le-modèle-de-contenu">Qu’est-ce que c’est le modèle de contenu ?</h4>
+<p>Chaque élément de la TEI obéit à un <strong>modèle de contenu</strong> : une règle qui définit ce qu’il a le droit de contenir, dans quel ordre et combien de fois. C’est ce que vérifie Oxygen quand il souligne une balise en rouge. Le modèle se lit dans la fiche de l’élément, à la rubrique « Content model ».</p>
+<p>Un modèle de contenu peut être défini directement dans un élément, ou <strong>délégué à une macro</strong>, c’est-à-dire un modèle nommé et réutilisable par plusieurs éléments.</p>
+</section>
+<section id="exemple" class="level4">
+<h4 class="anchored" data-anchor-id="exemple">Exemple</h4>
+<p><a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-macro.limitedContent.html"><code>macro.limitedContent</code></a></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">content</span>&gt;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">alternate</span><span class="ot"> minOccurs=</span><span class="st">"0"</span><span class="ot"> maxOccurs=</span><span class="st">"unbounded"</span>&gt;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">textNode</span>/&gt;</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">classRef</span><span class="ot"> key=</span><span class="st">"model.limitedPhrase"</span>/&gt;</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">classRef</span><span class="ot"> key=</span><span class="st">"model.inter"</span>/&gt;</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">alternate</span>&gt;</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">content</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><code>&lt;content&gt;</code> : on entre dans la définition du modèle de contenu.</li>
+<li><code>&lt;alternate&gt;</code> : on fait choisit parmi les choix suivant, dans l’ordre qu’on veut…</li>
+<li><code>minOccurs="0" maxOccurs="unbounded"</code> : ce choix peut ne jamais apparaître (contenu vide) ou se répéter <strong>autant de fois que l’on veut</strong>. L’ordre est donc libre.</li>
+<li><code>&lt;textNode/&gt;</code> : du <strong>texte brut</strong> est autorisé.</li>
+<li><code>&lt;classRef key="model.limitedPhrase"/&gt;</code> : tout élément de la classe <code>model.limitedPhrase</code> est autorisé. Cette classe regroupe des éléments de niveau « mot » ou « expression » (par exemple <code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>, <code>&lt;date&gt;</code>, <code>&lt;foreign&gt;</code>), donc elle exclut une partie des éléments de <code>model.phrase</code>.</li>
+<li><code>&lt;classRef key="model.inter"/&gt;</code> : tout élément de la classe <code>model.inter</code> est autorisé. Ce sont des éléments qui peuvent apparaître <strong>à l’intérieur comme entre</strong> des blocs de texte (listes, citations, notes, etc.).</li>
+</ol>
+<p><strong>Traduction :</strong> La <code>macro.limitedContent</code> déscrit du texte, mélangé librement avec des expressions plus petites que des phrases et des éléments dits <em>intermédiaires</em> comme des citations ou des notes, dans n’importe quel ordre et en nombre quelconque.</p>
+<p><a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-desc.html"><code>&lt;desc&gt;</code></a></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">content</span>&gt;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">macroRef</span><span class="ot"> key=</span><span class="st">"macro.limitedContent"</span>/&gt;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">content</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><code>&lt;content&gt;</code> : modèle de contenu de l’élément <code>&lt;desc&gt;</code>.</li>
+<li><code>&lt;macroRef key="macro.limitedContent"/&gt;</code> : renvoie à la macro. Son contenu est donc exactement celui qu’on vient de lire.</li>
+</ol>
+<p><strong>Traduction :</strong> <code>&lt;desc&gt;</code> accepte le même contenu que <code>macro.limitedContent</code>.</p>
+<p><strong>Exemple valide :</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">desc</span>&gt;Note tironienne pour &lt;<span class="kw">foreign</span><span class="ot"> xml:lang=</span><span class="st">"la"</span>&gt;et&lt;/<span class="kw">foreign</span>&gt;, abréviation courante.&lt;/<span class="kw">desc</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Le texte et <code>&lt;foreign&gt;</code> (de la classe <code>model.limitedPhrase</code>) sont mélangés librement.</p>
+<p><strong>Exemple invalide :</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">desc</span>&gt;&lt;<span class="kw">p</span>&gt;Note tironienne.&lt;/<span class="kw">p</span>&gt;&lt;/<span class="kw">desc</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>&lt;p&gt;</code> n’appartient ni à <code>model.limitedPhrase</code> ni à <code>model.inter</code> : Oxygen signalera une erreur.</p>
+</section>
+</section>
+<section id="récap-1" class="level3">
+<h3 class="anchored" data-anchor-id="récap-1">Récap</h3>
+<p>Donc un élément est défini en regard des autres composants : modules, classes, macro…</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/guidelines1.png" class="img-fluid figure-img"></p>
+<figcaption>Fiche d’un élément</figcaption>
+</figure>
+</div>
+</section>
+<section id="maîtriser-les-espaces-de-noms" class="level3">
+<h3 class="anchored" data-anchor-id="maîtriser-les-espaces-de-noms">Maîtriser les espaces de noms</h3>
+<section id="principe" class="level4">
+<h4 class="anchored" data-anchor-id="principe">Principe</h4>
+<p>Si XML c’est la <strong>langue</strong>, l’espace de nom ce serait le <strong>lexique</strong>. C’est une propriété d’appartenance des éléments. Et ce lexique est associé à une utilisation particulière (on parle d’une <strong>application XML</strong>) et à une <strong>URI unique</strong>.</p>
+<p>Certains documents combinent des balises issues de plusieurs <strong>applications</strong> XML, donc qui appartiennent à plusieurs espaces de nom. Par exemple, un document XHTML peut contenir à la fois des images SVG et des équations MathML. Une feuille de style XSLT contiendra à la fois des instructions XSLT et des éléments issus du vocabulaire de l’arbre de résultat.</p>
+<p>On a donc créé une technologie particulière, exprimée dans une syntaxe déclarative, pour gérer différents vocabulaires XML au sein d’un même projet.</p>
+<p>Cela a deux fonctions :</p>
+<ol type="1">
+<li>Distinguer les éléments et attributs qui viennent de vocabulaires différents, dans lesquels ils ont des significations et des emplois différents, même s’ils partagent le même nom.</li>
+</ol>
+<p>Par exemple j’ai un projet dans lequel j’utilise deux schémas, l’un comporte des éléments pour représenter une bibliographie, et l’autre des éléments pour représenter des personnes. Les deux peuvent comprendre un élément <code>&lt;title&gt;</code>, mais une fois pour désigner les titres de livre et une autre fois pour encoder un titre de noblesse. Pour garder du sémantique il faut pouvoir distinguer les deux.</p>
+<p>Autre exemple, cette fois plus concret : l’élément <code>&lt;set&gt;</code> exsite en SVG et en MathML.</p>
+<ol start="2" type="1">
+<li>La seconde fonction est de permettre à un logiciel, à la machine, de traiter cette information.</li>
+</ol>
+</section>
+<section id="implémentation" class="level4">
+<h4 class="anchored" data-anchor-id="implémentation">Implémentation</h4>
+<p>On attache un préfixe aux éléments et aux attribut. Par exemple : <code>tei:persName</code> est le <em>QName</em> ou <em>raw name</em> de l’élément <code>&lt;persName&gt;</code> de la TEI.</p>
+<p>Chaque préfix est mappé à une <strong>URI</strong> par un attribut placée dans la balise racine <code>@xmlns:prefix</code>. Exemple :</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">TEI</span><span class="ot"> xmlns=</span><span class="st">"http://www.tei-c.org/ns/1.0"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ot">  xmlns:xs=</span><span class="st">"http://www.w3.org/2001/XMLSchema"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ot">  xmlns:m=</span><span class="st">"http://www.w3.org/1998/Math/MathML"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ot">  xmlns:sch=</span><span class="st">"http://purl.oclc.org/dsdl/schematron"</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ot">  xmlns:xi=</span><span class="st">"http://www.w3.org/2001/XInclude"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ot">  xmlns:rng=</span><span class="st">"http://relaxng.org/ns/structure/1.0"</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Le préfixe est déclaré au niveau de l’élément racine (si les différents éléments sont répartis dans tout le document) ou dans l’élément qui va contenir les éléments concernés par la déclaration.</p>
+<p>Dans l’exemple ci-dessus on peut voir :</p>
+<ul>
+<li>Un namespace déclaré <strong>par défaut</strong> : tous les éléments non préfixés appartiennent à cet espace de nom. <strong>Tous les éléments non préfixés sont considérés comme appartenant à l’espace de nom <code>tei:</code></strong>.</li>
+<li>5 préfixes sont déclarés, pour utiliser les éléments des namespaces correspondants de manière ponctuelle dans le document. Par exemple si je veux écrire une formule mathématique je peux écrire :</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">m:math</span>&gt;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">m:msup</span>&gt;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">mi</span>&gt;x&lt;/<span class="kw">mi</span>&gt;</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">m:mn</span>&gt;2&lt;/<span class="kw">m:mn</span>&gt;</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">m:msup</span>&gt;</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">m:math</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Les URI d’espace de noms ne renvoient pas nécessairement vers un document ou une page existante. En fait, ils ne sont pas tenus d’utiliser le protocole HTTP. Ils peuvent même employer un autre protocole, comme mailto. Les URI d’espaces de noms sont des identifiants purement formels.</p>
+<hr>
+<p><em>Attention point terminologique : différence entre URI / URL / URN</em></p>
+<p>URI ⊃ URL et URN.</p>
+<ul>
+<li><code>URI</code> (Uniform Resource Identifier) : une séquence de caractères unique qui identifie une ressource. Toutes les URIs sont soit des URLs soit des URNs.</li>
+<li><code>URL</code> (Uniform Resource Locator) : un type spécifique d’URI qui non seulement identifie la ressource, mais dit où elle est localisée au sein d’un réseau, et comment y accéder, via un protocole (comme https:// ou ftp://)</li>
+<li><code>URN</code> (Uniform Resource Name) : un type spécifique d’URI qui identifie une ressource grâce à un nom pérenne, sans dire où elle est située ou comment y accéder. C’est le cas des ISBN par exemple.</li>
+</ul>
+<hr>
+<p>Voici un autre exemple de déclaration des préfixes dans l’élément englobant :</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">svg</span><span class="ot"> xmlns=</span><span class="st">"http://www.w3.org/2000/svg"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ot">    width=</span><span class="st">"12cm"</span><span class="ot"> height=</span><span class="st">"10cm"</span>&gt;</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">ellipse</span><span class="ot"> rx=</span><span class="st">"110"</span><span class="ot"> ry=</span><span class="st">"130"</span>/&gt;</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">rect</span><span class="ot"> x=</span><span class="st">"4cm"</span><span class="ot"> y=</span><span class="st">"1cm"</span><span class="ot"> width=</span><span class="st">"3cm"</span><span class="ot"> height=</span><span class="st">"6cm"</span>/&gt;</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">svg</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ici, même si aucun des éléments ne porte de préfixe, les éléments <code>svg</code>, <code>ellipse</code> et <code>rect</code> appartiennent à l’espace de nom svg. C’est le nouvel espace de nom par défaut à l’intérieur de l’élément englobant <code>&lt;svg&gt;</code>.</p>
+<p>La situation est différente pour les attributs : les espaces de noms par défaut ne s’appliquent qu’aux éléments, et non aux attributs. Donc les attributs n’héritent pas d’un namespace par défaut. Ainsi, dans l’exemple précédent, les attributs <code>width</code>, <code>height</code>, <code>rx</code>, <code>ry</code>, <code>x</code> et <code>y</code> n’appartiennent à aucun espace de noms. Mais un attribut est toujours attaché à un élément précis. Donc il n’y a jamais d’ambiguïté : l’attribut appartient forcément à son élément porteur.</p>
+<p>La seule façon pour un attribut d’appartenir à un namespace est d’avoir un préfixe déclaré, comme <code>xlink:type</code> ou <code>xlink:href</code> dans : <code>&lt;p xlink:type="simple" xlink:href="ellipses.html"&gt;</code>. Ici, <code>xlink:type</code> et <code>xlink:href</code> sont bien dans le namespace <code>XLink</code>, parce qu’ils sont préfixés, et ils n’héritent pas du namespace de leur élément porteur.</p>
+<p><strong>À retenir :</strong></p>
+<ul>
+<li>Déclarer un espace de nom par défaut dans l’élément englobant, ainsi que les préfixes des autres <em>namespaces</em>.</li>
+<li>L’espace de nom par défaut ne s’applique pas aux éléments et aux attributs préfixés. Ces derniers appartiennent toujours à l’espace de nom duquel ils sont préfixés, et à condition que ce dernier soit déclaré.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="références-et-ressources" class="level2">
+<h2 class="anchored" data-anchor-id="références-et-ressources">Références et ressources</h2>
+<p>BURGHART, Marjorie, <a href="http://mutec.huma-num.fr/sites/www.mutec-shs.fr/files/Guide%20Editer%20des%20sources%20historiques%20%20gr%C3%A2ce%20a%20XML.pdf">Éditer des sources historiques en ligne grâce à XML – Un guide pratique</a></p>
+<p>BURGHART, Marjorie, PIERAZZO, Elena et al., <a href="https://www.digitalmanuscripts.eu/digital-editing-of-medieval-texts-a-textbook/"><em>Online course: Digital Scholarly Editions: Manuscripts, Texts, and TEI Encoding – Digital Editing of Medieval Manuscripts</em></a></p>
+<p><a href="https://erc-dharma.github.io/digital-areal/2_schema.html">Atelier TEI, ANF Digital Areal | ERC-DHARMA</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

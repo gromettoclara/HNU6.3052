@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.13">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Atelier 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="notes-cours-1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="notes-cours-1_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="notes-cours-1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="notes-cours-1_files/libs/quarto-html/popper.min.js"></script>
+<script src="notes-cours-1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="notes-cours-1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="notes-cours-1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="notes-cours-1_files/libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="notes-cours-1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="notes-cours-1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="notes-cours-1_files/libs/bootstrap/bootstrap-1405b8c1d8c6c378c47ed388caada894.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#quest-ce-quun-texte" id="toc-quest-ce-quun-texte" class="nav-link active" data-scroll-target="#quest-ce-quun-texte">Qu’est-ce qu’un texte ?</a></li>
+  <li><a href="#on-distingue-trois-états-du-texte" id="toc-on-distingue-trois-états-du-texte" class="nav-link" data-scroll-target="#on-distingue-trois-états-du-texte">On distingue trois <em>états</em> du texte</a></li>
+  <li><a href="#les-formats-textuels" id="toc-les-formats-textuels" class="nav-link" data-scroll-target="#les-formats-textuels">Les formats textuels</a></li>
+  <li><a href="#quest-ce-quune-édition-critique" id="toc-quest-ce-quune-édition-critique" class="nav-link" data-scroll-target="#quest-ce-quune-édition-critique">Qu’est-ce qu’une édition critique ?</a>
+  <ul class="collapse">
+  <li><a href="#peut-on-sérieusement-utiliser-un-traitement-de-texte-pour-lédition-scientifique" id="toc-peut-on-sérieusement-utiliser-un-traitement-de-texte-pour-lédition-scientifique" class="nav-link" data-scroll-target="#peut-on-sérieusement-utiliser-un-traitement-de-texte-pour-lédition-scientifique">Peut-on (sérieusement) utiliser un traitement de texte pour l’édition scientifique ?</a></li>
+  <li><a href="#un-document-structuré-nest-pas-un-document-mis-en-page" id="toc-un-document-structuré-nest-pas-un-document-mis-en-page" class="nav-link" data-scroll-target="#un-document-structuré-nest-pas-un-document-mis-en-page">Un document structuré n’est pas un document mis en page</a></li>
+  <li><a href="#implémentation" id="toc-implémentation" class="nav-link" data-scroll-target="#implémentation">Implémentation</a></li>
+  <li><a href="#pourquoi-un-format-plein-texte" id="toc-pourquoi-un-format-plein-texte" class="nav-link" data-scroll-target="#pourquoi-un-format-plein-texte">Pourquoi un format plein texte ?</a></li>
+  </ul></li>
+  <li><a href="#caractéristiques-du-xml" id="toc-caractéristiques-du-xml" class="nav-link" data-scroll-target="#caractéristiques-du-xml">Caractéristiques du XML</a></li>
+  <li><a href="#standard" id="toc-standard" class="nav-link" data-scroll-target="#standard">Standard</a></li>
+  <li><a href="#historique" id="toc-historique" class="nav-link" data-scroll-target="#historique">Historique</a></li>
+  <li><a href="#principes-de-conception" id="toc-principes-de-conception" class="nav-link" data-scroll-target="#principes-de-conception">Principes de conception</a></li>
+  <li><a href="#principes-syntaxiques" id="toc-principes-syntaxiques" class="nav-link" data-scroll-target="#principes-syntaxiques">Principes syntaxiques</a></li>
+  <li><a href="#des-langages-xml" id="toc-des-langages-xml" class="nav-link" data-scroll-target="#des-langages-xml">DES langages XML</a></li>
+  <li><a href="#premier-contact-avec-un-document-xml" id="toc-premier-contact-avec-un-document-xml" class="nav-link" data-scroll-target="#premier-contact-avec-un-document-xml">Premier contact avec un document XML</a></li>
+  <li><a href="#passage-à-lédition-publiée-en-html-confronter-la-source-et-le-résultat" id="toc-passage-à-lédition-publiée-en-html-confronter-la-source-et-le-résultat" class="nav-link" data-scroll-target="#passage-à-lédition-publiée-en-html-confronter-la-source-et-le-résultat">Passage à l’édition publiée en HTML : confronter la source et le résultat</a></li>
+  <li><a href="#de-quoi-est-composé-un-document-xml" id="toc-de-quoi-est-composé-un-document-xml" class="nav-link" data-scroll-target="#de-quoi-est-composé-un-document-xml">De quoi est composé un document XML ?</a></li>
+  <li><a href="#le-prologue" id="toc-le-prologue" class="nav-link" data-scroll-target="#le-prologue">Le prologue</a></li>
+  <li><a href="#les-éléments" id="toc-les-éléments" class="nav-link" data-scroll-target="#les-éléments">Les éléments</a></li>
+  <li><a href="#les-attributs" id="toc-les-attributs" class="nav-link" data-scroll-target="#les-attributs">Les attributs</a></li>
+  <li><a href="#règles-décriture-des-identificateurs-génériques-et-des-attributs" id="toc-règles-décriture-des-identificateurs-génériques-et-des-attributs" class="nav-link" data-scroll-target="#règles-décriture-des-identificateurs-génériques-et-des-attributs">Règles d’écriture des identificateurs génériques et des attributs</a></li>
+  <li><a href="#les-entités" id="toc-les-entités" class="nav-link" data-scroll-target="#les-entités">Les entités</a></li>
+  <li><a href="#les-commentaires" id="toc-les-commentaires" class="nav-link" data-scroll-target="#les-commentaires">Les commentaires</a></li>
+  <li><a href="#un-encodage-bien-formé-les-règles-à-retenir" id="toc-un-encodage-bien-formé-les-règles-à-retenir" class="nav-link" data-scroll-target="#un-encodage-bien-formé-les-règles-à-retenir">Un encodage bien formé : les règles à retenir</a></li>
+  <li><a href="#ohco" id="toc-ohco" class="nav-link" data-scroll-target="#ohco">OHCO</a></li>
+  <li><a href="#what-is-text-really-le-texte-serait-une-hiérarchie-ordonnée-dobjets-de-contenu" id="toc-what-is-text-really-le-texte-serait-une-hiérarchie-ordonnée-dobjets-de-contenu" class="nav-link" data-scroll-target="#what-is-text-really-le-texte-serait-une-hiérarchie-ordonnée-dobjets-de-contenu"><em>What is Text, Really?</em> Le texte serait une hiérarchie ordonnée d’objets de contenu</a>
+  <ul class="collapse">
+  <li><a href="#autres-modèles" id="toc-autres-modèles" class="nav-link" data-scroll-target="#autres-modèles">Autres modèles</a></li>
+  <li><a href="#contournements-en-tei" id="toc-contournements-en-tei" class="nav-link" data-scroll-target="#contournements-en-tei">Contournements en TEI</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="notes-cours-1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Atelier 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="quest-ce-quun-texte" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-quun-texte">Qu’est-ce qu’un texte ?</h2>
+<ul>
+<li>Le texte linguistique</li>
+<li>La matérialité (un support, un format, un aspect… tout cela peut intéresser les chercheurs et chercheuses)</li>
+<li>Des métadonnées sur le texte lui-même, sur les conditions de publication ou sur la source d’une édition</li>
+<li>La structure…</li>
+</ul>
+<p>Le sens d’un texte ne repose pas seulement sur son contenu linguistique, mais aussi sur sa structure : un livre se divise en chapitres annoncés par des titres et une table des matières, en paragraphes, et s’accompagne de notes de bas de page ou de références bibliographiques, autant de repères qui permettent au lecteur de discerner où commencent et s’achèvent les enchaînements de la pensée, ce qui serait bien plus difficile face à un flux ininterrompu de mots. Même les espaces entre les mots, invention relativement récente dans l’histoire de l’écriture, servent d’indices visuels, permettant de discrétiser les éléments du texte : l’unité de base est le mot plutôt que la lettre. Cette organisation prend d’ailleurs des formes variées selon les genres : chants, strophes et vers pour un poème ; actes, scènes, répliques et didascalies pour une pièce de théâtre ; entrées, définitions, exemples et étymologies pour un dictionnaire. La structure fait donc partie intégrante du sens. Par exemple, le nom “Hamlet”, revêt un sens différent selon qu’il est prononcé par un personnage ou qu’il figure dans la liste des personnages en tête d’une scène.</p>
+</section>
+<section id="on-distingue-trois-états-du-texte" class="level2">
+<h2 class="anchored" data-anchor-id="on-distingue-trois-états-du-texte">On distingue trois <em>états</em> du texte</h2>
+<ul>
+<li>texte brut : le contenu textuel, dépourvu de toute structure et mise en forme</li>
+<li>texte balisé : le contenu textuel structuré à l’aide de balises</li>
+<li>texte formaté : le texte mis en forme à l’aide d’un éditeur de texte</li>
+</ul>
+</section>
+<section id="les-formats-textuels" class="level2">
+<h2 class="anchored" data-anchor-id="les-formats-textuels">Les formats textuels</h2>
+<p>Il y a trois grandes catégories de formats textuels qui recouvrent les trois états du texte.</p>
+<p>Tout d’abord, on a le texte brut, comme un fichier <code>.txt</code>. C’est la forme la plus simple : le fichier contient essentiellement une suite de caractères, sans information particulière sur la structure ou la présentation du document. Son principal avantage est donc son interopérabilité : pratiquement n’importe quel système peut le lire. En revanche, cette simplicité implique un manque d’information : on ne sait pas, par exemple, qu’un passage correspond à un titre, à une liste ou à un paragraphe.</p>
+<p>Ensuite, on trouve le texte balisé, avec des formats comme <code>Markdown</code>, <code>LaTeX</code>, <code>XML</code> ou <code>HTML</code>. Ici, on ajoute des informations qui permettent de décrire la structure du contenu. Par exemple, on peut indiquer qu’un élément est un titre, une liste ou une section. On introduit donc une forme de sémantisme, tout en conservant l’ interopérabilité parce que ce sont des formats plein texte. Mais c’est difficilement lisible par un humain.</p>
+<p>Enfin, on a le texte formaté, avec des formats comme <code>ODT</code>, <code>DOCX</code> ou <code>Pages</code>, qui reposent en réalité sur le format XML, mais qui va loin dans la présentation. C’est le principe du WYSIWYG. On utilise une interface graphique qui recrée la manière dont le texte va s’afficher ou être imprimé. Mais on mélange la forme et la structure sémantique. Et le fichier devient également plus complexe et dépend davantage du logiciel qui permet de le créer ou de l’interpréter.</p>
+<p>Il y a une sorte de progression du texte, de son état le plus brut vers son état balisé OU formaté. On ajoute de l’information sur la structure ET/OU sur la présentation. Le formatage introduit une grande complexité et de nombreuses dépendances.</p>
+</section>
+<section id="quest-ce-quune-édition-critique" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-quune-édition-critique">Qu’est-ce qu’une édition critique ?</h2>
+<ul>
+<li>Sous ce terme, on regroupe plusieurs types d’éditions qui poursuivent des objectifs différents. L’édition critique propose un texte reconstitué à partir de témoins multiples, manuscrits, copies ou éditions successives, parfois contradictoires. L’édition diplomatique transcrit le plus fidèlement possible un témoin unique, avec ses abréviations, ses graphies et ses particularités. L’édition génétique s’intéresse enfin au processus d’écriture : elle restitue les brouillons, les ratures et les strates de corrections successives.</li>
+</ul>
+<p>Ces éditions n’ont pas le même but, mais elles sont toutes un essai de reconstitution ou de représentation d’un texte, et non le texte lui-même. Elles partagent donc les mêmes exigences.</p>
+<ul>
+<li><p>D’abord, l’objectivité, ou en tout cas la transparence. L’éditeur fait des choix : il corrige une leçon, développe une abréviation, décide comment représenter une rature. Le lecteur doit pouvoir comprendre pourquoi on lui présente telle version, pourquoi on représente tel aspect de la page mais pas un autre, donc telle représentation du texte plutôt que telle autre.</p></li>
+<li><p>Enfin, une édition critique doit être fiable et consistante. Fiable, parce qu’on doit pouvoir s’appuyer sur elle pour travailler. Consistante, parce que les mêmes situations doivent être traitées de la même façon d’un bout à l’autre : si une correction est signalée d’une certaine manière à la page 10, elle doit l’être de la même manière à la page 200.</p></li>
+</ul>
+<section id="peut-on-sérieusement-utiliser-un-traitement-de-texte-pour-lédition-scientifique" class="level3">
+<h3 class="anchored" data-anchor-id="peut-on-sérieusement-utiliser-un-traitement-de-texte-pour-lédition-scientifique">Peut-on (sérieusement) utiliser un traitement de texte pour l’édition scientifique ?</h3>
+<p>Avec ces exigences en tête :</p>
+<ul>
+<li><p>Premier problème : la distinction entre forme et contenu. Dans un traitement de texte, ce que vous voyez à l’écran est mélangé à ce que vous voulez dire. Un mot en italique, est-ce un titre d’œuvre, une citation, un mot étranger, une emphase ? Le traitement de texte ne le sait pas : il ne connaît que l’apparence, l’italique.</p></li>
+<li><p>Deuxième problème : la documentation de l’édition. Une édition critique doit expliquer ses choix : quels manuscrits ont été utilisés, quelles sont les conventions adoptées, qui a fait quoi. Cette documentation peut inclure des informations sur l’édition en train de se faire, ou sur les sources et leur état matériel. La TEI offre un cadre pour renseigner cela, que le traitement de texte oublie.</p></li>
+<li><p>Troisième problème : le contrôle de la cohérence des choix éditoriaux. Dans un traitement de texte, rien ne vous empêche de faire des incohérences : un titre peut mis en forme à la main de deux façons différentes par exemple. Avec XML TEI, il existe des mécanismes de validation : on peut vérifier automatiquement que l’édition respecte les règles qu’on s’est données.</p></li>
+<li><p>Quatrième problème : l’obsolescence et l’interopérabilité. Un fichier issu de traitement de texte impose une quasi-équivalence entre le format et un logiciel souvent propriétaire. Et qu’en est-il de la transformation vers d’autres formats ?</p></li>
+</ul>
+<p>Ce n’est pas le bon format pour réaliser une édition numérique et garantir l’interopérabilité des données textuelles. Il appauvrit les possibilités de représentation du texte (en tant qu’objet multiple) et limite les possibilités d’exploitation. Ces limites sont d’ailleurs souvent contournées à l’aide de transformations complexes vers des formats plus sémantiques.</p>
+</section>
+<section id="un-document-structuré-nest-pas-un-document-mis-en-page" class="level3">
+<h3 class="anchored" data-anchor-id="un-document-structuré-nest-pas-un-document-mis-en-page">Un document structuré n’est pas un document mis en page</h3>
+<p>Une édition scientifique permet d’interroger le texte au-delà de son aspect typographique.</p>
+<p>Le point de départ de tout projet d’édition, c’est l’analyse qui consiste à percevoir une hiérarchie dans un document, en fonction de ce à quoi on s’intéresse dans ce document. Un même document peut se prêter à plusieurs analyses hiérarchiques.</p>
+<p>Par exemple un ouvrage en prose peut être envisagé comme une succession de chapitres composés de paragraphes OU comme un ensemble de pages composées de lignes. Ces différentes hiérarchies sont souvent indépendantes les unes des autres et sont difficilement superposables. Ainsi un paragraphe peut chevaucher deux pages. Donc souvent, il faut choisir de privilégier l’une ou l’autre des hiérarchies. Et cela constitue déjà une interprétation, une perspective sur notre objet d’étude. C’est déjà une représentation. On se concentre uniquement sur les éléments pertinents au regard de nos besoins spécifiques.</p>
+<p><strong>Structurer un document, c’est choisir quelles informations sont pertinentes.</strong></p>
+</section>
+<section id="implémentation" class="level3">
+<h3 class="anchored" data-anchor-id="implémentation">Implémentation</h3>
+<p>Grâce au balisage on insère l’information dans le document de manière à ce qu’elle soit lisible par les machines. Et le grand avantage de choisir le modèle arborescent de XML, c’est que les ordinateurs peuvent traiter facilement ces hiérarchies ordonnées, bien plus vite et plus efficacement que les textes non hiérarchisés.</p>
+<p><strong>Représenter sous forme d’arborescence = être capable de gérer et de manipuler de grandes quantités de données.</strong></p>
+<p>Le choix de ce modèle du texte sert aussi de protocole. Cela permet aussi de rester consistant lors de l’édition.</p>
+</section>
+<section id="pourquoi-un-format-plein-texte" class="level3">
+<h3 class="anchored" data-anchor-id="pourquoi-un-format-plein-texte">Pourquoi un format plein texte ?</h3>
+<ul>
+<li><p>Maintenabilité : un fichier texte reste lisible, peu importe le système, on peut l’ouvrir, l’éditer avec n’importe quel éditeur de texte.</p></li>
+<li><p>Portabilité : ces formats sont indépendants d’un logiciel ou d’une plateforme particulière. Un fichier texte peut être transféré d’un système à un autre et rester lisible.</p></li>
+</ul>
+<p>Il est important de séparer autant que possible le contenu de l’outil qui permet de le manipuler ou de le présenter. Ce principe facilite la conservation du document dans le temps, ainsi que les échange entre différents environnements.</p>
+</section>
+</section>
+<section id="caractéristiques-du-xml" class="level2">
+<h2 class="anchored" data-anchor-id="caractéristiques-du-xml">Caractéristiques du XML</h2>
+<ol type="a">
+<li>Un métalangage extensible</li>
+</ol>
+<p>XML ne définit pas un vocabulaire de balises fixe (contrairement à HTML) : il fournit des règles permettant de créer ses propres langages de balisage adaptés à un domaine donné (XHTML, TEI, MathML, SVG, etc.). D’où son nom : <em>Extensible Markup Language</em>.</p>
+<ol start="2" type="a">
+<li>Structure arborescente et hiérarchique</li>
+</ol>
+<p>Un document XML est constitué d’éléments imbriqués formant une arborescence stricte : chaque élément ouvrant doit être fermé, et les éléments ne peuvent se chevaucher (un document doit être <em>bien formé</em>).</p>
+<ol start="3" type="a">
+<li>Balisage descriptif</li>
+</ol>
+<p>Un balisage qui décrit la fonction d’un élément plutôt que son apparence : par exemple <code>&lt;titre&gt;</code> plutôt que des instructions de mise en gras ou de taille de police.</p>
+<ol start="4" type="a">
+<li>Neutralité vis-à-vis du domaine d’application</li>
+</ol>
+<p>XML n’est pas conçu pour un usage particulier : il sert aussi bien à l’encodage de textes savants (TEI), à l’échange de données entre systèmes informatiques, qu’à la configuration de logiciels ou à l’encodage des journaux de ces mêmes logiciels.</p>
+</section>
+<section id="standard" class="level2">
+<h2 class="anchored" data-anchor-id="standard">Standard</h2>
+<p>XML est un sous-ensemble de SGML, entièrement décrit par sa spécification, et par construction, tout document XML est un document SGML conforme. Il est maintenu par le W3C (<em>World Wide Web Consortium</em>), l’organisme de standardisation du Web, ce qui en garantit :</p>
+<ul>
+<li>Une spécification publique et stable, librement consultable</li>
+<li>Une gouvernance ouverte, avec un processus de recommandation impliquant les membres du consortium</li>
+<li>Une interopérabilité recherchée</li>
+</ul>
+<p>En cela il doit faciliter :</p>
+<ul>
+<li>L’échange de données</li>
+<li>La migration vers d’autres plateformes, d’autres logiciels, d’autres formats</li>
+</ul>
+<p>Le rôle du W3C dans l’établissement d’une recommandation est d’attirer l’attention sur la spécification et de promouvoir son adoption large, ce qui renforce la fonctionnalité et l’interopérabilité du Web — un rôle que XML a rempli au-delà des espérances initiales, donnant naissance à toute une famille de technologies dérivées (XSLT, XML Schema, XPath, XQuery, SVG, RSS/Atom, DocBook, et bien sûr des applications comme la TEI).</p>
+</section>
+<section id="historique" class="level2">
+<h2 class="anchored" data-anchor-id="historique">Historique</h2>
+<p>Le XML s’inscrit dans une longue généalogie du balisage de documents :</p>
+<ul>
+<li>1967-1973 : premiers travaux sur le balisage générique (“generic markup”) = il faut décrire la structure logique d’un document avant tout, pas son apparence visuelle. Ces travaux aboutissent au <em>Generalized Markup Language</em> (GML), développé chez IBM.</li>
+<li>1986 : le <em>Standard Generalized Markup Language</em> (SGML) devient une norme ISO (ISO 8879). C’est un métalangage réputé complexe, ce qui freine son adoption sur le Web naissant. Adopté par la TEI en 1987.</li>
+<li>En parallèle développement et adoption du HTML comme standard du web.</li>
+<li>1996 : le W3C lance des travaux visant à rendre SGML utilisable sur le Web, sous la houlette d’un groupe de travail (<em>XML Working Group</em>) présidé par Jon Bosak. 1998 : XML 1.0 devient une recommandation officielle du W3C.</li>
+</ul>
+</section>
+<section id="principes-de-conception" class="level2">
+<h2 class="anchored" data-anchor-id="principes-de-conception">Principes de conception</h2>
+<ul>
+<li><p>XML ne sert pas à afficher les données, mais à les décrire. Seul, il ne fait rien.</p></li>
+<li><p>Le nom des balises n’est pas prédéfini : on peut librement créer son propre vocabulaire.</p></li>
+<li><p>On peut utiliser une “grammaire” de balises (un schéma), pour définir des contraintes ou s’assurer de la consistance de l’encodage.</p></li>
+<li><p>XML est auto-descriptif et lisible par l’homme. Un fichier XML n’est rien que du texte, on peut facilement prendre connaissance d’un corpus dans n’importe quel éditeur textuel.</p></li>
+</ul>
+</section>
+<section id="principes-syntaxiques" class="level2">
+<h2 class="anchored" data-anchor-id="principes-syntaxiques">Principes syntaxiques</h2>
+<ul>
+<li><p>Toute donnée textuelle est entourée de balises : une balise ouvrante et une balise fermante, qui délimite le contenu et lui attribue une signification.</p></li>
+<li><p>Les éléments sont inclus les uns dans les autres, emboîtés comme des poupées russes, dans une logique strictement hiérarchique.</p></li>
+<li><p>Le principe d’héritage découle de la structure arborescente. un élément enfant hérite du contexte défini par ses éléments parents, ce qui signifie que sa position dans l’arbre porte en elle-même une information sémantique : un même mot balisé <code>&lt;nom&gt;</code> n’aura pas la même portée selon qu’il se trouve à l’intérieur d’un élément <code>&lt;auteur&gt;</code> ou d’un élément <code>&lt;personnage&gt;</code>.</p></li>
+</ul>
+</section>
+<section id="des-langages-xml" class="level2">
+<h2 class="anchored" data-anchor-id="des-langages-xml">DES langages XML</h2>
+<p>On dit des <strong>applications</strong> XML.</p>
+<p>XML est un métalangage qui sert de fondation à de nombreuses applications spécialisées, chacune définissant son propre vocabulaire de balises adapté à un domaine particulier.</p>
+<ul>
+<li>Dans le champ des humanités numériques et des sciences de l’information, la <code>TEI</code> (<em>Text Encoding Initiative</em>) définit des balises pour l’encodage de textes littéraires et savants (structure, variantes, annotations critiques).</li>
+<li><code>EAD</code> (<em>Encoded Archival Description</em>) propose un vocabulaire dédié à la description normalisée des fonds d’archives (inventaires, cotes, notices).</li>
+<li><code>SVG</code> (<em>Scalable Vector Graphics</em>) utilise XML pour décrire des images vectorielles interprétables par les navigateurs web, et <code>MathML</code> fait de même pour la notation mathématique.</li>
+<li>On trouve également <code>XHTML</code>, une reformulation d’<code>HTML</code> respectant les règles strictes du <code>XML</code>.</li>
+<li><code>RSS</code> et <code>Atom</code>, employés pour la syndication de contenus web (flux d’actualités, podcasts).</li>
+<li>D’autres applications servent des besoins plus transversaux, comme <code>XML Schema</code> ou <code>RelaxNG</code>, qui définissent eux-mêmes des règles de validation pour d’autres documents <code>XML</code>.</li>
+</ul>
+</section>
+<section id="premier-contact-avec-un-document-xml" class="level2">
+<h2 class="anchored" data-anchor-id="premier-contact-avec-un-document-xml">Premier contact avec <a href="https://github.com/gromettoclara/HNU6.3052/blob/main/exs-cours1/Christofle-septembre2016.xml">un document XML</a></h2>
+<p>Ceci est l’édition électronique intégrale des notes tenues en 1437 par Pierre Christofle, notaire royal attaché à la prévôté d’Orléans. Pierre Christofle fut notaire royal à Orléans de 1423 à 1450, attaché à la prévôté pour qui il rédigeait des contrats portant le sceau de l’institution, et comme ses confrères, il inscrivait dans un registre et en une forme abrégée les conventions qu’il attestait.</p>
+<p>387 notes sont rédigées entre le 1er janvier et le 29 décembre 1437, elles sont conservées aux Archives départementales du Loiret. Nous avons devant les yeux une édition numérique de sources notariales médiévales, encodée en XML-TEI, qui permet l’enquête sur le lexique des actes et dans la version HTML, elle propose une vue en parallèle des images numérisées du registre et de leur transcription.</p>
+<ul>
+<li>Repérez la première ligne : à votre avis à quoi sert-elle ?</li>
+<li>Repérez le texte balisé.</li>
+<li>Sur un court passage, dessinez l’arborescence.</li>
+<li>Repérez la transition entre les métadonnées et le contenu propre.</li>
+</ul>
+</section>
+<section id="passage-à-lédition-publiée-en-html-confronter-la-source-et-le-résultat" class="level2">
+<h2 class="anchored" data-anchor-id="passage-à-lédition-publiée-en-html-confronter-la-source-et-le-résultat">Passage à <a href="https://web.archive.org/web/20230330041426/http://elec.enc.sorbonne.fr/christofle/index.html">l’édition publiée en HTML</a> : confronter la source et le résultat</h2>
+<ul>
+<li><p>Prenez la <a href="https://web.archive.org/web/20230622140957/http://elec.enc.sorbonne.fr/christofle/notes/note-119.html">minute 119 du 2 avril</a>. La même personne est désignée par quatre graphies différentes : <em>Jean Charbonnier, Jean, Jehan Charbonnier, Charbonnier</em>. Comment cela est-il visible dans la page web ?</p></li>
+<li><p>Observez l’index “Types d’actes” ou “Lieux et personnes” : à partir de quelles balises ce type d’index a-t-il pu être généré automatiquement ?</p></li>
+</ul>
+<p><code>&lt;persName xml:id="minute-119-p-001" ref="#p-0261"&gt;Étienne le Clerc&lt;/persName&gt;</code> encode un nom de personnage.</p>
+<ul>
+<li>Prenez la <a href="https://web.archive.org/web/20230622140926/http://elec.enc.sorbonne.fr/christofle/notes/note-001.html">minute 1 du 1<sup>er</sup> janvier</a> : Un même mot du manuscrit peut apparaître différemment que sur le manuscrit : par exemple “qui vaille et puisse valoir a touz jours ladicte rente de vingt sols parisis et mieulx et paier avec ce toutes tailles d’eglise, de ville, de pu[is]”. Quelle balise TEI permettent de coder à la fois la forme originale et sa résolution ?</li>
+</ul>
+<p><code>pu&lt;supplied&gt;is&lt;/supplied&gt;</code> code une graphie restituée.</p>
+</section>
+<section id="de-quoi-est-composé-un-document-xml" class="level2">
+<h2 class="anchored" data-anchor-id="de-quoi-est-composé-un-document-xml">De quoi est composé un document XML ?</h2>
+<ul>
+<li><p><strong>Le prologue</strong></p></li>
+<li><p><strong>Les éléments</strong> : Les balises ainsi que leur contenu</p></li>
+<li><p><strong>Les attributs</strong> : Les “caractéristiques” d’une balise</p></li>
+<li><p><strong>Les entités</strong> : Appel à un caractère ou une séquence prédéfinie</p></li>
+<li><p><strong>Les commentaires</strong> : Pour extraire des passages du XML</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">root</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">element</span>&gt;<span class="co">&lt;!-- comment --&gt;</span>&lt;/<span class="kw">element</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">empty</span>/&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">el</span><span class="ot"> attribute=</span><span class="st">"value"</span>&gt;<span class="dv">&amp;amp;</span>&lt;/<span class="kw">el</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">root</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="le-prologue" class="level2">
+<h2 class="anchored" data-anchor-id="le-prologue">Le prologue</h2>
+<p>Il indique la version de la recommandation XML qui sert de base à l’écriture du fichier (il n’y a eu à cette date qu’une seule version, la version 1.0), ainsi que l’encodage de caractères utilisé → <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></p>
+</section>
+<section id="les-éléments" class="level2">
+<h2 class="anchored" data-anchor-id="les-éléments">Les éléments</h2>
+<p>XML modèle la hiérarchie d’un document en utilisant les éléments, qui consistent en :</p>
+<ul>
+<li>une balise ouvrante</li>
+<li>une balise fermante</li>
+<li>un contenu = tout ce qui se passe à l’intérieur des balises</li>
+</ul>
+<p>L’élément n’est pas la balise : l’élément c’est la balise et tout ce qu’il y a au milieu, qui peut être du texte et/ou des commentaires, et/ou d’autres éléments.</p>
+<p>L’élément c’est pas non plus juste le nom de l’élément, souvent appelé <em>generic identifier</em>.</p>
+<p>Attention les éléments doivent être strictement imbriqués les uns dans les autres.</p>
+</section>
+<section id="les-attributs" class="level2">
+<h2 class="anchored" data-anchor-id="les-attributs">Les attributs</h2>
+<p>Les attributs sont du balisage supplémentaire qui donne des informations en plus sur l’élément. Par exemple, si vous voulez baliser le texte en langue étrangère : soit vous utilisez trois balises différentes <code>&lt;english&gt;</code> <code>&lt;german&gt;</code> <code>&lt;chinese&gt;</code>, soit vous utilisez une seule balise <code>&lt;foreign&gt;</code> en ajoutant l’information sur la langue dans l’attribut <code>lang='fr'</code>.</p>
+<p>Les attributs sont écrit à l’intérieur de la balise ouvrante, et ils sont écrit selon la structure <code>nom de l'attribut = "valeur de l'attribut"</code>.</p>
+</section>
+<section id="règles-décriture-des-identificateurs-génériques-et-des-attributs" class="level2">
+<h2 class="anchored" data-anchor-id="règles-décriture-des-identificateurs-génériques-et-des-attributs">Règles d’écriture des identificateurs génériques et des attributs</h2>
+<p>La chaîne de caractères formant le nom <strong>peut</strong> contenir :</p>
+<ul>
+<li>les caractères alphanumériques (lettres de a à z, et de A à Z, chiffres de 0 à 9, caractères non latins)</li>
+<li>le tiret bas ou <em>underscore</em> <code>_</code></li>
+<li>le trait d’union <code>-</code></li>
+<li>et le point <code>.</code></li>
+</ul>
+<p>La chaîne de caractère formant le nom <strong>ne peut pas</strong> :</p>
+<ul>
+<li>contenir tout autre signe de ponctuation</li>
+<li>contenir des espaces</li>
+<li>commencer par un nombre, ni par un point, ni par un trait d’union</li>
+<li>commencer par xml (quelle que soit la casse utilisée)</li>
+</ul>
+<p>Attention, XML est sensible à la casse !</p>
+</section>
+<section id="les-entités" class="level2">
+<h2 class="anchored" data-anchor-id="les-entités">Les entités</h2>
+<p>Si XML utilise les chevrons pour déclarer son balisage, comment faire pour représenter le chevron en tant que caractère, en faisant qu’il soit échappé, et pas interprété ? C’est un des caractères dits <strong>réservés</strong>, c’est-à-dire qui ne peut pas être représenté directement dans le texte. Le deuxième caractère réservé emblématique est l’esperluette, justement parce qu’elle permet de déclarer des entités. Ces deux caractères doivent être remplacés dans le document balisé par des entités. Les entités commencent par une esperluette et se terminent par un point-virgule, la partie entre les deux indique la signification.</p>
+<p>Concernant les caractères spéciaux non réservés, cela peut être une bonne pratique de les insérer comme des entités, mais elles peuvent aussi être saisies sous forme de texte brut.</p>
+<p>On utilise donc les entités pour insérer :</p>
+<ul>
+<li>les carcatères réservés</li>
+<li>les caractères invisibles ou difficiles à identifier (espace insécable, tiret cadratin, espace sans chasse, trait d’union insécable)</li>
+<li>les caractères Unicode rares ou spécialisés, difficile à retrouver sur le clavier ou à identifier dans le document (le glyphe peut ne pas être pris en charge par la font)</li>
+</ul>
+<p>Dans les deux derniers cas, il faut utiliser les références numériques des caractères. L’esperluette initiale est alors suivie du caractère dièse.</p>
+<p>Exemple :</p>
+<p><code>&amp;#xa0;</code> → Le signe dièse indique qu’il s’agit d’une référence numérique de caractère et non d’une entité de caractère. La lettre <code>x</code> signale que le nombre est exprimé en hexadécimal (exprimé en base 16). Un nombre décimal (base dix) aurait pu être utilisé à la place : <code>&amp;#160;</code> signifie la même chose. La signification de ces nombres (autrement dit, les caractères qu’ils représentent) repose sur la norme Unicode.</p>
+<p>Exemple tout bête : je veux écrire la lettre <code>é</code>. L’ordinateur ne stocke pas <code>é</code>. Il stocke les nombres qui représentent les caractères, et pour que tous les systèmes puissent se comprendre, on se repose sur le standard unicode qui fait une liste de tous les caractères dont on peut avoir besoin (du moins, on espère) et les numérote.</p>
+<p>Je veux le caractère Unicode qui porte le numéro <code>00E9</code>, j’écris donc <code>&amp;#xe9;</code>.</p>
+<p>Cela permet de représenter un caractère sans avoir à écrire directement ce caractère dans le fichier.</p>
+<p>Et comme c’est un peu lourd d’écrire ça tout le temps, on peut utiliser le principe de remplacement : on déclare l’entité dans une DTD, puis dans l’encodage on utilise plutôt un nom mnémotechnique.</p>
+<p><code>&lt;!ENTITY eaigu "&amp;#xe9;"&gt;</code></p>
+<p>Et dans mon encodage, j’écris : <code>&amp;eaigu;</code></p>
+<p>Le principe de remplacement peut être aussi utilisé pour des séquences de caractères qui reviennent souvent. Par exemple si je sais que je vais répéter tout le temps Text Encoding Initiative tout au long du texte, je peux déclarer :</p>
+<p><code>&lt;!ENTITY TEI "Text Encoding Initiative"&gt;</code></p>
+<p>Et dans mon encodage j’écris : <code>&amp;TEI;</code></p>
+</section>
+<section id="les-commentaires" class="level2">
+<h2 class="anchored" data-anchor-id="les-commentaires">Les commentaires</h2>
+<p>Servent à… commenter, utiles pour documenter ce qu’on fait ou consigner des notes. Lors d’un traitement informatique, ils sont ignorés par défaut.</p>
+</section>
+<section id="un-encodage-bien-formé-les-règles-à-retenir" class="level2">
+<h2 class="anchored" data-anchor-id="un-encodage-bien-formé-les-règles-à-retenir">Un encodage bien formé : les règles à retenir</h2>
+<ul>
+<li>Balise ouvrante = balise fermante</li>
+<li>1 seul élément racine</li>
+<li>Respect de l’imbrication</li>
+<li>1 attribut du même nom par balise</li>
+</ul>
+</section>
+<section id="ohco" class="level2">
+<h2 class="anchored" data-anchor-id="ohco">OHCO</h2>
+</section>
+<section id="what-is-text-really-le-texte-serait-une-hiérarchie-ordonnée-dobjets-de-contenu" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-text-really-le-texte-serait-une-hiérarchie-ordonnée-dobjets-de-contenu"><em>What is Text, Really?</em> Le texte serait une hiérarchie ordonnée d’objets de contenu</h2>
+<p>Le XML est essentiellement une hiérarchie d’éléments, et les balises ne sont qu’un moyen de représenter cette hiérarchie de manière linéaire (séquentielle). C’est pour ça que lorsqu’on ouvre un élément, il faut le fermer ; et lorsqu’on l’ouvre dans un contexte particulier (par exemple, un autre élément), il est nécessaire de le fermer avant de pouvoir quitter ce contexte.</p>
+<p>Derose et al.&nbsp;dans un article important qui date de 1993 et qui s’appelle <em>What is texte really ?</em> (rien que ça) explique que tout texte peut être représenté selon ce modèle où les éléments s’emboîtent les uns dans les autres selon une hiérarchie stricte. Avec des parents, des enfants et dans les enfants des frères et sœurs qui s’enchaînent. C’est le modèle OHCO, <em>Ordered Hierarchy of Content Objects</em>, en anglais.</p>
+<section id="autres-modèles" class="level3">
+<h3 class="anchored" data-anchor-id="autres-modèles">Autres modèles</h3>
+<p>Tout document constitue-t-il réellement une seule hiérarchie ? Si seulement c’était aussi simple !</p>
+<p>Beaucoup de document présentent en réalité des hiérarchies multiples et simultanées présentant un intérêt pour les chercheurs.</p>
+<p>Le format XML gère moins efficacement les hiérarchies multiples, simultanées et chevauchantes.</p>
+<p><strong>exemple</strong></p>
+<p>Un paragraphe (structure logique) commence à la fin d’un folio et se poursuit sur le suivant (structure matérielle) :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- NON BIEN FORMÉ : les éléments se chevauchent --&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">folio</span><span class="ot"> n=</span><span class="st">"33v"</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">p</span>&gt;Le XXVI jour dudit mois, je encontré Guillaume</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">folio</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">folio</span><span class="ot"> n=</span><span class="st">"34r"</span>&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   de Nades qui me dit la mort de monsegneur le roy Loys.&lt;/<span class="kw">p</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">folio</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Le <code>&lt;p&gt;</code> s’ouvre dans le premier <code>&lt;folio&gt;</code> et se ferme dans le second : c’est invalide. On ne peut pas dire à la fois “ce folio contient ce texte” et “ce paragraphe contient ce texte”.</p>
+<p>Autre exemple classique : vers et phrases</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- NON BIEN FORMÉ --&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">l</span>&gt;Le temps s'en va, &lt;<span class="kw">s</span>&gt;madame, le temps s'en va&lt;/<span class="kw">l</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">l</span>&gt;et nous ne sommes plus. &lt;/<span class="kw">s</span>&gt;&lt;/<span class="kw">l</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Le vers (l) et la phrase (s) se chevauchent : la phrase commence au milieu du premier vers et finit dans le second.</p>
+</section>
+<section id="contournements-en-tei" class="level3">
+<h3 class="anchored" data-anchor-id="contournements-en-tei">Contournements en TEI</h3>
+<ol type="a">
+<li>Les jalons (milestones) : on privilégie une hiérarchie (ici le paragraphe) et on marque l’autre par un élément vide :</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">p</span>&gt;Le XXVI jour dudit mois, je encontré Guillaume</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">pb</span><span class="ot"> n=</span><span class="st">"34r"</span>/&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   de Nades qui me dit la mort de monsegneur le roy Loys.&lt;/<span class="kw">p</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="a">
+<li>fragmentation : on découpe l’élément en morceaux qui respectent l’arbre, reliés par des attributs :</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">p</span><span class="ot"> xml:id=</span><span class="st">"p1"</span><span class="ot"> part=</span><span class="st">"I"</span><span class="ot"> next=</span><span class="st">"#p2"</span>&gt;Le XXVI jour dudit mois, je encontré Guillaume&lt;/<span class="kw">p</span>&gt;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">pb</span><span class="ot"> n=</span><span class="st">"34r"</span>/&gt;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">p</span><span class="ot"> xml:id=</span><span class="st">"p2"</span><span class="ot"> part=</span><span class="st">"F"</span><span class="ot"> prev=</span><span class="st">"#p1"</span>&gt;de Nades qui me dit la mort de monsegneur le roy Loys.&lt;/<span class="kw">p</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>C’est le choix le plus courant. Pour les vers, on utiliserait <code>&lt;lb/&gt;</code> ou <code>&lt;milestone/&gt;</code>.</p>
+<p>Mais la facilité avec laquelle les ordinateurs traitent les arborescences XML incite les chercheurs à ne pas renoncer à ces avantages pratiques.</p>
+<p>Par conséquent, la plupart des projets d’humanités numériques continuent aujourd’hui de s’appuyer sur le XML, en recourant à diverses stratégies pour pallier le problème des hiérarchies chevauchantes.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
